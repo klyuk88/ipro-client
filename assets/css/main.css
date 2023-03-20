@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 :root {
   --accent-color: #1D2963;
-  --accent-hover-color: #1e37b1;
+  --accent-hover-color: #0c143d;
 }
 body {
   font-family: 'Open Sans', sans-serif;

@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    '@nuxtjs/google-fonts',
     '@nuxt/image-edge',
     'nuxt-swiper'
   ],
@@ -18,12 +17,6 @@ export default defineNuxtConfig({
     '@/assets/libs/bootstrap/css/bootstrap.min.css',
     '@/assets/css/main.css'
   ],
-  // googleFonts: {
-  //   families: {
-  //     'Open+Sans': [300, 400, 500, 600],
-  //     'Montserrat': [300, 400, 500, 600]
-  //   },
-  // },
   image: {
     dir: 'assets/img'
   }

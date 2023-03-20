@@ -45,7 +45,7 @@
 
         <div class="header-logo d-flex align-items-center gap-2">
           <nuxt-link to="/" class="text-decoration-none text-dark logo">
-            Ай-Про
+            <nuxt-img src="/logo.jpg"/>
           </nuxt-link>
           <div class="logo-line"></div>
           <span class="description lh-sm">
@@ -114,7 +114,7 @@
 
 .header-logo .logo-line {
   display: block;
-  height: 30px;
+  height: 50px;
   width: 1px;
   background: #000;
 }
@@ -122,8 +122,10 @@
 .header-menu-block .menu-list a {
   font-family: 'Montserrat';
 }
-
-.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background: var(--accent-color);
+.header-logo img {
+  width: 100px;
 }
+
+
+
 </style>
