@@ -52,7 +52,7 @@
               
             </div>
           </div>
-          <button class="btn btn-primary px-4 py-3 rounded-1 mt-4 fw-semibold">Узнать подробнее</button>
+          <button class="btn btn-primary py-2 px-4 rounded-1 mt-4">Узнать подробнее</button>
         </div>
         
       </div>
