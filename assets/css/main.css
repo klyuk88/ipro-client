@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
 :root {
   --accent-color: #1D2963;
   --accent-hover-color: #0c143d;
@@ -78,4 +79,26 @@ html * {
 
 .py-6 {
   padding: 120px 0;
+}
+
+.fs-7 {
+  font-size: 14px;
+}
+
+.fs-8 {
+  font-size: 12px;
+}
+
+.hover-accent-color {
+  transition: all .2s ease;
+}
+
+.hover-accent-color:hover {
+  color: var(--accent-color)!important;
+  opacity: 1!important;
+  transition: all .2s ease;
+}
+
+.text-primary {
+  color: var(--accent-color)!important;
 }

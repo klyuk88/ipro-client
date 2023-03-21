@@ -52,16 +52,8 @@
     </swiper>
 
     <div class="main-screen-slider-nav z-3 position-absolute">
-      <div
-        class="preview-nav d-flex align-items-center justify-content-center bg-light p-3 rounded-1 hover-bg-accent-color cursor-pointer"
-      >
-        <i class="fa-sharp fa-solid fa-chevron-left"></i>
-      </div>
-      <div
-        class="next-nav d-flex align-items-center justify-content-center bg-light p-3 rounded-1 hover-bg-accent-color cursor-pointer"
-      >
-        <i class="fa-sharp fa-solid fa-chevron-right accent-hover"></i>
-      </div>
+      <ui-prev-nav-control class="position-absolute start-0 top-0"/>
+      <ui-next-nav-control class="position-absolute end-0 top-0"/>
     </div>
   </section>
 </template>
@@ -86,16 +78,7 @@
   transform: translate(-50%, -50%);
   width: 90vw;
 }
-.main-screen-slider-nav .preview-nav {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.main-screen-slider-nav .next-nav {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
+
 
 .main-screen-slider .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: var(--accent-color);

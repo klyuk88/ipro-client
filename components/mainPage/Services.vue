@@ -5,8 +5,8 @@
       <p class="mt-4 opacity-50 w-75">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Своего семантика скатился предупреждал однажды рыбными всеми диких запятых пустился великий знаках гор имени злых последний если проектах.</p>
       <div class="row mt-5 row-gap-4">
 
-        <div class="col-md-3"
-        v-for="(item, index) in 8" :key="index"
+        <div class="col-md-4"
+        v-for="(item, index) in 6" :key="index"
         >
           <nuxt-link to="#" class="text-decoration-none py-3">
             <div class="service-item w-100 position-relative d-flex flex-column justify-content-end">
@@ -25,7 +25,7 @@
 
 <style>
 .service-item {
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/3;
 }
 
 </style>
