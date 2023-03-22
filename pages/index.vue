@@ -6,5 +6,6 @@
   <main-page-news/>
   <main-page-partners/>
   <main-page-contact-form/>
+  <main-page-contacts-map/>
 
 </template>
