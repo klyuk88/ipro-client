@@ -8,7 +8,7 @@
       >
         <div class="d-flex align-items-center gap-2">
           <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:" class="text-black text-decoration-none opacity-50"
+          <a href="mailto:" class="text-decoration-none text-secondary"
             >i-pro@ipro.com</a
           >
         </div>

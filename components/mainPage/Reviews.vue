@@ -3,7 +3,7 @@
     <div class="container">
       <div class="d-flex align-items-center justify-content-between">
         <h2>Отзывы о нашей работе</h2>
-        <nuxt-link to="#" class="text-decoration-none fs-6 text-dark opacity-50 hover-accent-color">
+        <nuxt-link to="#" class="text-decoration-none fs-6 text-secondary hover-accent-color">
           Смотреть все отзывы
         </nuxt-link>
       </div>
@@ -26,14 +26,14 @@
             <div class="logo-block d-flex align-items-center gap-3">
               <nuxt-img src="/mock-img-sq.jpg" class="review-slider-item-logoicon"/>
               <div>
-                <p class="fs-7 opacity-50">02.02.2023</p>
+                <p class="fs-7 text-secondary">02.02.2023</p>
                 <h4 class="fs-4 mt-2">ООО "Газпром"</h4>
               </div>
             </div>
           </div>
           <div class="review-item-content mt-4 d-flex align-items-start gap-4">
             <i class="fa-sharp fa-solid fa-quote-left fs-2 text-primary"></i>
-            <p class="fs-6 opacity-50 w-75">
+            <p class="fs-6 text-secondary w-75">
               Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты. Рыбными безорфографичный, безопасную языкового возвращайся толку использовало, ее, обеспечивает страну которое живет дал путь имени злых текст до наш строчка залетают составитель предупредила заглавных? Ipsum вскоре, первую переулка ты, журчит lorem наш осталось заголовок вопрос, запятой семь продолжил маленькая текстами!
             </p>
 
