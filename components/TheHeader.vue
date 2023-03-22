@@ -67,9 +67,7 @@
             <li>
               <nuxt-link to="#" class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50">Статьи</nuxt-link>
             </li>
-            <li>
-              <nuxt-link to="#" class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50">Статьи</nuxt-link>
-            </li>
+          
             <li>
               <nuxt-link to="#" class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50">Проекты</nuxt-link>
             </li>

@@ -155,3 +155,12 @@ a {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--accent-color-rgb),var(--bs-bg-opacity))!important;
 }
+
+.hover-color-white {
+  transition: .3s ease;
+}
+
+.hover-color-white:hover {
+  color: #fff!important;
+  transition: .3s ease;
+}
