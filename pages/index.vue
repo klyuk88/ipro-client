@@ -4,5 +4,6 @@
   <main-page-services/>
   <main-page-reviews/>
   <main-page-news/>
+  <main-page-contact-form/>
 
 </template>

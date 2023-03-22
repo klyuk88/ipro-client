@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --accent-color: #1D2963;
+  --accent-color: #1d2963;
+  --accent-color-rgb: 28,40,99;
   --accent-hover-color: #0c143d;
 }
 body {
@@ -110,4 +111,42 @@ html * {
 
 .text-primary {
   color: var(--accent-color)!important;
+}
+
+.bg-set {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 .25rem rgba(29, 41, 99, 0.1);
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.form-check-input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.form-check-input:focus {
+  border-color: var(--accent-color);
+  outline: 0;
+  box-shadow: 0 0 0 .25rem rgba(29, 41, 99, 0.1);
+}
+
+a {
+  color: rgba(var(--accent-color-rgb),var(--bs-link-opacity,1));
+  text-decoration: underline;
+}
+
+.btn.disabled, .btn:disabled, fieldset:disabled .btn {
+  color: var(--bs-btn-disabled-color);
+  pointer-events: none;
+  background-color: var(--bs-dark-border-subtle);
+  border-color: var(--bs-dark-border-subtle);
 }
