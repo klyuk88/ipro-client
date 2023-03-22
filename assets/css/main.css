@@ -150,3 +150,7 @@ a {
   background-color: var(--bs-dark-border-subtle);
   border-color: var(--bs-dark-border-subtle);
 }
+
+/* .pb-6 {
+  padding-bottom: 4rem!important;
+} */
