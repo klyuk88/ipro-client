@@ -1,6 +1,9 @@
+<script setup>
+const layer = ref(true)
+</script>
 <template>
-  <section class="contacts-map position-relative">
-    <div class="position-absolute start-0 top-0 w-100 h-100"></div>
+  <section class="contacts-map position-relative" @mouseleave="layer=true">
+    <div class="position-absolute start-0 top-0 w-100 h-100" @click="layer=false" v-if="layer"></div>
     <div
       class="container contacts-map-info position-absolute bg-primary p-4 mt-5 start-50 translate-middle-x text-white"
     >
@@ -44,12 +47,15 @@
       </div>
     </div>
 
-    <iframe
+  <client-only>
+       <iframe
       src="https://yandex.ru/map-widget/v1/?um=constructor%3A27d397a0e93ca68d1ce4a483bd8b0c658c0724e5a13cbf5c5dd471986e470784&amp;source=constructor"
       width="100%"
       height="600"
       frameborder="0"
     ></iframe>
+  </client-only>
+ 
   </section>
 </template>
 
