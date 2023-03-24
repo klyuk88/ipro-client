@@ -1,5 +1,5 @@
 <script setup>
-import sectionBg from "../../assets/img/mock-img-1.jpg";
+import sectionBg from "../../assets/img/form-section-image.jpg";
 </script>
 
 <template>
@@ -67,3 +67,7 @@ import sectionBg from "../../assets/img/mock-img-1.jpg";
   </section>
 </template>
 
+
+<style scoped>
+
+</style>

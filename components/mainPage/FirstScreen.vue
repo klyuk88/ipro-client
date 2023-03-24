@@ -11,13 +11,34 @@
       pagination
     >
       <swiper-slide>
-        <nuxt-img src="/mock-img-1.jpg" class="banner" />
+        <nuxt-img src="/main-slider-1.jpg" class="banner position-absolute w-100 h-100 object-fit-cover top-0 start-0" />
+        <div class="position-absolute w-100 h-100 top-0 start-0 bg-black opacity-50"></div>
         <div class="container">
           <div
-            class="main-slider-content position-absolute w-50 top-50 translate-middle-y"
+            class="main-slider-content position-absolute top-50 translate-middle-y ps-5 text-white"
           >
             <h2>Лучшая комания по металлобрабоктке</h2>
-            <p class="mt-4">
+            <p class="mt-4 w-50">
+              Далеко-далеко за словесными горами в стране гласных и согласных
+              живут рыбные тексты. Ее выйти своего, семантика осталось агентство
+              снова курсивных пунктуация инициал единственное, однажды страна?
+              То однажды букв рот запятой, буквоград свое!
+            </p>
+            <button class="btn btn-primary rounded-1 mt-4 px-4 py-2">
+              Подробнее
+            </button>
+          </div>
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <nuxt-img src="/main-slider-2.jpg" class="banner position-absolute w-100 h-100 object-fit-cover top-0 start-0" />
+        <div class="position-absolute w-100 h-100 top-0 start-0 bg-black opacity-50"></div>
+        <div class="container">
+          <div
+            class="main-slider-content position-absolute top-50 translate-middle-y ps-5 text-white"
+          >
+            <h2>Лучшая комания по металлобрабоктке</h2>
+            <p class="mt-4 w-50">
               Далеко-далеко за словесными горами в стране гласных и согласных
               живут рыбные тексты. Ее выйти своего, семантика осталось агентство
               снова курсивных пунктуация инициал единственное, однажды страна?
@@ -30,25 +51,7 @@
         </div>
       </swiper-slide>
 
-      <swiper-slide>
-        <nuxt-img src="/mock-img-1.jpg" class="banner opacity-75" />
-        <div class="container">
-          <div
-            class="main-slider-content position-absolute w-50 top-50 translate-middle-y"
-          >
-            <h2>Лучшая комания по металлобрабоктке</h2>
-            <p class="mt-4">
-              Далеко-далеко за словесными горами в стране гласных и согласных
-              живут рыбные тексты. Ее выйти своего, семантика осталось агентство
-              снова курсивных пунктуация инициал единственное, однажды страна?
-              То однажды букв рот запятой, буквоград свое!
-            </p>
-            <button class="btn btn-primary rounded-0 mt-4 px-4 py-2">
-              Подробнее
-            </button>
-          </div>
-        </div>
-      </swiper-slide>
+    
     </swiper>
 
     <div class="main-screen-slider-nav z-3 position-absolute">
@@ -62,16 +65,16 @@
 .main-screen-slider {
   width: 100%;
   overflow: hidden;
-  height: 650px;
+  height: 60vh;
 }
-.main-screen-slider .banner {
+/* .main-screen-slider .banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
   position: absolute;
   left: 0;
   top: 0;
-}
+} */
 .main-screen-slider-nav {
   left: 50%;
   top: 50%;
@@ -83,4 +86,12 @@
 .main-screen-slider .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: var(--accent-color);
 }
+
+@media screen and (max-width: 1500px) {
+  .main-screen-slider-nav {
+    width: 97vw;
+  }
+}
+
+
 </style>

@@ -30,7 +30,7 @@
         v-for="(item, index) in 8" :key="index"
         >
         <div class="d-flex align-items-center gap-3 p-4 border border-1 partner-item">
-          <nuxt-img src="/mock-img-sq.jpg" class="partner-logo"></nuxt-img>
+          <nuxt-img src="/partners_logo.png" class="partner-logo"></nuxt-img>
           <h3 class="fs-6">Сбер</h3>
         </div>
           
@@ -49,7 +49,8 @@
 
 <style>
 .partners-slider .partner-logo {
-  height: 60px;
+  height: 40px;
+  width: auto;
 }
 
 .partners-slider-prev-nav {

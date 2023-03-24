@@ -33,7 +33,7 @@ const layer = ref(true)
         <div class="col-md-3">
           <div class="d-flex align-items-center gap-4">
             <nuxt-img
-              src="/mock-img-sq.jpg"
+              src="/director.jpeg"
               width="60"
               height="60"
               class="rounded-5"

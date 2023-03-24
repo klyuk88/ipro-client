@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-5">
           <div class="about-image-block position-relative overflow-hidden">
-            <nuxt-img src="/mock-img-sq.jpg" class="position-absolute top-0 start-0 object-fit-cover"/>
+            <nuxt-img src="/christopher-burns-8KfCR12oeUM-unsplash.jpg" class="position-absolute top-0 start-0 object-fit-cover w-100 h-100"/>
           </div>
           
         </div>

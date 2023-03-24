@@ -9,9 +9,10 @@
         v-for="(item, index) in 6" :key="index"
         >
           <nuxt-link to="#" class="text-decoration-none py-3">
-            <div class="service-item w-100 position-relative d-flex flex-column justify-content-end">
-              <nuxt-img src="/mock-img-sq.jpg" class="object-fit-cover position-absolute top-0 start-0 w-100 h-100" />
-              <h3 class="fs-5 text-dark position-relative p-4">Лазерная резка металла</h3>
+            <div class="service-item w-100 position-relative d-flex flex-column justify-content-end overflow-hidden">
+              <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark z-1 opacity-50"></div>
+              <nuxt-img src="https://www.lada.kz/uploads/posts/2022-10/1666970976_lazernaya-rezka-metalla.jpg" class="object-fit-cover position-absolute top-0 start-0 w-100 h-100 service-item-image" />
+              <h3 class="fs-5 text-dark position-relative p-4 text-white z-2">Лазерная резка металла</h3>
             </div>
           </nuxt-link>
         </div>
@@ -23,9 +24,16 @@
   </section>
 </template>
 
-<style>
+<style scoped>
 .service-item {
   aspect-ratio: 4/3;
+}
+.service-item-image {
+transition: transform .3s ease;
+}
+.service-item:hover .service-item-image {
+  transform: scale(1.1);
+  transition: transform .3s ease;
 }
 
 </style>

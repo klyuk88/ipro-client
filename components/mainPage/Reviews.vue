@@ -24,7 +24,7 @@
         >
           <div class="review-item-header">
             <div class="logo-block d-flex align-items-center gap-3">
-              <nuxt-img src="/mock-img-sq.jpg" class="review-slider-item-logoicon"/>
+              <nuxt-img src="/gazprom-logo.jpeg" class="review-slider-item-logoicon"/>
               <div>
                 <p class="fs-7 text-secondary">02.02.2023</p>
                 <h4 class="fs-4 mt-2">ООО "Газпром"</h4>
