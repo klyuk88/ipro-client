@@ -52,7 +52,31 @@
             </li>
           </ul>
         </div>
-        <div class="col-md-4 offset-2">
+        <div class="col-md-3">
+           <ul class="list-unstyled">
+            <li class="">
+              <nuxt-link to="#" class="text-white text-white text-decoration-none fw-semibold fs-5">Помощь</nuxt-link>
+              <ul class="list-unstyled pt-2">
+                <li class="mt-2">
+                  <nuxt-link to="#" class="text-secondary text-decoration-none hover-color-white">
+                    Доставка и оплата
+                  </nuxt-link>
+                </li>
+                <li class="mt-2">
+                  <nuxt-link to="#" class="text-secondary text-decoration-none hover-color-white">
+                    Контакты
+                  </nuxt-link>
+                </li>
+                <li class="mt-2">
+                  <nuxt-link to="#" class="text-secondary text-decoration-none hover-color-white">
+                    Расчёт стоимости
+                  </nuxt-link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
           <div class="mb-3">
             <i class="fa-regular fa-envelope text-white me-2"></i>
             <a href="mailto:" class="text-white text-decoration-none">ipro@ipro.com</a>
@@ -63,8 +87,21 @@
           </div>
           <div class="mb-3">
             <i class="fa-solid fa-location-dot text-white me-2"></i>
-            <span class="text-white">г. Москва, Дмитрия Ульянова Улица, 44 стр.1 </span>
+            <span class="text-white">Москва, ул. Дмитрия Ульянова, д. 44, стр.1 </span>
           </div>
+
+          <div class="mb-3 d-flex align-items-center gap-2">
+            <nuxt-link to="#">
+              <nuxt-img src="/social_1.png" style="width: 40px"></nuxt-img>
+            </nuxt-link>
+            <nuxt-link to="#">
+              <nuxt-img src="/social_2.png" style="width: 40px"></nuxt-img>
+            </nuxt-link>
+            <nuxt-link to="#">
+              <nuxt-img src="/social_3.png" style="width: 40px"></nuxt-img>
+            </nuxt-link>
+          </div>
+  
           <div class="mb-3">
            <button class="btn rounded-1 btn-light">Заказать звонок</button>
           </div>
@@ -72,7 +109,7 @@
         </div>
       </div>
       
-      <div class="">
+      <div class="d-flex align-items-end justify-content-between">
         <nuxt-img src="/logo-white.png" class="footer-logo mt-5"></nuxt-img>
         <p class="text-secondary fs-7 mt-3">
           © 2023. Все права защищены.

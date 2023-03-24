@@ -1,10 +1,9 @@
 <template>
 <!-- position-absolute top-0 start-0 w-100 z-3 -->
-  <header class="">
+  <div class="">
     <div class="container">
-
       <div
-        class="header-content d-flex align-items-center justify-content-between py-3"
+        class="header-content d-flex align-items-center justify-content-between pt-3"
       >
         <div class="d-flex align-items-center gap-2">
           <i class="fa-solid fa-envelope"></i>
@@ -40,8 +39,11 @@
           </div>
         </div>
       </div>
-
-      <div class="header-menu-block d-flex align-items-center justify-content-between pb-3">
+    </div>
+  </div>
+  <header class="position-sticky top-0 z-3 bg-white py-3">
+    <div class="container">
+           <div class="header-menu-block d-flex align-items-center justify-content-between">
 
         <div class="header-logo d-flex align-items-center gap-2">
           <nuxt-link to="/" class="text-decoration-none text-dark logo">
@@ -80,8 +82,8 @@
         <button class="btn btn-outline-primary rounded-1">Расчёт стоимости</button>
 
       </div>
-
     </div>
+
   </header>
 </template>
 
