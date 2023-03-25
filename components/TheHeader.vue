@@ -1,5 +1,5 @@
 <template>
-<!-- position-absolute top-0 start-0 w-100 z-3 -->
+  <!-- position-absolute top-0 start-0 w-100 z-3 -->
   <div class="">
     <div class="container">
       <div
@@ -43,47 +43,133 @@
   </div>
   <header class="position-sticky top-0 z-3 bg-white py-3">
     <div class="container">
-           <div class="header-menu-block d-flex align-items-center justify-content-between">
-
+      <div
+        class="header-menu-block d-flex align-items-center justify-content-between"
+      >
         <div class="header-logo d-flex align-items-center gap-2">
           <nuxt-link to="/" class="text-decoration-none text-dark logo">
-            <nuxt-img src="/logo.jpg"/>
+            <nuxt-img src="/logo.jpg" />
           </nuxt-link>
           <div class="logo-line"></div>
           <span class="description lh-sm">
-            Компания <br>по металлообработке
+            Компания <br />по металлообработке
           </span>
         </div>
 
         <nav>
           <ul class="list-unstyled d-flex align-items-center gap-4 menu-list">
             <li>
-              <nuxt-link to="/" class="text-decoration-none text-dark text-uppercase hover-opacity-50 fw-semibold">Главная</nuxt-link>
+              <nuxt-link
+                to="/"
+                class="text-decoration-none text-dark text-uppercase hover-opacity-50 fw-semibold"
+                >Главная</nuxt-link
+              >
+            </li>
+            <li class="menu-item-with-submenu position-relative">
+              <nuxt-link
+                to="#"
+                class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50"
+                >О компании</nuxt-link
+              >
+              <div class="submenu position-absolute">
+                <ul class="list-unstyled shadow-lg">
+                  <li
+                    class="bg-white border-bottom cursor-pointer"
+                  >
+                    <nuxt-link
+                      to="#"
+                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-accent-color"
+                    >
+                      Производство
+                    </nuxt-link>
+                  </li>
+
+                  <li
+                    class="bg-white border-bottom cursor-pointer"
+                  >
+                    <nuxt-link
+                      to="#"
+                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-accent-color"
+                    >
+                      Партнёры
+                    </nuxt-link>
+                  </li>
+                  <li
+                    class="bg-white border-bottom cursor-pointer"
+                  >
+                    <nuxt-link
+                      to="#"
+                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-accent-color"
+                    >
+                      Новости
+                    </nuxt-link>
+                  </li>
+                  <li
+                    class="bg-white border-bottom cursor-pointer"
+                  >
+                    <nuxt-link
+                      to="#"
+                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-accent-color"
+                    >
+                      Политика конфиденциальности
+                    </nuxt-link>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="menu-item-with-submenu position-relative">
+              <nuxt-link
+                to="#"
+                class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50"
+                >Услуги</nuxt-link
+              >
+              <div class="submenu position-absolute">
+                <ul class="list-unstyled shadow-lg">
+                  <li
+                    class="bg-white border-bottom cursor-pointer"
+                    v-for="(item, index) in 5"
+                    :key="index"
+                  >
+                    <nuxt-link
+                      to="#"
+                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-accent-color"
+                    >
+                      Лазерная резка
+                    </nuxt-link>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li>
-              <nuxt-link to="#" class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50">О компании</nuxt-link>
+              <nuxt-link
+                to="#"
+                class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50"
+                >Статьи</nuxt-link
+              >
+            </li>
+
+            <li>
+              <nuxt-link
+                to="#"
+                class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50"
+                >Проекты</nuxt-link
+              >
             </li>
             <li>
-              <nuxt-link to="#" class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50">Услуги</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link to="#" class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50">Статьи</nuxt-link>
-            </li>
-          
-            <li>
-              <nuxt-link to="#" class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50">Проекты</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link to="#" class="text-decoration-none text-dark text-uppercase hover-opacity-50 fw-semibold">Контакты</nuxt-link>
+              <nuxt-link
+                to="#"
+                class="text-decoration-none text-dark text-uppercase hover-opacity-50 fw-semibold"
+                >Контакты</nuxt-link
+              >
             </li>
           </ul>
         </nav>
 
-        <button class="btn btn-outline-primary rounded-1">Расчёт стоимости</button>
-
+        <button class="btn btn-outline-primary rounded-1">
+          Расчёт стоимости
+        </button>
       </div>
     </div>
-
   </header>
 </template>
 
@@ -120,12 +206,25 @@
 }
 
 .header-menu-block .menu-list a {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
 }
 .header-logo img {
   width: 100px;
 }
 
+.menu-item-with-submenu .submenu {
+  transform: translateX(-20%);
+  transition: opacity .3s ease;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+}
 
-
+.menu-item-with-submenu:hover .submenu {
+  transition: opacity .3s ease;
+  opacity: 1;
+  max-height: 500px;
+  padding-top: 15px;
+}
 </style>

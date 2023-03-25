@@ -92,13 +92,13 @@
 
           <div class="mb-3 d-flex align-items-center gap-2">
             <nuxt-link to="#">
-              <nuxt-img src="/social_1.png" style="width: 40px"></nuxt-img>
+              <nuxt-img src="/social_1.png" style="width: 30px"></nuxt-img>
             </nuxt-link>
             <nuxt-link to="#">
-              <nuxt-img src="/social_2.png" style="width: 40px"></nuxt-img>
+              <nuxt-img src="/social_2.png" style="width: 30px"></nuxt-img>
             </nuxt-link>
             <nuxt-link to="#">
-              <nuxt-img src="/social_3.png" style="width: 40px"></nuxt-img>
+              <nuxt-img src="/social_3.png" style="width: 30px"></nuxt-img>
             </nuxt-link>
           </div>
   
