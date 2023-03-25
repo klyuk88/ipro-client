@@ -1,5 +1,9 @@
+<script setup>
+const showSearch = ref(false)
+
+</script>
 <template>
-  <!-- position-absolute top-0 start-0 w-100 z-3 -->
+  <the-search :activeSearch="showSearch" @closeSearch="showSearch = false"/>
   <div class="">
     <div class="container">
       <div
@@ -32,11 +36,14 @@
             <i class="fa-solid fa-phone text-dark"></i>
             <span class="text-dark">8 800 123 45 67</span>
           </a>
-
-          <div class="header-search d-flex align-items-center gap-2">
+          <!-- header search -->
+          <div class="header-search d-flex align-items-center gap-2 cursor-pointer"
+          @click="showSearch = true"
+          >
             <i class="fa-solid fa-magnifying-glass"></i>
             <span>Поиск</span>
           </div>
+          <!-- header search -->
         </div>
       </div>
     </div>

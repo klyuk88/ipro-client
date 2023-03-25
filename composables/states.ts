@@ -1,0 +1,1 @@
+export const useOrderModal = () => useState<boolean>('callOrderModal', () => false)
