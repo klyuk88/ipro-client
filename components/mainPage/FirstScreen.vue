@@ -3,16 +3,25 @@
     <swiper
       class="main-screen-slider"
       :slides-per-view="1"
-      :modules="[SwiperNavigation, SwiperPagination]"
+      :modules="[SwiperNavigation, SwiperPagination, SwiperAutoplay]"
       :navigation="{
         nextEl: '.main-screen-slider-nav .next-nav',
         prevEl: '.main-screen-slider-nav .preview-nav',
       }"
+      :autoplay="{
+        delay: 5000,
+        disableOnInteraction: true,
+      }"
       pagination
     >
       <swiper-slide>
-        <nuxt-img src="/main-slider-1.jpg" class="banner position-absolute w-100 h-100 object-fit-cover top-0 start-0" />
-        <div class="position-absolute w-100 h-100 top-0 start-0 bg-black opacity-50"></div>
+        <nuxt-img
+          src="/main-slider-1.jpg"
+          class="banner position-absolute w-100 h-100 object-fit-cover top-0 start-0"
+        />
+        <div
+          class="position-absolute w-100 h-100 top-0 start-0 bg-black opacity-50"
+        ></div>
         <div class="container">
           <div
             class="main-slider-content position-absolute top-50 translate-middle-y ps-5 text-white"
@@ -31,8 +40,13 @@
         </div>
       </swiper-slide>
       <swiper-slide>
-        <nuxt-img src="/main-slider-2.jpg" class="banner position-absolute w-100 h-100 object-fit-cover top-0 start-0" />
-        <div class="position-absolute w-100 h-100 top-0 start-0 bg-black opacity-50"></div>
+        <nuxt-img
+          src="/main-slider-2.jpg"
+          class="banner position-absolute w-100 h-100 object-fit-cover top-0 start-0"
+        />
+        <div
+          class="position-absolute w-100 h-100 top-0 start-0 bg-black opacity-50"
+        ></div>
         <div class="container">
           <div
             class="main-slider-content position-absolute top-50 translate-middle-y ps-5 text-white"
@@ -50,13 +64,11 @@
           </div>
         </div>
       </swiper-slide>
-
-    
     </swiper>
 
     <div class="main-screen-slider-nav z-3 position-absolute">
-      <ui-prev-nav-control class="position-absolute start-0 top-0"/>
-      <ui-next-nav-control class="position-absolute end-0 top-0"/>
+      <ui-prev-nav-control class="position-absolute start-0 top-0" />
+      <ui-next-nav-control class="position-absolute end-0 top-0" />
     </div>
   </section>
 </template>
@@ -82,7 +94,6 @@
   width: 90vw;
 }
 
-
 .main-screen-slider .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: var(--accent-color);
 }
@@ -92,6 +103,4 @@
     width: 97vw;
   }
 }
-
-
 </style>
