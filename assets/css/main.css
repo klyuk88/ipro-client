@@ -166,3 +166,6 @@ a {
 }
 
 
+.btn-close {
+  --bs-btn-close-focus-shadow: none;
+}

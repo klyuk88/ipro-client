@@ -1,3 +1,6 @@
+<script setup>
+const callOrderShow = useCallOrderModal()
+</script>
 <template>
   <footer class="py-5 bg-dark">
     <div class="container">
@@ -103,7 +106,7 @@
           </div>
   
           <div class="mb-3">
-           <button class="btn rounded-1 btn-light">Заказать звонок</button>
+           <button class="btn rounded-1 btn-light" @click="callOrderShow = true">Заказать звонок</button>
           </div>
           
         </div>

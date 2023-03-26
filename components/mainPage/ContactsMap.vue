@@ -1,5 +1,6 @@
 <script setup>
 const layer = ref(true)
+const writeDirectorShow = useWriteDirectorModal()
 </script>
 <template>
   <section class="contacts-map position-relative" @mouseleave="layer=true">
@@ -40,7 +41,7 @@ const layer = ref(true)
             ></nuxt-img>
             <div>
               <h5 class="fs-6 fw-semibold">Связаться с руководителем</h5>
-              <button class="btn btn-light mt-3 px-4">Написать</button>
+              <button class="btn btn-light mt-3 px-4" @click="writeDirectorShow = true">Написать</button>
             </div>
           </div>
         </div>
