@@ -95,13 +95,13 @@ const callOrderShow = useCallOrderModal()
 
           <div class="mb-3 d-flex align-items-center gap-2">
             <nuxt-link to="#">
-              <nuxt-img src="/social_1.png" style="width: 30px"></nuxt-img>
+              <img src="@/assets/img/social_1.png" style="width: 30px"/>
             </nuxt-link>
             <nuxt-link to="#">
-              <nuxt-img src="/social_2.png" style="width: 30px"></nuxt-img>
+              <img src="@/assets/img/social_2.png" style="width: 30px"/>
             </nuxt-link>
             <nuxt-link to="#">
-              <nuxt-img src="/social_3.png" style="width: 30px"></nuxt-img>
+              <img src="@/assets/img/social_3.png" style="width: 30px"/>
             </nuxt-link>
           </div>
   
@@ -113,7 +113,7 @@ const callOrderShow = useCallOrderModal()
       </div>
       
       <div class="d-flex align-items-end justify-content-between">
-        <nuxt-img src="/logo-white.png" class="footer-logo mt-5"></nuxt-img>
+        <img src="@/assets/img/logo-white.png" class="footer-logo mt-5"/>
         <p class="text-secondary fs-7 mt-3">
           © 2023. Все права защищены.
         </p>

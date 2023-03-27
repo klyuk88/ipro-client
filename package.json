@@ -8,11 +8,9 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxt/image-edge": "^1.0.0-27968280.9739e4d",
     "nuxt": "^3.3.1"
   },
   "dependencies": {
-    "nuxt-swiper": "^1.0.1",
-    "vue-yandex-maps": "^0.12.3"
+    "nuxt-swiper": "^1.0.1"
   }
 }

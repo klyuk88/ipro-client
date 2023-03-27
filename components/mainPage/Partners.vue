@@ -30,7 +30,7 @@
         v-for="(item, index) in 8" :key="index"
         >
         <div class="d-flex align-items-center gap-3 p-4 border border-1 partner-item">
-          <nuxt-img src="/partners_logo.png" class="partner-logo"></nuxt-img>
+          <img src="@/assets/img/partners_logo.png" class="partner-logo"/>
           <h3 class="fs-6">Сбер</h3>
         </div>
           
@@ -67,5 +67,15 @@
 
 .partners-slider .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: var(--accent-color);
+}
+
+
+@media (max-width: 1500px) {
+  .partners-slider-prev-nav {
+    left: 10px;
+  }
+  .partners-slider-next-nav {
+    right: 10px;
+  }
 }
 </style>

@@ -55,7 +55,7 @@ const showSearch = ref(false)
       >
         <div class="header-logo d-flex align-items-center gap-2">
           <nuxt-link to="/" class="text-decoration-none text-dark logo">
-            <nuxt-img src="/logo.jpg" />
+            <img src="@/assets/img/logo.jpg" />
           </nuxt-link>
           <div class="logo-line"></div>
           <span class="description lh-sm">

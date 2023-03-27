@@ -24,7 +24,7 @@
         >
           <div class="review-item-header">
             <div class="logo-block d-flex align-items-center gap-3">
-              <nuxt-img src="/gazprom-logo.jpeg" class="review-slider-item-logoicon"/>
+              <img src="@/assets/img/gazprom-logo.jpeg" class="review-slider-item-logoicon"/>
               <div>
                 <p class="fs-7 text-secondary">02.02.2023</p>
                 <h4 class="fs-4 mt-2">ООО "Газпром"</h4>
@@ -67,4 +67,13 @@
 .reviews-slider .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: var(--accent-color);
 }
+@media (max-width: 1500px) {
+  .reviews-slider-prev-nav {
+    left: 10px;
+  }
+  .reviews-slider-next-nav {
+    right: 10px;
+  }
+}
+
 </style>

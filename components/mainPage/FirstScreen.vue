@@ -15,8 +15,8 @@
       pagination
     >
       <swiper-slide>
-        <nuxt-img
-          src="/main-slider-1.jpg"
+        <img
+          src="@/assets/img/main-slider-1.jpg"
           class="banner position-absolute w-100 h-100 object-fit-cover top-0 start-0"
         />
         <div
@@ -40,8 +40,8 @@
         </div>
       </swiper-slide>
       <swiper-slide>
-        <nuxt-img
-          src="/main-slider-2.jpg"
+        <img
+          src="@/assets/img/main-slider-2.jpg"
           class="banner position-absolute w-100 h-100 object-fit-cover top-0 start-0"
         />
         <div

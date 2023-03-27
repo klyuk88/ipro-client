@@ -10,7 +10,7 @@
         v-for="(item, index) in 4" :key="index"
         >
           <nuxt-link to="#" class="ratio ratio-4x3 hover-opacity-75">
-            <nuxt-img src="/news-image.jpg"/>
+            <img src="@/assets/img/news-image.jpg"/>
           </nuxt-link>
           <div class="p-4 bg-white">
             <p class="fs-8 text-secondary">02.02.2023</p>

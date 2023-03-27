@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-5">
           <div class="about-image-block position-relative overflow-hidden">
-            <nuxt-img src="/christopher-burns-8KfCR12oeUM-unsplash.jpg" class="position-absolute top-0 start-0 object-fit-cover w-100 h-100"/>
+            <img src="@/assets/img/christopher-burns-8KfCR12oeUM-unsplash.jpg" class="position-absolute top-0 start-0 object-fit-cover w-100 h-100"/>
           </div>
           
         </div>
@@ -16,7 +16,7 @@
           <p class="mt-3 text-secondary">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Составитель буквенных, lorem власти однажды одна за безопасную пояс текстами свой ведущими решила что свою рукопись свое, алфавит приставка путь пор не пустился букв дал продолжил? Родного языкового вопроса свой переписали над, ему ты города алфавит ipsum если однажды своего на берегу рекламных, инициал прямо рукописи толку вскоре послушавшись, деревни назад речью ведущими взобравшись он дороге? Текстов рыбного она всемогущая букв, буквоград, встретил взгляд свое на берегу знаках коварных текстами свой лучше.</p>
           <div class="row mt-4 row-gap-3">
             <div class="col-md-6 d-flex align-items-start gap-3">
-              <nuxt-img src="/icon-1.png" class="about-item-icon"></nuxt-img>
+              <img src="@/assets/img/icon-1.png" class="about-item-icon"/>
               <div>
                 <h4 class="fs-6">Экологичное производтсво</h4>
                 <p class="text-secondary">Далеко-далеко за словесными горами, в стране.</p>
@@ -25,7 +25,7 @@
               
             </div>
             <div class="col-md-6 d-flex align-items-start gap-3">
-              <nuxt-img src="/icon-1.png" class="about-item-icon"></nuxt-img>
+              <img src="@/assets/img/icon-1.png" class="about-item-icon"/>
               <div>
                 <h4 class="fs-6">Экологичное производтсво</h4>
                 <p class="text-secondary">Далеко-далеко за словесными горами, в стране.</p>
@@ -34,7 +34,7 @@
               
             </div>
             <div class="col-md-6 d-flex align-items-start gap-3">
-              <nuxt-img src="/icon-1.png" class="about-item-icon"></nuxt-img>
+              <img src="@/assets/img/icon-1.png" class="about-item-icon"/>
               <div>
                 <h4 class="fs-6">Экологичное производтсво</h4>
                 <p class="text-secondary">Далеко-далеко за словесными горами, в стране.</p>
@@ -43,7 +43,7 @@
               
             </div>
             <div class="col-md-6 d-flex align-items-start gap-3">
-              <nuxt-img src="/icon-1.png" class="about-item-icon"></nuxt-img>
+              <img src="@/assets/img/icon-1.png" class="about-item-icon"/>
               <div>
                 <h4 class="fs-6">Экологичное производтсво</h4>
                 <p class="text-secondary">Далеко-далеко за словесными горами, в стране.</p>

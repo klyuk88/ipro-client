@@ -33,12 +33,11 @@ const writeDirectorShow = useWriteDirectorModal()
 
         <div class="col-md-3">
           <div class="d-flex align-items-center gap-4">
-            <nuxt-img
-              src="/director.jpeg"
-              width="60"
-              height="60"
+            <img
+              src="@/assets/img/director.jpeg"
               class="rounded-5"
-            ></nuxt-img>
+              style="width: 60px; height: 60px"
+            />
             <div>
               <h5 class="fs-6 fw-semibold">Связаться с руководителем</h5>
               <button class="btn btn-light mt-3 px-4" @click="writeDirectorShow = true">Написать</button>
