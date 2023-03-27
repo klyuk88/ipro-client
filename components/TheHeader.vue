@@ -79,13 +79,13 @@ const showSearch = ref(false)
                 >О компании</nuxt-link
               >
               <div class="submenu position-absolute">
-                <ul class="list-unstyled shadow-lg">
+                <ul class="list-unstyled shadow-lg border border-bottom-0">
                   <li
                     class="bg-white border-bottom cursor-pointer"
                   >
                     <nuxt-link
                       to="#"
-                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-accent-color"
+                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Производство
                     </nuxt-link>
@@ -96,7 +96,7 @@ const showSearch = ref(false)
                   >
                     <nuxt-link
                       to="#"
-                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-accent-color"
+                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Партнёры
                     </nuxt-link>
@@ -106,7 +106,7 @@ const showSearch = ref(false)
                   >
                     <nuxt-link
                       to="#"
-                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-accent-color"
+                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Новости
                     </nuxt-link>
@@ -116,7 +116,7 @@ const showSearch = ref(false)
                   >
                     <nuxt-link
                       to="#"
-                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-accent-color"
+                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Политика конфиденциальности
                     </nuxt-link>
@@ -131,7 +131,7 @@ const showSearch = ref(false)
                 >Услуги</nuxt-link
               >
               <div class="submenu position-absolute">
-                <ul class="list-unstyled shadow-lg">
+                <ul class="list-unstyled shadow-lg border border-bottom-0">
                   <li
                     class="bg-white border-bottom cursor-pointer"
                     v-for="(item, index) in 5"
@@ -139,7 +139,7 @@ const showSearch = ref(false)
                   >
                     <nuxt-link
                       to="#"
-                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-accent-color"
+                      class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Лазерная резка
                     </nuxt-link>

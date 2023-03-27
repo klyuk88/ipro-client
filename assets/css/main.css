@@ -169,3 +169,12 @@ a {
 .btn-close {
   --bs-btn-close-focus-shadow: none;
 }
+
+.hover-bg-light {
+  transition: all .3s ease;
+}
+
+.hover-bg-light:hover {
+  background-color: var(--bs-tertiary-bg)!important;
+  transition: all .3s ease;
+}
