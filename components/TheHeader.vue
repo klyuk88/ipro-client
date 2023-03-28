@@ -105,10 +105,10 @@ const showSearch = ref(false)
                     class="bg-white border-bottom cursor-pointer"
                   >
                     <nuxt-link
-                      to="/news"
+                      to=""
                       class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
-                      Новости
+                      Отзывы
                     </nuxt-link>
                   </li>
                   <li

@@ -31,6 +31,13 @@
     </li>
     <li>
       <nuxt-link
+        to=""
+        class="text-secondary text-decoration-none px-4 py-3 d-block border-bottom hover-bg-light"
+        >Отзывы</nuxt-link
+      >
+    </li>
+    <li>
+      <nuxt-link
         to="/privacy-policy"
         class="text-secondary text-decoration-none px-4 py-3 d-block border-bottom hover-bg-light"
         >Политика конфиденциальности</nuxt-link
