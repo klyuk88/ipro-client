@@ -74,7 +74,7 @@ const showSearch = ref(false)
             </li>
             <li class="menu-item-with-submenu position-relative">
               <nuxt-link
-                to="#"
+                to="/about"
                 class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50"
                 >О компании</nuxt-link
               >
@@ -84,7 +84,7 @@ const showSearch = ref(false)
                     class="bg-white border-bottom cursor-pointer"
                   >
                     <nuxt-link
-                      to="#"
+                      to="/production"
                       class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Производство
@@ -95,7 +95,7 @@ const showSearch = ref(false)
                     class="bg-white border-bottom cursor-pointer"
                   >
                     <nuxt-link
-                      to="#"
+                      to="/partners"
                       class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Партнёры
@@ -105,7 +105,7 @@ const showSearch = ref(false)
                     class="bg-white border-bottom cursor-pointer"
                   >
                     <nuxt-link
-                      to="#"
+                      to="/news"
                       class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Новости
@@ -115,7 +115,7 @@ const showSearch = ref(false)
                     class="bg-white border-bottom cursor-pointer"
                   >
                     <nuxt-link
-                      to="#"
+                      to="/privacy-policy"
                       class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Политика конфиденциальности
@@ -126,7 +126,7 @@ const showSearch = ref(false)
             </li>
             <li class="menu-item-with-submenu position-relative">
               <nuxt-link
-                to="#"
+                to="/services"
                 class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50"
                 >Услуги</nuxt-link
               >

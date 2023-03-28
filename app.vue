@@ -6,6 +6,7 @@ const writeDirectorShow = useWriteDirectorModal();
   <modals-call-order v-if="callOrderShow" />
   <modals-write-director v-if="writeDirectorShow" />
   <NuxtLayout>
+    <NuxtLoadingIndicator :color="'#1d2963'" />
     <NuxtPage />
   </NuxtLayout>
 </template>

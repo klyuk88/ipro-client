@@ -9,13 +9,8 @@
         <div class="col-md-3"
         v-for="(item, index) in 4" :key="index"
         >
-          <nuxt-link to="#" class="ratio ratio-4x3 hover-opacity-75">
-            <img src="@/assets/img/news-image.jpg"/>
-          </nuxt-link>
-          <div class="p-4 bg-white">
-            <p class="fs-8 text-secondary">02.02.2023</p>
-            <nuxt-link to="#" class="text-decoration-none text-dark"> <h3 class="fs-6 mt-2">Расширение литейного производства</h3></nuxt-link>
-          </div>
+        <news-item/>
+
         </div>
       </div>
       <nuxt-link to="#" class="text-decoration-none"><button class="btn btn-outline-primary mt-5 mx-auto d-block">Читать все новости</button></nuxt-link>
