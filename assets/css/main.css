@@ -36,11 +36,12 @@ html * {
 .hover-opacity-50 {
   opacity: 1;
   transition: opacity .2s ease;
+  cursor: pointer;
 }
 
 .hover-opacity-50:hover {
   transition: opacity .2s ease;
-  opacity: 0.5;
+  opacity: 0.5!important;
 }
 .hover-opacity-75 {
   opacity: 1;

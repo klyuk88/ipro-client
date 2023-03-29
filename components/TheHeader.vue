@@ -138,7 +138,7 @@ const showSearch = ref(false)
                     :key="index"
                   >
                     <nuxt-link
-                      to="#"
+                      to="/services/slug"
                       class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Лазерная резка
@@ -157,7 +157,7 @@ const showSearch = ref(false)
 
             <li>
               <nuxt-link
-                to="#"
+                to="/projects"
                 class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50"
                 >Проекты</nuxt-link
               >
