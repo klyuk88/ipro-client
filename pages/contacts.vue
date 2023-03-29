@@ -1,0 +1,140 @@
+<script setup>
+import { ref } from 'vue'
+const writeDirectorShow = useWriteDirectorModal();
+const layer = ref(true)
+</script>
+<template>
+  <section class="border-top">
+    <div class="container pt-5">
+      <bread-crumbs />
+      <h2>Контакты</h2>
+    </div>
+  </section>
+
+  <section class="mt-4 position-relative" @mouseleave="layer = true">
+    <div
+      class="position-absolute start-0 top-0 w-100 h-100"
+      @click="layer = false"
+      v-if="layer"
+    ></div>
+    <client-only>
+      <iframe
+        src="https://yandex.ru/map-widget/v1/?um=constructor%3A27d397a0e93ca68d1ce4a483bd8b0c658c0724e5a13cbf5c5dd471986e470784&amp;source=constructor"
+        width="100%"
+        height="500"
+        frameborder="0"
+      ></iframe>
+    </client-only>
+    <div
+      class="container bg-light shadow-lg px-5 py-3"
+      style="transform: translateY(-50%)"
+    >
+      <div class="row align-items-center">
+        <div class="col-md-3 d-flex align-items-center gap-3">
+          <i
+            class="fa-sharp fa-solid fa-location-dot text-secondary opacity-50"
+            style="font-size: 35px"
+          ></i>
+          <div>
+            <h5 class="fs-7 text-secondary fw-medium">Адрес</h5>
+            <p class="mt-2 w-75">Москва, ул. Дмитрия Ульянова, д. 44, стр.1</p>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex align-items-center gap-3">
+          <i
+            class="fa-sharp fa-solid fa-phone text-secondary opacity-50"
+            style="font-size: 35px"
+          ></i>
+          <div>
+            <h5 class="fs-7 text-secondary fw-medium">Телефон</h5>
+            <a
+              href="tel:+"
+              class="text-decoration-none fs-6 mt-2 d-inline-block"
+              >+7 495 123 45 67</a
+            >
+          </div>
+        </div>
+
+        <div class="col-md-3 d-flex align-items-center gap-3">
+          <i
+            class="fa-sharp fa-regular fa-envelope text-secondary opacity-50"
+            style="font-size: 35px"
+          ></i>
+          <div>
+            <h5 class="fs-7 text-secondary fw-medium">E-mail</h5>
+            <a
+              href="mailto:"
+              class="text-decoration-none fs-6 mt-2 d-inline-block"
+              >ipro@ipro.com</a
+            >
+          </div>
+        </div>
+
+        <div class="col-md-3 d-flex align-items-center gap-3">
+          <i
+            class="fa-sharp fa-regular fa-clock text-secondary opacity-50"
+            style="font-size: 35px"
+          ></i>
+          <div>
+            <h5 class="fs-7 text-secondary fw-medium">Время работы</h5>
+            <p>
+              Пн-Пт: 9:30-18:30 <br />
+              Cб-Вс: Выходной
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-4 pb-5">
+    <div class="container">
+      <h3>Обратная связь</h3>
+      <div class="mt-4">
+        <form>
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="mb-3">
+                <!-- <label for="" class="fs-7 text-secondary mb-2"
+                  >Имя <span class="text-danger">*</span></label
+                > -->
+                <input type="text" class="form-control bg-light" required placeholder="Имя*"/>
+              </div>
+
+               <div class="mb-3">
+              <!-- <label for="" class="fs-7 text-secondary mb-2"
+                >E-mail <span class="text-danger">*</span></label
+              > -->
+              <input type="email" class="form-control bg-light" required placeholder="E-mail*"/>
+            </div>
+
+            <div class="mb-3">
+              <!-- <label for="" class="fs-7 text-secondary mb-2"
+                >Телефон <span class="text-danger">*</span></label
+              > -->
+              <input type="tel" class="form-control bg-light" required placeholder="Телефон*"/>
+            </div>
+
+
+            </div>
+            <div class="col-md-6">
+
+              <div class="mb-3">
+              <!-- <label for="" class="fs-7 text-secondary mb-2">Сообщение</label> -->
+              <textarea class="form-control bg-light" placeholder="Сообщение" style="height: 140px"></textarea>
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <cta-section/>
+</template>
+
+<style scoped>
+.single-service-header {
+  height: 650px;
+}
+</style>

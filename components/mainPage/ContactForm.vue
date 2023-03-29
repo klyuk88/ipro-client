@@ -18,27 +18,27 @@ import sectionBg from "../../assets/img/form-section-image.jpg";
             </h3>
 
             <div class="mb-3">
-              <label for="" class="fs-7 text-secondary mb-2"
+              <!-- <label for="" class="fs-7 text-secondary mb-2"
                 >Имя <span class="text-danger">*</span></label
-              >
-              <input type="text" class="form-control bg-light" required />
+              > -->
+              <input type="text" class="form-control bg-light" required placeholder="Имя*"/>
             </div>
 
             <div class="mb-3">
-              <label for="" class="fs-7 text-secondary mb-2"
+              <!-- <label for="" class="fs-7 text-secondary mb-2"
                 >E-mail <span class="text-danger">*</span></label
-              >
-              <input type="email" class="form-control bg-light" required />
+              > -->
+              <input type="email" class="form-control bg-light" required placeholder="E-mail*"/>
             </div>
             <div class="mb-3">
-              <label for="" class="fs-7 text-secondary mb-2"
+              <!-- <label for="" class="fs-7 text-secondary mb-2"
                 >Телефон <span class="text-danger">*</span></label
-              >
-              <input type="tel" class="form-control bg-light" required />
+              > -->
+              <input type="tel" class="form-control bg-light" required placeholder="Телефон*"/>
             </div>
             <div class="mb-3">
-              <label for="" class="fs-7 text-secondary mb-2">Сообщение</label>
-              <textarea class="form-control bg-light" rows="3"></textarea>
+              <!-- <label for="" class="fs-7 text-secondary mb-2">Сообщение</label> -->
+              <textarea class="form-control bg-light" rows="3" placeholder="Сообщение"></textarea>
             </div>
 
             <div class="mb-3">

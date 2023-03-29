@@ -149,7 +149,7 @@ const showSearch = ref(false)
             </li>
             <li>
               <nuxt-link
-                to="#"
+                to="/posts"
                 class="fw-semibold text-decoration-none text-dark text-uppercase hover-opacity-50"
                 >Статьи</nuxt-link
               >
@@ -164,7 +164,7 @@ const showSearch = ref(false)
             </li>
             <li>
               <nuxt-link
-                to="#"
+                to="/contacts"
                 class="text-decoration-none text-dark text-uppercase hover-opacity-50 fw-semibold"
                 >Контакты</nuxt-link
               >
