@@ -172,9 +172,10 @@ const showSearch = ref(false)
           </ul>
         </nav>
 
-        <button class="btn btn-outline-primary rounded-1">
+        <nuxt-link to="/calculation"><button class="btn btn-outline-primary rounded-1">
           Расчёт стоимости
-        </button>
+        </button></nuxt-link>
+        
       </div>
     </div>
   </header>
