@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link to="/services/slug" class="text-decoration-none py-3">
+  
     <div
       class="service-item shadow w-100 position-relative d-flex flex-column justify-content-end overflow-hidden"
       style="aspect-ratio: 1/1"
@@ -8,7 +8,7 @@
         class="position-absolute top-0 start-0 w-100 h-100 bg-dark z-1 opacity-50"
       ></div>
       <img
-        src="https://www.lada.kz/uploads/posts/2022-10/1666970976_lazernaya-rezka-metalla.jpg"
+        src="@/assets/img/service-image.jpeg"
         class="object-fit-cover service-item-image position-absolute w-100 h-100 top-0 start-0"
       />
       <h3 class="fs-5 position-relative p-4 text-white z-2">
@@ -18,7 +18,7 @@
       <div
         class="p-4 position-absolute bottom-0 start-0 w-100 bg-white z-3 d-flex align-items-start justify-content-end flex-column service-item-body"
       >
-        <nuxt-link to="/services/slug" class="text-decoration-none text-dark">
+        <nuxt-link to="#" class="text-decoration-none text-dark">
           <h4 class="fs-5">Лазерная резка</h4>
         </nuxt-link>
 
@@ -30,7 +30,7 @@
           <button class="btn btn-primary px-4 py-2 mt-3 rounded-1">
             Расчёт стоимости
           </button>
-          <nuxt-link to="/services/slug">
+          <nuxt-link to="#">
             <button class="btn btn-outline-secondary px-4 py-2 mt-3 rounded-1">
               Подробнее
             </button>
@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-  </nuxt-link>
+
 </template>
 
 <style scoped>

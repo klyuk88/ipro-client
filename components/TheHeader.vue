@@ -1,13 +1,13 @@
 <script setup>
 const showSearch = ref(false)
-
+const mobileMenu = useMobileMenu()
 </script>
 <template>
   <the-search :activeSearch="showSearch" @closeSearch="showSearch = false"/>
   <div class="">
     <div class="container">
       <div
-        class="header-content d-flex align-items-center justify-content-between pt-3"
+        class="header-content d-flex align-items-center justify-content-between pt-3 d-none d-xl-flex"
       >
         <div class="d-flex align-items-center gap-2">
           <i class="fa-solid fa-envelope"></i>
@@ -63,7 +63,7 @@ const showSearch = ref(false)
           </span>
         </div>
 
-        <nav>
+        <nav class="d-none d-xl-flex">
           <ul class="list-unstyled d-flex align-items-center gap-4 menu-list">
             <li>
               <nuxt-link
@@ -138,7 +138,7 @@ const showSearch = ref(false)
                     :key="index"
                   >
                     <nuxt-link
-                      to="/services/slug"
+                      to="#"
                       class="text-dark text-decoration-none text-nowrap px-5 py-3 d-block hover-bg-light"
                     >
                       Лазерная резка
@@ -172,13 +172,19 @@ const showSearch = ref(false)
           </ul>
         </nav>
 
-        <nuxt-link to="/calculation"><button class="btn btn-outline-primary rounded-1">
+        <nuxt-link to="/calculation"><button class="btn btn-outline-primary rounded-1 d-none d-xl-block">
           Расчёт стоимости
         </button></nuxt-link>
-        
+
+        <div class="d-xl-none" style="width: 40px">
+          <img src="@/assets/img/mob-menu.png" alt="" class="w-100" @click="mobileMenu=true">
+        </div>
       </div>
     </div>
   </header>
+
+  <mob-menu/>
+
 </template>
 
 <style>

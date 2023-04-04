@@ -16,8 +16,6 @@ export default defineNuxtConfig({
     '@/assets/libs/bootstrap/css/bootstrap.min.css',
     '@/assets/css/main.css'
   ],
-  image: {
-    dir: 'assets/img'
-  }
+
 
 })
