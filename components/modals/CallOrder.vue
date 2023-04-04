@@ -6,11 +6,14 @@ const callOrderShow = useCallOrderModal()
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content rounded-0">
         <div class="modal-header border-0">
-          <h5 class="modal-title fs-3">Заказать звонок</h5>
+           <h5 class="modal-title fs-3">Заказать звонок</h5>
           <button type="button" class="btn-close" @click="callOrderShow = false"></button>
         </div>
+        
         <div class="modal-body">
-          <form action="#">
+          <!-- <h5 class="modal-title fs-3">Заказать звонок</h5> -->
+          <p class="text-secondary">Менеджер перезвонит в течении 10 минут.</p>
+          <form action="#" class="mt-3">
             <div class="mb-3">
               <input
                 type="text"
