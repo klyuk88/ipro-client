@@ -7,7 +7,7 @@ definePageMeta({
   <div>
     <h2 class="">Услуги</h2>
     <div class="row mt-5 row-gap-4">
-      <div class="col-md-4" v-for="(item, index) in 8" :key="index">
+      <div class="col-md-6 col-lg-4" v-for="(item, index) in 8" :key="index">
         <services-item />
       </div>
     </div>

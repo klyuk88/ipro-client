@@ -19,6 +19,7 @@ const layer = ref(true)
     ></div>
     <client-only>
       <iframe
+      id="contacts-map"
         src="https://yandex.ru/map-widget/v1/?um=constructor%3A27d397a0e93ca68d1ce4a483bd8b0c658c0724e5a13cbf5c5dd471986e470784&amp;source=constructor"
         width="100%"
         height="500"
@@ -26,24 +27,21 @@ const layer = ref(true)
       ></iframe>
     </client-only>
     <div
-      class="container bg-light shadow-lg px-5 py-3"
-      style="transform: translateY(-50%)"
+      class="container bg-light shadow-lg px-4 px-lg-5 py-3 contacts-info"
     >
-      <div class="row align-items-center">
-        <div class="col-md-3 d-flex align-items-center gap-3">
+      <div class="row align-items-center row-gap-4">
+        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3">
           <i
-            class="fa-sharp fa-solid fa-location-dot text-secondary opacity-50"
-            style="font-size: 35px"
+            class="fa-sharp fa-solid fa-location-dot text-secondary opacity-50 fs-1"
           ></i>
           <div>
             <h5 class="fs-7 text-secondary fw-medium">Адрес</h5>
             <p class="mt-2 w-75">Москва, ул. Дмитрия Ульянова, д. 44, стр.1</p>
           </div>
         </div>
-        <div class="col-md-3 d-flex align-items-center gap-3">
+        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3">
           <i
-            class="fa-sharp fa-solid fa-phone text-secondary opacity-50"
-            style="font-size: 35px"
+            class="fa-sharp fa-solid fa-phone text-secondary opacity-50 fs-1"
           ></i>
           <div>
             <h5 class="fs-7 text-secondary fw-medium">Телефон</h5>
@@ -55,10 +53,9 @@ const layer = ref(true)
           </div>
         </div>
 
-        <div class="col-md-3 d-flex align-items-center gap-3">
+        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3">
           <i
-            class="fa-sharp fa-regular fa-envelope text-secondary opacity-50"
-            style="font-size: 35px"
+            class="fa-sharp fa-regular fa-envelope text-secondary opacity-50 fs-1"
           ></i>
           <div>
             <h5 class="fs-7 text-secondary fw-medium">E-mail</h5>
@@ -70,10 +67,9 @@ const layer = ref(true)
           </div>
         </div>
 
-        <div class="col-md-3 d-flex align-items-center gap-3">
+        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3">
           <i
-            class="fa-sharp fa-regular fa-clock text-secondary opacity-50"
-            style="font-size: 35px"
+            class="fa-sharp fa-regular fa-clock text-secondary opacity-50 fs-1"
           ></i>
           <div>
             <h5 class="fs-7 text-secondary fw-medium">Время работы</h5>
@@ -136,5 +132,14 @@ const layer = ref(true)
 <style scoped>
 .single-service-header {
   height: 650px;
+}
+.contacts-info {
+  transform: translateY(-50%);
+}
+
+@media screen and (max-width: 576px) {
+  .contacts-info {
+  transform: translateY(0);
+}
 }
 </style>

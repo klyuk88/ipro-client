@@ -2,6 +2,7 @@
 definePageMeta({
   layout: "inner",
 });
+const modalCalc = useModalCalc()
 </script>
 <template>
   <h1>Расчёт стоимости</h1>
@@ -13,19 +14,19 @@ definePageMeta({
   <div class="mt-5 border border-bottom-0">
     <form>
       <div class="px-4 py-4 border-bottom">
-        <div class="row align-items-center">
-          <div class="col-md-6">
+        <div class="row align-items-center row-gap-3">
+          <div class="col-lg-6">
             <h2 class="fs-4">Выбор материала</h2>
             <small class="text-secondary mt-2 d-block"
               >Далеко-далеко за словесными горами в стране гласных и согласных,
               живут рыбные тексты. Алфавит буквоград грамматики выйти.</small
             >
           </div>
-          <div class="col-md-6 d-flex gap-4">
+          <div class="col-lg-6 d-flex flex-wrap gap-4">
             <label class="d-block" for="steel">
               <div class="" style="width: 120px">
                 <img
-                  src="@/assets/img/mock-img-sq.jpg"
+                  src="@/assets/img/steel.jpeg"
                   alt=""
                   class="d-block cursor-pointer w-100 object-fit-cover"
                 />
@@ -46,7 +47,7 @@ definePageMeta({
             <label class="d-block" for="steel2">
               <div class="" style="width: 120px">
                 <img
-                  src="@/assets/img/mock-img-sq.jpg"
+                  src="@/assets/img/nerzhaveyka.jpeg"
                   alt=""
                   class="d-block cursor-pointer w-100 object-fit-cover"
                 />
@@ -66,7 +67,7 @@ definePageMeta({
             <label class="d-block" for="steel3">
               <div class="" style="width: 120px">
                 <img
-                  src="@/assets/img/mock-img-sq.jpg"
+                  src="@/assets/img/art-ocinkovka.jpg"
                   alt=""
                   class="d-block cursor-pointer w-100 object-fit-cover"
                 />
@@ -87,7 +88,7 @@ definePageMeta({
         </div>
       </div>
       <div class="px-4 py-4 border-bottom">
-        <div class="row align-items-center">
+        <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Толщина металла(мм)</h2>
             <small class="text-secondary mt-2 d-block"
@@ -114,7 +115,7 @@ definePageMeta({
       </div>
 
       <div class="px-4 py-4 border-bottom">
-        <div class="row align-items-center">
+        <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Количество резов</h2>
             <small class="text-secondary mt-2 d-block"
@@ -135,7 +136,7 @@ definePageMeta({
         </div>
       </div>
       <div class="px-4 py-4 border-bottom">
-        <div class="row align-items-center">
+        <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Длина реза</h2>
             <small class="text-secondary mt-2 d-block"
@@ -148,13 +149,13 @@ definePageMeta({
               type="text"
               class="form-control bg-light"
               required
-              placeholder="Длина реза"
+              placeholder="Длина реза (мм)"
             />
           </div>
         </div>
       </div>
       <div class="px-4 py-4 border-bottom">
-        <div class="row align-items-center">
+        <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Обработка</h2>
             <small class="text-secondary mt-2 d-block"
@@ -173,7 +174,7 @@ definePageMeta({
         </div>
       </div>
       <div class="px-4 py-4 border-bottom">
-        <div class="row align-items-center">
+        <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Площадь изделия</h2>
             <small class="text-secondary mt-2 d-block"
@@ -201,7 +202,7 @@ definePageMeta({
       </div>
 
       <div class="px-4 py-4 border-bottom">
-        <div class="row align-items-center">
+        <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Дополнительно</h2>
             <small class="text-secondary mt-2 d-block"
@@ -225,8 +226,8 @@ definePageMeta({
         </div>
       </div>
 
-      <div class="px-4 py-4 border-bottom">
-        <div class="row align-items-center">
+      <!-- <div class="px-4 py-4 border-bottom">
+        <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Способы доставки</h2>
             <small class="text-secondary mt-2 d-block"
@@ -245,10 +246,10 @@ definePageMeta({
             </select>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="px-4 py-4">
-        <div class="row align-items-center">
+        <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Сроки</h2>
             <small class="text-secondary mt-2 d-block"
@@ -263,24 +264,32 @@ definePageMeta({
       </div>
 
       <div
-        class="px-4 py-5 border-bottom border-top bg-light position-sticky bottom-0"
+        class="px-3 py-3 px-md-4 py-md-5 border-bottom border-top bg-light position-sticky bottom-0"
       >
-        <div class="row align-items-center">
+      <button class="btn btn-primary btn-lg mx-auto d-block px-5 py-3 rounded-1" @click="modalCalc = true">Рассчитать</button>
+        <!-- <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-2">Итого стоимость</h2>
-            <button class="btn btn-primary mt-2 rounded-1 px-4 py-2">
+            <div class="d-flex gap-3">
+              <button class="btn btn-primary mt-2 rounded-1 px-4 py-2">
               Расcчитать
             </button>
-            <!-- <small class="text-secondary mt-2 d-block"
+            </div>
+            
+            <small class="text-secondary mt-2 d-block"
             >Далеко-далеко за словесными горами в стране гласных и согласных,
             живут рыбные тексты. Алфавит буквоград грамматики выйти.</small
-          > -->
+          >
           </div>
           <div class="col-md-6">
             <h2 class="">0 руб.</h2>
           </div>
-        </div>
+        </div> -->
       </div>
     </form>
   </div>
+
+  <modals-calculate
+  v-if="modalCalc"
+  />
 </template>

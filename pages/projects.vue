@@ -29,14 +29,15 @@ const onHide = () => (visibleRef.value = false);
     пунктуация ручеек грамматики вопроса!
   </p>
   <div class="row mt-4 g-0">
-      <div class="col-md-3"
+      <div class="col-md-4 col-lg-3"
       v-for="(src, index) in imgs" :key="index"
       >
         <div class="ratio ratio-1x1">
           <img :src="src" alt="" class="object-fit-cover hover-opacity-75" @click="() => showImg(index)">
         </div>
       </div>
-    </div>
+  </div>
+  <button class="btn btn-outline-primary mx-auto d-block mt-4 rounded-1 px-4 py-2">Загрузить еще</button>
 
     <vue-easy-lightbox
       :visible="visibleRef"
