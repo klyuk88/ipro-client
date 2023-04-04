@@ -7,10 +7,7 @@ definePageMeta({
   <div>
     <h2 class="mt-4">О компании</h2>
     <div class="row mt-5">
-      <div class="col-md-3">
-        <page-sidebar />
-      </div>
-      <div class="col-md-9 inner-page-content">
+        <div class="col-lg-9 inner-page-content">
         <img
           src="@/assets/img/christopher-burns-8KfCR12oeUM-unsplash.jpg"
           alt=""
@@ -32,6 +29,10 @@ definePageMeta({
           предупреждал безорфографичный раз то?
         </p>
       </div>
+      <div class="col-lg-3 order-lg-first mt-5 mt-lg-0">
+        <page-sidebar />
+      </div>
+    
     </div>
   </div>
 </template>

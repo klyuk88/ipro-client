@@ -13,6 +13,7 @@
         disableOnInteraction: true,
       }"
       pagination
+      
     >
       <swiper-slide>
         <img
@@ -24,10 +25,10 @@
         ></div>
         <div class="container">
           <div
-            class="main-slider-content position-absolute top-50 translate-middle-y ps-5 text-white"
+            class="main-slider-content position-absolute top-50 translate-middle-y ps-3 ps-md-5 text-white"
           >
             <h2>Лучшая комания по металлобрабоктке</h2>
-            <p class="mt-4 w-50">
+            <p class="mt-4 w-md-75 w-lg-50">
               Далеко-далеко за словесными горами в стране гласных и согласных
               живут рыбные тексты. Ее выйти своего, семантика осталось агентство
               снова курсивных пунктуация инициал единственное, однажды страна?
@@ -49,10 +50,10 @@
         ></div>
         <div class="container">
           <div
-            class="main-slider-content position-absolute top-50 translate-middle-y ps-5 text-white"
+            class="main-slider-content position-absolute top-50 translate-middle-y ps-3 ps-md-5 text-white"
           >
             <h2>Лучшая комания по металлобрабоктке</h2>
-            <p class="mt-4 w-50">
+            <p class="mt-4 w-md-75 w-lg-50">
               Далеко-далеко за словесными горами в стране гласных и согласных
               живут рыбные тексты. Ее выйти своего, семантика осталось агентство
               снова курсивных пунктуация инициал единственное, однажды страна?
@@ -66,7 +67,7 @@
       </swiper-slide>
     </swiper>
 
-    <div class="main-screen-slider-nav z-3 position-absolute">
+    <div class="main-screen-slider-nav z-3 position-absolute d-none d-md-block">
       <ui-prev-nav-control class="position-absolute start-0 top-0" />
       <ui-next-nav-control class="position-absolute end-0 top-0" />
     </div>
@@ -103,4 +104,14 @@
     width: 97vw;
   }
 }
+@media screen and (max-width: 996px) {
+  .main-screen-slider {
+    height: 500px;
+  }
+}
+
+
+
+
+
 </style>

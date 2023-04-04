@@ -7,10 +7,7 @@ definePageMeta({
   <div>
     <h2 class="mt-4">Производство</h2>
     <div class="row mt-5">
-      <div class="col-md-3">
-        <page-sidebar />
-      </div>
-      <div class="col-md-9">
+         <div class="col-md-9">
         <div class="inner-page-content">
           <h3 class="">Наше производство</h3>
           <br />
@@ -45,6 +42,10 @@ definePageMeta({
         </swiper>
 
       </div>
+      <div class="col-md-3 order-lg-first mt-5 mt-lg-0">
+        <page-sidebar />
+      </div>
+   
     </div>
   </div>
 </template>

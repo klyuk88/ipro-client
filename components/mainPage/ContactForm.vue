@@ -4,13 +4,13 @@ import sectionBg from "../../assets/img/form-section-image.jpg";
 
 <template>
   <section
-    class="contacts-form-section py-6 bg-set"
+    class="contacts-form-section py-5 py-lg-6 bg-set"
     :style="{ backgroundImage: `url(${sectionBg})` }"
   >
     <div class="container">
       <div class="row">
-        <div class="col-md-6 offset-md-6">
-          <form action="" class="p-5 bg-white">
+        <div class="col-md-8 offset-md-4 col-lg-6 offset-lg-6">
+          <form action="" class="p-4 p-md-5 bg-white">
             <h2 class="fs-4">Предложим лучшие условия работы на рынке</h2>
             <h3 class="fs-6 fw-normal mt-3 mb-3 text-secondary">
               Далеко-далеко за словесными горами, в стране гласных и согласных
@@ -56,7 +56,7 @@ import sectionBg from "../../assets/img/form-section-image.jpg";
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary rounded-1 px-4 py-3 mt-4">
+            <button type="submit" class="btn btn-primary rounded-1 px-4 py-3 mt-4 fs-7 fs-md-6">
               Получить персональные условия
             </button>
 

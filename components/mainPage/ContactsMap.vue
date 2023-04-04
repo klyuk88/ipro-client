@@ -4,16 +4,16 @@ const writeDirectorShow = useWriteDirectorModal()
 </script>
 <template>
   <section class="contacts-map position-relative" @mouseleave="layer=true">
-    <div class="position-absolute start-0 top-0 w-100 h-100" @click="layer=false" v-if="layer"></div>
+    <div class="position-absolute start-0 top-0 w-100 h-100 d-none d-md-block" @click="layer=false" v-if="layer"></div>
     <div
-      class="container contacts-map-info position-absolute bg-primary p-4 mt-5 start-50 translate-middle-x text-white"
+      class="container contacts-map-info position-md-absolute bg-primary p-4 mt-md-5 start-50 translate-md-middle-x text-white"
     >
-      <div class="row align-items-center">
-        <div class="col-md-3">
+      <div class="row gy-4 align-items-center">
+        <div class="col-md-6 col-lg-3">
           <h5 class="fs-6 fw-semibold">Адрес</h5>
           <p class="mt-2 w-75">Москва, ул. Дмитрия Ульянова, д. 44, стр.1</p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
           <h5 class="fs-6 fw-semibold">Телефон</h5>
           <a
             href="tel:+"
@@ -22,7 +22,7 @@ const writeDirectorShow = useWriteDirectorModal()
           >
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
           <h5 class="fs-6 fw-semibold">E-mail</h5>
           <a
             href="mailto:"
@@ -31,7 +31,7 @@ const writeDirectorShow = useWriteDirectorModal()
           >
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
           <div class="d-flex align-items-center gap-4">
             <img
               src="@/assets/img/director.jpeg"
@@ -49,6 +49,7 @@ const writeDirectorShow = useWriteDirectorModal()
 
   <client-only>
        <iframe
+       id="map"
       src="https://yandex.ru/map-widget/v1/?um=constructor%3A27d397a0e93ca68d1ce4a483bd8b0c658c0724e5a13cbf5c5dd471986e470784&amp;source=constructor"
       width="100%"
       height="600"
@@ -60,7 +61,10 @@ const writeDirectorShow = useWriteDirectorModal()
 </template>
 
 <style scoped>
-/* .contacts-map-info {
-  
-} */
+@media screen and (max-width: 576px) {
+  #map {
+    height: 400px;
+}
+}
+
 </style>

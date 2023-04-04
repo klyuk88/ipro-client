@@ -1,5 +1,5 @@
 <template>
-  <section class="services py-6 bg-light">
+  <section class="service py-5 py-lg-6 bg-light">
     <div class="container">
       <h2>Популярные услуги</h2>
       <p class="mt-4 text-secondary w-75">
@@ -9,7 +9,7 @@
         если проектах.
       </p>
       <div class="row mt-5 row-gap-4">
-        <div class="col-md-4" v-for="(item, index) in 6" :key="index">
+        <div class="col-md-6 col-lg-4" v-for="(item, index) in 6" :key="index">
           <services-item />
         </div>
       </div>

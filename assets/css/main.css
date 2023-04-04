@@ -201,3 +201,40 @@ a {
   transform: scale(1.1);
   transition: transform .3s ease;
 }
+
+
+
+
+@media screen and (min-width: 768px) {
+  .w-md-75 {
+    width: 75%!important;
+  }
+  .fs-md-6 {
+    font-size: 1rem!important;
+  }
+  .position-md-absolute {
+    position: absolute!important;
+  }
+  .translate-md-middle-x {
+    transform: translateX(-50%)!important;
+}
+}
+@media screen and (min-width: 996px) {
+  .w-lg-100 {
+    width: 100%!important;
+  }
+  .w-lg-50 {
+    width: 50%!important;
+  }
+  .py-lg-6 {
+    padding: 120px 0!important;
+  }
+  .w-lg-auto {
+    width: auto!important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .w-xl-auto {
+    width: auto!important;
+  }
+}

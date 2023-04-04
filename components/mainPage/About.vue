@@ -1,14 +1,14 @@
 <template>
-  <section class="py-6">
+  <section class="py-5 py-lg-6">
     <div class="container">
-      <div class="row">
-        <div class="col-md-5">
+      <div class="row gy-4">
+        <div class="col-lg-5">
           <div class="about-image-block position-relative overflow-hidden">
             <img src="@/assets/img/christopher-burns-8KfCR12oeUM-unsplash.jpg" class="position-absolute top-0 start-0 object-fit-cover w-100 h-100"/>
           </div>
           
         </div>
-        <div class="col-md-7">
+        <div class="col-lg-7">
           <h2 class="fs-6 text-secondary">О компании</h2>
           <h3 class="fs-3 mt-3">
             Компания Metula - лучшая компания по металлообработке.
@@ -68,5 +68,18 @@
 }
 .about-item-icon {
   width: 35px;
+}
+
+@media screen and (max-width: 996px){
+  .about-image-block {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 576px){
+  .about-image-block {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 </style>

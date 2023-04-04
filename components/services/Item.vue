@@ -26,12 +26,12 @@
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
           iste consectetur, illo molestiae aperiam nesciunt
         </p>
-        <div class="d-flex align-items-center gap-3">
-          <button class="btn btn-primary px-4 py-2 mt-3 rounded-1">
+        <div class="d-flex flex-column flex-xl-row align-items-xl-center gap-3 w-100 w-xl-auto mt-3 mt-xl-0">
+          <button class="btn btn-primary px-4 py-2 mt-xl-3 rounded-1">
             Расчёт стоимости
           </button>
-          <nuxt-link to="#">
-            <button class="btn btn-outline-secondary px-4 py-2 mt-3 rounded-1">
+          <nuxt-link to="#" class="d-block">
+            <button class="btn btn-outline-secondary px-4 py-2 mt-xl-3 rounded-1 w-100 w-xl-auto">
               Подробнее
             </button>
           </nuxt-link>

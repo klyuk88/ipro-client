@@ -22,13 +22,7 @@
         Партнеры
       </nuxt-link>
     </li>
-    <li>
-      <nuxt-link
-        to="/news"
-        class="text-secondary text-decoration-none px-4 py-3 d-block border-bottom hover-bg-light"
-        >Новости</nuxt-link
-      >
-    </li>
+  
     <li>
       <nuxt-link
         to=""

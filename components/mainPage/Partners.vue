@@ -1,5 +1,5 @@
 <template>
-  <section class="py-6 position-relative">
+  <section class="py-5 py-lg-6 position-relative">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between">
         <h2>Наши партенры</h2>
@@ -25,6 +25,20 @@
           prevEl: '.partners-slider-prev-nav',
         }"
         pagination
+        :breakpoints="{
+          320: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          996: {
+            slidesPerView: 4,
+          },
+          1200: {
+            slidesPerView: 5,
+          },
+        }"
       >
         <swiper-slide
         v-for="(item, index) in 8" :key="index"
@@ -38,10 +52,10 @@
       </swiper>
 
       <ui-prev-nav-control
-        class="partners-slider-prev-nav position-absolute top-50"
+        class="partners-slider-prev-nav position-absolute top-50 d-none d-md-block"
       />
       <ui-next-nav-control
-        class="partners-slider-next-nav position-absolute top-50"
+        class="partners-slider-next-nav position-absolute top-50 d-none d-md-block"
       />
     </div>
   </section>

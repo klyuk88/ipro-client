@@ -4,8 +4,8 @@ const callOrderShow = useCallOrderModal()
 <template>
   <footer class="py-5 bg-dark">
     <div class="container">
-      <div class="row">
-        <div class="col-md-3">
+      <div class="row gy-4">
+        <div class="col-6 col-lg-3">
           <ul class="list-unstyled">
             <li class="">
               <nuxt-link to="#" class="text-white text-white text-decoration-none fw-semibold fs-5">О компании</nuxt-link>
@@ -39,7 +39,7 @@ const callOrderShow = useCallOrderModal()
             </li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-6 col-lg-3">
           <ul class="list-unstyled">
             <li class="">
               <nuxt-link to="#" class="text-white text-white text-decoration-none fw-semibold fs-5">Услуги</nuxt-link>
@@ -55,7 +55,7 @@ const callOrderShow = useCallOrderModal()
             </li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-6 col-lg-3">
            <ul class="list-unstyled">
             <li class="">
               <nuxt-link to="#" class="text-white text-white text-decoration-none fw-semibold fs-5">Помощь</nuxt-link>
@@ -79,7 +79,7 @@ const callOrderShow = useCallOrderModal()
             </li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-6 col-lg-3">
           <div class="mb-3">
             <i class="fa-regular fa-envelope text-white me-2"></i>
             <a href="mailto:" class="text-white text-decoration-none">ipro@ipro.com</a>

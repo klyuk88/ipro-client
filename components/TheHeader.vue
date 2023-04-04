@@ -172,7 +172,7 @@ const mobileMenu = useMobileMenu()
           </ul>
         </nav>
 
-        <nuxt-link to="/calculation"><button class="btn btn-outline-primary rounded-1 d-none d-xl-block">
+        <nuxt-link to="/calculation" class="text-decoration-none"><button class="btn btn-outline-primary rounded-1 d-none d-xl-block">
           Расчёт стоимости
         </button></nuxt-link>
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="py-6 reviews position-relative">
+  <section class="py-5 py-lg-6 reviews position-relative">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between">
         <h2>Отзывы о нашей работе</h2>
@@ -42,8 +42,8 @@
     
 
       </swiper>
-        <ui-prev-nav-control class="reviews-slider-prev-nav position-absolute top-50"/>
-        <ui-next-nav-control class="reviews-slider-next-nav position-absolute top-50"/>
+        <ui-prev-nav-control class="reviews-slider-prev-nav position-absolute top-50 d-none d-md-block"/>
+        <ui-next-nav-control class="reviews-slider-next-nav position-absolute top-50 d-none d-md-block"/>
       </div>
   
     </div>
