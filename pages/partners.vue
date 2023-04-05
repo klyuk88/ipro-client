@@ -21,7 +21,7 @@ definePageMeta({
 
         <ul class="mt-5 list-unstyled border border-bottom-0">
           <li
-            class="border-bottom p-4 d-flex flex-column flex-lg-wrap align-items-center gap-4"
+            class="border-bottom p-4 d-flex flex-column flex-lg-row align-items-center gap-4"
             v-for="(item, index) in 4"
             :key="index"
           >

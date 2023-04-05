@@ -25,7 +25,7 @@
   
     <li>
       <nuxt-link
-        to=""
+        to="/reviews"
         class="text-secondary text-decoration-none px-4 py-3 d-block border-bottom hover-bg-light"
         >Отзывы</nuxt-link
       >

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt-link to="#" class="ratio ratio-4x3 hover-opacity-75">
+    <nuxt-link to="/posts/slug" class="ratio ratio-4x3 hover-opacity-75">
       <img src="@/assets/img/news-image.jpg" />
     </nuxt-link>
     <div class="p-4 bg-white">

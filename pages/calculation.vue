@@ -154,7 +154,7 @@ const modalCalc = useModalCalc()
           </div>
         </div>
       </div>
-      <div class="px-4 py-4 border-bottom">
+      <!-- <div class="px-4 py-4 border-bottom">
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Обработка</h2>
@@ -172,7 +172,7 @@ const modalCalc = useModalCalc()
             />
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="px-4 py-4 border-bottom">
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">

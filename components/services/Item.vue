@@ -18,7 +18,7 @@
       <div
         class="p-4 position-absolute bottom-0 start-0 w-100 bg-white z-3 d-flex align-items-start justify-content-end flex-column service-item-body"
       >
-        <nuxt-link to="#" class="text-decoration-none text-dark">
+        <nuxt-link to="/services/slug" class="text-decoration-none text-dark">
           <h4 class="fs-5">Лазерная резка</h4>
         </nuxt-link>
 
@@ -30,7 +30,7 @@
           <button class="btn btn-primary px-4 py-2 mt-xl-3 rounded-1">
             Расчёт стоимости
           </button>
-          <nuxt-link to="#" class="d-block">
+          <nuxt-link to="/services/slug" class="d-block">
             <button class="btn btn-outline-secondary px-4 py-2 mt-xl-3 rounded-1 w-100 w-xl-auto">
               Подробнее
             </button>
