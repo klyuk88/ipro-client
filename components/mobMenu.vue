@@ -92,7 +92,7 @@ const mobMenu = useMobileMenu()
           </nuxt-link>
         </li>
       </ul>
-      <div class="bg-light pt-3 pb-5">
+      <div class="bg-light pt-3" style="padding-bottom: 70px">
         <ul class="ps-3">
           <li class="d-flex gap-3 align-items-center mb-3">
             <i class="fa-solid fa-location-dot"></i>
@@ -129,6 +129,7 @@ const mobMenu = useMobileMenu()
   z-index: 99;
   overflow-y: auto;
   transition: transform .3s ease;
+  left: -150%;
   transform: translateX(-150%);
 }
 .close-menu-btn {
@@ -150,6 +151,7 @@ const mobMenu = useMobileMenu()
 }
 
 .mobile-menu.active {
+  left: 0;
   transform: translateX(0);
   transition: transform .3s ease;
 }
