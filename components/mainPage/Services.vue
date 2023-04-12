@@ -13,11 +13,14 @@
           <services-item />
         </div>
       </div>
+      
       <nuxt-link to="#" class="text-decoration-none">
-        <button class="btn btn-outline-primary rounded-1 mx-auto d-block mt-5">
+        <button class="btn btn-outline-primary rounded-5 mx-auto d-block mt-5">
           Смотреть все услуги
         </button>
       </nuxt-link>
+
+      
     </div>
   </section>
 </template>

@@ -12,9 +12,9 @@ definePageMeta({
           </div>
         </div>
 
-        <button class="btn btn-outline-primary d-block mx-auto mt-4">
+        <ui-button class="btn-outline-primary d-block mx-auto mt-4">
           Показать ещё
-        </button>
+        </ui-button>
   </div>
 </template>
 

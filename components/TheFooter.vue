@@ -106,7 +106,7 @@ const callOrderShow = useCallOrderModal()
           </div>
   
           <div class="mb-3">
-           <button class="btn rounded-1 btn-light" @click="callOrderShow = true">Заказать звонок</button>
+           <button class="btn rounded-5 btn-light" @click="callOrderShow = true">Заказать звонок</button>
           </div>
           
         </div>

@@ -6,7 +6,7 @@ const writeDirectorShow = useWriteDirectorModal()
   <section class="contacts-map position-relative" @mouseleave="layer=true">
     <div class="position-absolute start-0 top-0 w-100 h-100 d-none d-md-block" @click="layer=false" v-if="layer"></div>
     <div
-      class="container contacts-map-info position-md-absolute bg-primary p-4 mt-md-5 start-50 translate-md-middle-x text-white"
+      class="container contacts-map-info position-md-absolute bg-info p-4 mt-md-5 start-50 translate-md-middle-x text-white"
     >
       <div class="row gy-4 align-items-center">
         <div class="col-md-6 col-lg-3">
@@ -40,7 +40,7 @@ const writeDirectorShow = useWriteDirectorModal()
             />
             <div>
               <h5 class="fs-6 fw-semibold">Связаться с руководителем</h5>
-              <button class="btn btn-light mt-3 px-4" @click="writeDirectorShow = true">Написать</button>
+              <button class="btn btn-light mt-3 px-4 rounded-5" @click="writeDirectorShow = true">Написать</button>
             </div>
           </div>
         </div>

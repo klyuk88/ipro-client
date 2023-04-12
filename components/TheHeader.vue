@@ -17,7 +17,8 @@ const mobileMenu = useMobileMenu()
         </div>
 
         <div class="header-socails">
-          <a href="http://" target="_blank" rel="noopener noreferrer">
+          <p class="text-secondary"><i class="fa-solid fa-location-dot text-secondary me-2"></i>  Москва, ул. Дмитрия Ульянова, д. 44, стр.1</p>
+          <!-- <a href="http://" target="_blank" rel="noopener noreferrer">
             <img src="@/assets/img/vk-logo-of-social-network.png" alt="" />
           </a>
           <a href="http://" target="_blank" rel="noopener noreferrer">
@@ -25,7 +26,7 @@ const mobileMenu = useMobileMenu()
           </a>
           <a href="http://" target="_blank" rel="noopener noreferrer">
             <img src="@/assets/img/whatsapp.png" alt="" />
-          </a>
+          </a> -->
         </div>
 
         <div class="d-flex align-items-center gap-5">
@@ -172,8 +173,8 @@ const mobileMenu = useMobileMenu()
           </ul>
         </nav>
 
-        <nuxt-link to="/calculation" class="text-decoration-none"><button class="btn btn-outline-primary rounded-1 d-none d-xl-block">
-          Расчёт стоимости
+        <nuxt-link to="/calculation" class="text-decoration-none"><button class="btn btn-outline-primary rounded-5 d-none d-xl-block">
+          Оставить заявку
         </button></nuxt-link>
 
         <div class="d-xl-none" style="width: 40px">

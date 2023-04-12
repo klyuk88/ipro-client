@@ -47,7 +47,7 @@ const layer = ref(true)
             <h5 class="fs-7 text-secondary fw-medium">Телефон</h5>
             <a
               href="tel:+"
-              class="text-decoration-none fs-6 mt-2 d-inline-block"
+              class="text-decoration-none fs-6 mt-2 d-inline-block text-secondary"
               >+7 495 123 45 67</a
             >
           </div>
@@ -61,7 +61,7 @@ const layer = ref(true)
             <h5 class="fs-7 text-secondary fw-medium">E-mail</h5>
             <a
               href="mailto:"
-              class="text-decoration-none fs-6 mt-2 d-inline-block"
+              class="text-decoration-none fs-6 mt-2 d-inline-block text-secondary"
               >ipro@ipro.com</a
             >
           </div>
@@ -122,6 +122,21 @@ const layer = ref(true)
             </div>
             </div>
           </div>
+          <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="agreeCheck"
+                />
+                <label class="form-check-label fs-7" for="agreeCheck">
+                  Я согласен(а) с обработкой
+                  <nuxt-link to="#">Персональных данных</nuxt-link>
+                </label>
+              </div>
+            </div>
+          <button class="btn btn-primary rounded-5 px-5 py-3 text-uppercase mt-3 fw-bolder"> Отправить</button>
         </form>
       </div>
     </div>

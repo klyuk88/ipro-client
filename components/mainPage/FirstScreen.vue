@@ -1,3 +1,6 @@
+<script setup>
+import bannerBg from "../../assets/img/main-slider-2.jpg";
+</script>
 <template>
   <section class="position-relative">
     <swiper
@@ -13,81 +16,57 @@
         disableOnInteraction: true,
       }"
       pagination
-      
     >
-      <swiper-slide>
-        <img
-          src="@/assets/img/main-slider-1.jpg"
-          class="banner position-absolute w-100 h-100 object-fit-cover top-0 start-0"
-        />
+      <swiper-slide class="">
         <div
-          class="position-absolute w-100 h-100 top-0 start-0 bg-black opacity-50"
+          class="position-absolute w-100 h-100 top-0 start-0 bg-black opacity-75"
         ></div>
-        <div class="container">
-          <div
-            class="main-slider-content position-absolute top-50 translate-middle-y ps-3 ps-md-5 text-white"
-          >
-            <h2>Лучшая комания по металлобрабоктке</h2>
-            <p class="mt-4 w-md-75 w-lg-50">
-              Далеко-далеко за словесными горами в стране гласных и согласных
-              живут рыбные тексты. Ее выйти своего, семантика осталось агентство
-              снова курсивных пунктуация инициал единственное, однажды страна?
-              То однажды букв рот запятой, буквоград свое!
-            </p>
-            <button class="btn btn-primary rounded-1 mt-4 px-4 py-2">
-              Подробнее
-            </button>
-          </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <img
-          src="@/assets/img/main-slider-2.jpg"
-          class="banner position-absolute w-100 h-100 object-fit-cover top-0 start-0"
-        />
         <div
-          class="position-absolute w-100 h-100 top-0 start-0 bg-black opacity-50"
-        ></div>
-        <div class="container">
-          <div
-            class="main-slider-content position-absolute top-50 translate-middle-y ps-3 ps-md-5 text-white"
-          >
-            <h2>Лучшая комания по металлобрабоктке</h2>
-            <p class="mt-4 w-md-75 w-lg-50">
-              Далеко-далеко за словесными горами в стране гласных и согласных
-              живут рыбные тексты. Ее выйти своего, семантика осталось агентство
-              снова курсивных пунктуация инициал единственное, однажды страна?
-              То однажды букв рот запятой, буквоград свое!
-            </p>
-            <button class="btn btn-primary rounded-1 mt-4 px-4 py-2">
-              Подробнее
-            </button>
+          class="main-screen-banner d-flex flex-column align-items-center justify-content-center bg-set"
+          :style="{backgroundImage: `url(${bannerBg})`}"
+        >
+          <div class="container">
+            <div
+              class="main-slider-content text-center z-3 position-relative text-white"
+            >
+              <h1 class="fw-bold text-uppercase main-title">
+                Срочное изготовление<br />изделий из <span class="bg-primary px-2">металла</span>
+              </h1>
+              <div class="mt-4">
+                <h2 class="fs-3 d-none d-lg-block">Собственное производство | Доставка | Изготовление за 24 часа</h2>
+                <h2 class="fs-4 d-lg-none">
+                  Собственное производство<br>Изготовление за 24 часа<br>Доставка
+                  </h2>
+              </div>
+              
+              <!-- <p class="w-md-75 w-lg-50 mx-auto mt-4">
+                Далеко-далеко за словесными горами в стране гласных и согласных
+                живут рыбные тексты. Ее выйти своего, семантика осталось
+                агентство снова курсивных пунктуация инициал
+              </p> -->
+              <nuxt-link
+              to="/calculation"
+                class="btn btn-primary rounded-5 mt-4 px-4 px-lg-5 py-3 text-uppercase fw-bolder"
+              >
+                Онлайн калькулятор
+              </nuxt-link>
+            </div>
           </div>
         </div>
       </swiper-slide>
     </swiper>
-
-    <div class="main-screen-slider-nav z-3 position-absolute d-none d-md-block">
+    <!-- <div class="main-screen-slider-nav z-3 position-absolute d-none d-md-block">
       <ui-prev-nav-control class="position-absolute start-0 top-0" />
       <ui-next-nav-control class="position-absolute end-0 top-0" />
-    </div>
+    </div> -->
   </section>
 </template>
 
 <style>
-.main-screen-slider {
-  width: 100%;
-  overflow: hidden;
+.main-screen-banner {
   height: 60vh;
 }
-/* .main-screen-slider .banner {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  left: 0;
-  top: 0;
-} */
+
 .main-screen-slider-nav {
   left: 50%;
   top: 50%;
@@ -99,19 +78,34 @@
   background: var(--accent-color);
 }
 
+.main-title {
+  font-size: 35px;
+}
+
 @media screen and (max-width: 1500px) {
   .main-screen-slider-nav {
     width: 97vw;
   }
 }
 @media screen and (max-width: 996px) {
-  .main-screen-slider {
+  .main-screen-banner {
     height: 500px;
   }
 }
 
-
-
-
-
+@media (min-width: 768px) {
+  .main-title {
+    font-size: 40px;
+  }
+}
+@media (min-width: 996px) {
+  .main-title {
+    font-size: 45px;
+  }
+}
+@media (min-width: 1700px) {
+  .main-title {
+    font-size: 65px;
+  }
+}
 </style>

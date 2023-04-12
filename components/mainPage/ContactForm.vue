@@ -56,7 +56,7 @@ import sectionBg from "../../assets/img/form-section-image.jpg";
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary rounded-1 px-4 py-3 mt-4 fs-7 fs-md-6">
+            <button type="submit" class="btn btn-primary rounded-5 px-4 py-3 mt-4 fs-7 fs-md-6">
               Получить персональные условия
             </button>
 

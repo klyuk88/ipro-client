@@ -13,7 +13,7 @@
 
         </div>
       </div>
-      <nuxt-link to="#" class="text-decoration-none"><button class="btn btn-outline-primary mt-5 mx-auto d-block">Читать все новости</button></nuxt-link>
+      <nuxt-link to="/news" class="text-decoration-none"><button class="btn btn-outline-primary mt-5 mx-auto d-block rounded-5">Читать все новости</button></nuxt-link>
       
     </div>
   </section>

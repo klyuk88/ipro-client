@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --accent-color: #1d2963;
-  --accent-color-rgb: 28,40,99;
-  --accent-hover-color: #0c143d;
+  /* --accent-color: #1d2963; */
+  --accent-color: rgb(239, 127, 26);
+  --info-color-rgb: 28,40,99;
+  --accent-color-rgb: 239,127,26;
+  /* --accent-hover-color: #0c143d; */
+  --accent-hover-color: rgb(173, 81, 0);
 }
 body {
   font-family: 'Open Sans', sans-serif;
@@ -202,7 +205,9 @@ a {
   transition: transform .3s ease;
 }
 
-
+.bg-info {
+  background-color: rgba(var(--info-color-rgb),var(--bs-bg-opacity))!important;
+}
 
 
 @media screen and (min-width: 768px) {

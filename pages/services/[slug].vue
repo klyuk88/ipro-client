@@ -14,9 +14,9 @@
         class="position-absolute w-100 h-100 top-0 start-0 bg-dark opacity-75 z-2"
       ></div>
       <div class="container text-white position-absolute start-50 z-3 top-50 translate-middle ">
-        <h1>Лазерная резка</h1>
+        <h1 class="text-uppercase fw-bold">Лазерная резка</h1>
         <p class="mt-3 w-lg-50">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Власти большого реторический ему коварный проектах скатился страну собрал от всех снова если языком парадигматическая, семь маленькая букв свой алфавит агентство.</p>
-        <button class="btn btn-primary px-4 py-2 rounded-1 mt-4">Расчёт стоимости</button>
+        <ui-button class="btn-primary px-5 py-3 mt-5 text-uppercase fw-medium">Оставить заявку</ui-button>
       </div>
 
     </div>
