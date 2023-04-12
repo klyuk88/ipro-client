@@ -1,5 +1,5 @@
 <template>
-  <section class="py-5 py-lg-6 reviews position-relative">
+  <section class="py-5 py-lg-6 reviews position-relative bg-light">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between">
         <h2>Отзывы о нашей работе</h2>

@@ -1,12 +1,30 @@
 <script setup>
+import { ref, reactive } from "vue";
 definePageMeta({
   layout: "inner",
 });
 const modalCalc = useModalCalc();
 
+const file = ref(null);
+const form = reactive({
+  metall: null,
+  thickness: null,
+  cutLength: null,
+  thickness: null,
+  square: {
+    width: null,
+    length: null,
+  },
+  delivery: null,
+  terms: null,
+});
 
-
-
+watch(
+  () => form.metall,
+  (newVal) => {
+    console.log(newVal);
+  }
+);
 </script>
 <template>
   <h1>Расчёт стоимости</h1>
@@ -17,7 +35,7 @@ const modalCalc = useModalCalc();
     <a href="tel:+74951234567">+7 (495) 123 45 67</a>
   </p>
 
-  <div class="mt-5 border border-bottom-0">
+  <div class="mt-5 border border-bottom-0 d-none">
     <form>
       <div class="px-4 py-4 border-bottom">
         <div class="row align-items-center row-gap-3">
@@ -44,7 +62,8 @@ const modalCalc = useModalCalc();
                   type="radio"
                   name="material"
                   id="steel"
-                  value="steel1"
+                  value="сталь"
+                  v-model="form.metall"
                 />
                 <span class="d-block">Сталь СТ3</span>
               </div>
@@ -64,7 +83,8 @@ const modalCalc = useModalCalc();
                   type="radio"
                   name="material"
                   id="steel2"
-                  value="steel2"
+                  value="нержавейка"
+                  v-model="form.metall"
                 />
                 <span class="d-block">Нержавейка</span>
               </div>
@@ -84,7 +104,8 @@ const modalCalc = useModalCalc();
                   type="radio"
                   name="material"
                   id="steel3"
-                  value="steel3"
+                  value="оцинковка"
+                  v-model="form.metall"
                 />
                 <span class="d-block">Оцинковка</span>
               </div>
@@ -93,7 +114,10 @@ const modalCalc = useModalCalc();
         </div>
       </div>
       <div class="px-4 py-4 border-bottom position-relative">
-        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
+        <div
+          class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1"
+          v-if="form.metall === null"
+        >
           <div
             class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"
           ></div>
@@ -121,6 +145,7 @@ const modalCalc = useModalCalc();
             <select
               class="form-select bg-light"
               aria-label="Default select example"
+              v-model="form.thickness"
             >
               <option value="0.5">0.5</option>
               <option value="1">1</option>
@@ -136,7 +161,10 @@ const modalCalc = useModalCalc();
       </div>
 
       <div class="px-4 py-4 border-bottom position-relative">
-        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
+        <div
+          class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1"
+          v-if="form.thickness === null"
+        >
           <div
             class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"
           ></div>
@@ -155,19 +183,29 @@ const modalCalc = useModalCalc();
           <div class="col-md-6">
             <h2 class="fs-4">Количество резов</h2>
             <small class="text-secondary mt-2 d-block"
-              >Далеко-далеко за словесными горами в стране гласных и согласных,
-              живут рыбные тексты. Алфавит буквоград грамматики выйти.</small
+              >
+              Выберите доступное значение или введите свое
+              </small
             >
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 d-flex gap-3">
             <select
               class="form-select bg-light"
               aria-label="Default select example"
+              v-model="form.cutLength"
             >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
             </select>
+
+            <input
+              type="text"
+              class="form-control bg-light"
+              required
+              placeholder=""
+              v-model="form.cutLength"
+            />
           </div>
         </div>
       </div>
@@ -418,11 +456,19 @@ const modalCalc = useModalCalc();
 
       <div class="px-4 py-4 border-bottom position-relative">
         <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
-          <div class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"></div>
-          <div class="position-relative z-3 text-white d-flex align-items-center gap-3 ps-3 ps-md-5">
-            <span class="fs-3 border border-5 border-primary rounded-5 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px">9</span>
+          <div
+            class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"
+          ></div>
+          <div
+            class="position-relative z-3 text-white d-flex align-items-center gap-3 ps-3 ps-md-5"
+          >
+            <span
+              class="fs-3 border border-5 border-primary rounded-5 d-flex align-items-center justify-content-center"
+              style="width: 60px; height: 60px"
+              >9</span
+            >
             <h3>Сроки</h3>
-            </div>
+          </div>
         </div>
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
@@ -432,9 +478,10 @@ const modalCalc = useModalCalc();
               живут рыбные тексты. Алфавит буквоград грамматики выйти.</small
             >
           </div>
-          <div class="col-md-6 d-flex align-items-center justify-content-between">
+          <div
+            class="col-md-6 d-flex align-items-center justify-content-between"
+          >
             <div class="form-check form-check-inline">
-              
               <input
                 class="form-check-input"
                 type="radio"
@@ -442,7 +489,10 @@ const modalCalc = useModalCalc();
                 id="inlineRadio1"
                 value="option1"
               />
-              <label class="form-check-label" for="inlineRadio1">Сегодня <br> 01.02.23</label>
+              <label class="form-check-label" for="inlineRadio1"
+                >Сегодня <br />
+                01.02.23</label
+              >
             </div>
             <div class="form-check form-check-inline">
               <input
@@ -452,11 +502,18 @@ const modalCalc = useModalCalc();
                 id="inlineRadio2"
                 value="option2"
               />
-              <label class="form-check-label" for="inlineRadio2">Завтра<br>02.02.23</label>
+              <label class="form-check-label" for="inlineRadio2"
+                >Завтра<br />02.02.23</label
+              >
             </div>
             <div class="form-check form-check-inline">
-            <span>Выбрать свою дату</span>
-              <input type="date" name="" id="" class="form-control bg-light mt-2" />
+              <span>Выбрать свою дату</span>
+              <input
+                type="date"
+                name=""
+                id=""
+                class="form-control bg-light mt-2"
+              />
             </div>
           </div>
         </div>
@@ -470,6 +527,8 @@ const modalCalc = useModalCalc();
       </div> -->
     </form>
   </div>
+
+ 
 
   <modals-calculate v-if="modalCalc" />
 </template>

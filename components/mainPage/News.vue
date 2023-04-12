@@ -1,5 +1,5 @@
 <template>
-  <section class="news bg-light py-5 py-lg-6">
+  <section class="news py-5 py-lg-6">
     <div class="container">
       <h2>Новости</h2>
       <p class="mt-3 w-md-75 text-secondary">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Снова которое буквенных он наш коварных грамматики толку, запятой имени последний речью, решила всеми своего обеспечивает заглавных пор даже на берегу!</p>
@@ -9,7 +9,7 @@
         <div class="col-md-6 col-lg-3"
         v-for="(item, index) in 4" :key="index"
         >
-        <news-item/>
+        <news-item class="shadow"/>
 
         </div>
       </div>
