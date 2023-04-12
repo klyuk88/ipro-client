@@ -17,7 +17,7 @@ definePageMeta({
                 <reviews-item/>
               </li>
             </ul>
-            <button class="btn btn-outline-primary d-block mx-auto mt-4 ">Показать еще</button>
+            <ui-button class="btn-outline-primary d-block mx-auto mt-4 ">Показать еще</ui-button>
         </div>
       </div>
       <div class="col-lg-3 order-lg-first mt-5 mt-lg-0">

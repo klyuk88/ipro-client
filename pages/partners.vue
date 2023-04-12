@@ -42,9 +42,9 @@ definePageMeta({
           </li>
         </ul>
 
-        <button class="btn btn-outline-primary d-block mx-auto mt-4">
+        <ui-button class="btn-outline-primary d-block mx-auto mt-4">
           Показать ещё
-        </button>
+        </ui-button>
       </div>
       <div class="col-lg-3 order-lg-first mt-5 mt-lg-0">
         <page-sidebar />

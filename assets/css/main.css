@@ -209,6 +209,13 @@ a {
   background-color: rgba(var(--info-color-rgb),var(--bs-bg-opacity))!important;
 }
 
+.border-primary {
+  border-color: rgba(var(--accent-color-rgb),var(--bs-border-opacity))!important;
+}
+
+.w-30 {
+  width: 30%!important;
+}
 
 @media screen and (min-width: 768px) {
   .w-md-75 {

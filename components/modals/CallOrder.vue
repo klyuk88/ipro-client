@@ -1,12 +1,18 @@
 <script setup>
 const callOrderShow = useCallOrderModal()
+const props = defineProps({
+  title: {
+    type: String,
+    default: "Заказать звонок"
+  }
+})
 </script>
 <template>
   <div class="modal bg-dark d-block" style="--bs-bg-opacity: 0.75" @click.self="callOrderShow = false">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content rounded-0">
+      <div class="modal-content pb-4 pt-2 px-3">
         <div class="modal-header border-0">
-           <h5 class="modal-title fs-3">Заказать звонок</h5>
+           <h5 class="modal-title fs-3">{{props.title}}</h5>
           <button type="button" class="btn-close" @click="callOrderShow = false"></button>
         </div>
         
@@ -17,7 +23,7 @@ const callOrderShow = useCallOrderModal()
             <div class="mb-3">
               <input
                 type="text"
-                class="form-control bg-light"
+                class="form-control bg-light rounded-2"
                 id=""
                 placeholder="Имя"
               />
@@ -25,7 +31,7 @@ const callOrderShow = useCallOrderModal()
             <div class="mb-3">
               <input
                 type="tel"
-                class="form-control bg-light"
+                class="form-control bg-light rounded-2"
                 id=""
                 placeholder="Телефон"
               />
@@ -45,7 +51,7 @@ const callOrderShow = useCallOrderModal()
               </div>
             </div>
           </form>
-          <button class="btn btn-primary rounded-1 px-4 py-2 mx-auto d-block">Заказать звонок</button>
+          <ui-button class="btn-primary px-4 py-2 mx-auto d-block">Заказать звонок</ui-button>
         </div>
 
       </div>

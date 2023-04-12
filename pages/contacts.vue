@@ -47,7 +47,7 @@ const layer = ref(true)
             <h5 class="fs-7 text-secondary fw-medium">Телефон</h5>
             <a
               href="tel:+"
-              class="text-decoration-none fs-6 mt-2 d-inline-block text-secondary"
+              class="text-decoration-none fs-6 mt-2 d-inline-block text-dark"
               >+7 495 123 45 67</a
             >
           </div>
@@ -61,7 +61,7 @@ const layer = ref(true)
             <h5 class="fs-7 text-secondary fw-medium">E-mail</h5>
             <a
               href="mailto:"
-              class="text-decoration-none fs-6 mt-2 d-inline-block text-secondary"
+              class="text-decoration-none fs-6 mt-2 d-inline-block text-dark"
               >ipro@ipro.com</a
             >
           </div>
@@ -95,21 +95,21 @@ const layer = ref(true)
                 <!-- <label for="" class="fs-7 text-secondary mb-2"
                   >Имя <span class="text-danger">*</span></label
                 > -->
-                <input type="text" class="form-control bg-light" required placeholder="Имя*"/>
+                <input type="text" class="form-control bg-light rounded-2" required placeholder="Имя*"/>
               </div>
 
                <div class="mb-3">
               <!-- <label for="" class="fs-7 text-secondary mb-2"
                 >E-mail <span class="text-danger">*</span></label
               > -->
-              <input type="email" class="form-control bg-light" required placeholder="E-mail*"/>
+              <input type="email" class="form-control bg-light rounded-2" required placeholder="E-mail*"/>
             </div>
 
             <div class="mb-3">
               <!-- <label for="" class="fs-7 text-secondary mb-2"
                 >Телефон <span class="text-danger">*</span></label
               > -->
-              <input type="tel" class="form-control bg-light" required placeholder="Телефон*"/>
+              <input type="tel" class="form-control bg-light rounded-2" required placeholder="Телефон*"/>
             </div>
 
 
@@ -118,7 +118,7 @@ const layer = ref(true)
 
               <div class="mb-3">
               <!-- <label for="" class="fs-7 text-secondary mb-2">Сообщение</label> -->
-              <textarea class="form-control bg-light" placeholder="Сообщение" style="height: 140px"></textarea>
+              <textarea class="form-control bg-light rounded-2" placeholder="Сообщение" style="height: 140px"></textarea>
             </div>
             </div>
           </div>

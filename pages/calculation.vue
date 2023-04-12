@@ -2,13 +2,19 @@
 definePageMeta({
   layout: "inner",
 });
-const modalCalc = useModalCalc()
+const modalCalc = useModalCalc();
+
+
+
+
 </script>
 <template>
   <h1>Расчёт стоимости</h1>
   <p class="text-secondary mt-2">
     Калькулятор стоимости пока что работает только для услуги "Лазерная резка",
-    в будущем мы добавим в расчёт и другие услуги.
+    в будущем мы добавим в расчёт и другие услуги. Для расчета других услуг
+    обратитесь к менеджеру.
+    <a href="tel:+74951234567">+7 (495) 123 45 67</a>
   </p>
 
   <div class="mt-5 border border-bottom-0">
@@ -39,7 +45,6 @@ const modalCalc = useModalCalc()
                   name="material"
                   id="steel"
                   value="steel1"
-                  checked
                 />
                 <span class="d-block">Сталь СТ3</span>
               </div>
@@ -87,7 +92,23 @@ const modalCalc = useModalCalc()
           </div>
         </div>
       </div>
-      <div class="px-4 py-4 border-bottom">
+      <div class="px-4 py-4 border-bottom position-relative">
+        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
+          <div
+            class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"
+          ></div>
+          <div
+            class="position-relative z-3 text-white d-flex align-items-center gap-3 ps-3 ps-md-5"
+          >
+            <span
+              class="fs-3 border border-5 border-primary rounded-5 d-flex align-items-center justify-content-center"
+              style="width: 60px; height: 60px"
+              >2</span
+            >
+            <h3>Толщина металла</h3>
+          </div>
+        </div>
+
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Толщина металла(мм)</h2>
@@ -114,7 +135,22 @@ const modalCalc = useModalCalc()
         </div>
       </div>
 
-      <div class="px-4 py-4 border-bottom">
+      <div class="px-4 py-4 border-bottom position-relative">
+        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
+          <div
+            class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"
+          ></div>
+          <div
+            class="position-relative z-3 text-white d-flex align-items-center gap-3 ps-3 ps-md-5"
+          >
+            <span
+              class="fs-3 border border-5 border-primary rounded-5 d-flex align-items-center justify-content-center"
+              style="width: 60px; height: 60px"
+              >3</span
+            >
+            <h3>Количество резов</h3>
+          </div>
+        </div>
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Количество резов</h2>
@@ -135,7 +171,22 @@ const modalCalc = useModalCalc()
           </div>
         </div>
       </div>
-      <div class="px-4 py-4 border-bottom">
+      <div class="px-4 py-4 border-bottom position-relative">
+        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
+          <div
+            class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"
+          ></div>
+          <div
+            class="position-relative z-3 text-white d-flex align-items-center gap-3 ps-3 ps-md-5"
+          >
+            <span
+              class="fs-3 border border-5 border-primary rounded-5 d-flex align-items-center justify-content-center"
+              style="width: 60px; height: 60px"
+              >4</span
+            >
+            <h3>Длина реза</h3>
+          </div>
+        </div>
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Длина реза</h2>
@@ -154,7 +205,22 @@ const modalCalc = useModalCalc()
           </div>
         </div>
       </div>
-      <!-- <div class="px-4 py-4 border-bottom">
+      <div class="px-4 py-4 border-bottom position-relative">
+        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
+          <div
+            class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"
+          ></div>
+          <div
+            class="position-relative z-3 text-white d-flex align-items-center gap-3 ps-3 ps-md-5"
+          >
+            <span
+              class="fs-3 border border-5 border-primary rounded-5 d-flex align-items-center justify-content-center"
+              style="width: 60px; height: 60px"
+              >5</span
+            >
+            <h3>Обработка</h3>
+          </div>
+        </div>
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Обработка</h2>
@@ -163,17 +229,88 @@ const modalCalc = useModalCalc()
               живут рыбные тексты. Алфавит буквоград грамматики выйти.</small
             >
           </div>
-          <div class="col-md-6">
-            <input
-              type="text"
-              class="form-control bg-light"
-              required
-              placeholder="Длина реза"
-            />
+          <div class="col-lg-6 d-flex flex-wrap gap-4 align-items-start">
+            <label class="d-block" for="no-paint">
+              <div class="" style="width: 120px; height: 90px">
+                <img
+                  src="@/assets/img/no-paint.jpeg"
+                  alt=""
+                  class="d-block cursor-pointer w-100 h-100 object-fit-contain"
+                />
+              </div>
+
+              <div class="d-flex gap-2 mt-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="material"
+                  id="no-paint"
+                  value="no-paint"
+                />
+                <span class="d-block">Нет</span>
+              </div>
+            </label>
+            <label class="d-block" for="paint-ral">
+              <div class="" style="width: 120px; height: 90px">
+                <img
+                  src="@/assets/img/8017.png"
+                  alt=""
+                  class="d-block cursor-pointer w-100 h-100 object-fit-cover"
+                />
+              </div>
+
+              <div class="d-flex gap-2 mt-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="material"
+                  id="paint-ral"
+                  value="paint-ral"
+                />
+                <span class="d-block"
+                  >Порошковая<br />покраска<br />(RAL 0000)</span
+                >
+              </div>
+            </label>
+            <label class="d-block" for="other-paint">
+              <div class="" style="width: 120px; height: 90px">
+                <img
+                  src="@/assets/img/rals.jpeg"
+                  alt=""
+                  class="d-block cursor-pointer w-100 h-100 object-fit-cover"
+                />
+              </div>
+
+              <div class="d-flex gap-2 mt-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="material"
+                  id="other-paint"
+                  value="other-paint"
+                />
+                <span class="d-block">Свой цвет RAL</span>
+              </div>
+            </label>
           </div>
         </div>
-      </div> -->
-      <div class="px-4 py-4 border-bottom">
+      </div>
+      <div class="px-4 py-4 border-bottom position-relative">
+        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
+          <div
+            class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"
+          ></div>
+          <div
+            class="position-relative z-3 text-white d-flex align-items-center gap-3 ps-3 ps-md-5"
+          >
+            <span
+              class="fs-3 border border-5 border-primary rounded-5 d-flex align-items-center justify-content-center"
+              style="width: 60px; height: 60px"
+              >6</span
+            >
+            <h3>Площадь изделия</h3>
+          </div>
+        </div>
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Площадь изделия</h2>
@@ -201,7 +338,22 @@ const modalCalc = useModalCalc()
         </div>
       </div>
 
-      <div class="px-4 py-4 border-bottom">
+      <div class="px-4 py-4 border-bottom position-relative">
+        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
+          <div
+            class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"
+          ></div>
+          <div
+            class="position-relative z-3 text-white d-flex align-items-center gap-3 ps-3 ps-md-5"
+          >
+            <span
+              class="fs-3 border border-5 border-primary rounded-5 d-flex align-items-center justify-content-center"
+              style="width: 60px; height: 60px"
+              >7</span
+            >
+            <h3>Дополнительно</h3>
+          </div>
+        </div>
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Дополнительно</h2>
@@ -226,7 +378,22 @@ const modalCalc = useModalCalc()
         </div>
       </div>
 
-      <!-- <div class="px-4 py-4 border-bottom">
+      <div class="px-4 py-4 border-bottom position-relative">
+        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
+          <div
+            class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"
+          ></div>
+          <div
+            class="position-relative z-3 text-white d-flex align-items-center gap-3 ps-3 ps-md-5"
+          >
+            <span
+              class="fs-3 border border-5 border-primary rounded-5 d-flex align-items-center justify-content-center"
+              style="width: 60px; height: 60px"
+              >8</span
+            >
+            <h3>Способы доставки</h3>
+          </div>
+        </div>
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Способы доставки</h2>
@@ -242,13 +409,21 @@ const modalCalc = useModalCalc()
               required
             >
               <option value="0.5">Самовывоз</option>
-              <option value="1">Транспортная компания</option>
+              <option value="1">Адрес Москва, МО</option>
+              <option value="2">Транспортная компания</option>
             </select>
           </div>
         </div>
-      </div> -->
+      </div>
 
-      <div class="px-4 py-4">
+      <div class="px-4 py-4 border-bottom position-relative">
+        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex z-1">
+          <div class="position-absolute start-0 top-0 bg-black w-100 opacity-75 h-100 d-flex justify-content-start align-items-center z-2"></div>
+          <div class="position-relative z-3 text-white d-flex align-items-center gap-3 ps-3 ps-md-5">
+            <span class="fs-3 border border-5 border-primary rounded-5 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px">9</span>
+            <h3>Сроки</h3>
+            </div>
+        </div>
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Сроки</h2>
@@ -257,39 +432,44 @@ const modalCalc = useModalCalc()
               живут рыбные тексты. Алфавит буквоград грамматики выйти.</small
             >
           </div>
-          <div class="col-md-6">
-            <input type="date" name="" id="" class="form-control bg-light" required/>
+          <div class="col-md-6 d-flex align-items-center justify-content-between">
+            <div class="form-check form-check-inline">
+              
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="option1"
+              />
+              <label class="form-check-label" for="inlineRadio1">Сегодня <br> 01.02.23</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+                value="option2"
+              />
+              <label class="form-check-label" for="inlineRadio2">Завтра<br>02.02.23</label>
+            </div>
+            <div class="form-check form-check-inline">
+            <span>Выбрать свою дату</span>
+              <input type="date" name="" id="" class="form-control bg-light mt-2" />
+            </div>
           </div>
         </div>
       </div>
 
-      <div
+      <!-- <div
         class="px-3 py-3 px-md-4 py-md-5 border-bottom border-top bg-light position-sticky bottom-0"
       >
       <button class="btn btn-primary btn-lg mx-auto d-block px-5 py-3 rounded-1" @click="modalCalc = true">Рассчитать</button>
-        <!-- <div class="row align-items-center row-gap-3">
-          <div class="col-md-6">
-            <h2 class="fs-2">Итого стоимость</h2>
-            <div class="d-flex gap-3">
-              <button class="btn btn-primary mt-2 rounded-1 px-4 py-2">
-              Расcчитать
-            </button>
-            </div>
-            
-            <small class="text-secondary mt-2 d-block"
-            >Далеко-далеко за словесными горами в стране гласных и согласных,
-            живут рыбные тексты. Алфавит буквоград грамматики выйти.</small
-          >
-          </div>
-          <div class="col-md-6">
-            <h2 class="">0 руб.</h2>
-          </div>
-        </div> -->
-      </div>
+      
+      </div> -->
     </form>
   </div>
 
-  <modals-calculate
-  v-if="modalCalc"
-  />
+  <modals-calculate v-if="modalCalc" />
 </template>

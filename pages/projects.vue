@@ -37,7 +37,7 @@ const onHide = () => (visibleRef.value = false);
         </div>
       </div>
   </div>
-  <button class="btn btn-outline-primary mx-auto d-block mt-4 rounded-1 px-4 py-2">Загрузить еще</button>
+  <ui-button class="btn-outline-primary mx-auto d-block mt-4 px-4 py-2">Загрузить еще</ui-button>
 
     <vue-easy-lightbox
       :visible="visibleRef"

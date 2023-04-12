@@ -4,7 +4,7 @@ const writeDirectorShow = useWriteDirectorModal()
 <template>
   <div class="modal bg-dark d-block" style="--bs-bg-opacity: 0.75" :class="{'d-block': writeDirectorShow}" @click.self="writeDirectorShow = false">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content rounded-0">
+      <div class="modal-content pb-4 pt-2 px-3">
         <div class="modal-header border-0">
           <h5 class="modal-title fs-3">Написать руководителю</h5>
           <button type="button" class="btn-close" @click="writeDirectorShow = false"></button>
@@ -14,7 +14,7 @@ const writeDirectorShow = useWriteDirectorModal()
             <div class="mb-3">
               <input
                 type="text"
-                class="form-control bg-light"
+                class="form-control bg-light rounded-2"
                 id=""
                 placeholder="Имя"
               />
@@ -22,7 +22,7 @@ const writeDirectorShow = useWriteDirectorModal()
             <div class="mb-3">
               <input
                 type="tel"
-                class="form-control bg-light"
+                class="form-control bg-light rounded-2"
                 id=""
                 placeholder="Телефон"
               />
@@ -30,14 +30,14 @@ const writeDirectorShow = useWriteDirectorModal()
             <div class="mb-3">
               <input
                 type="email"
-                class="form-control bg-light"
+                class="form-control bg-light rounded-2"
                 id=""
                 placeholder="E-mail"
               />
             </div>
 
             <div class="mb-3">
-              <textarea class="form-control bg-light" rows="3" placeholder="Ваш вопрос"></textarea>
+              <textarea class="form-control bg-light rounded-2" rows="3" placeholder="Ваш вопрос"></textarea>
             </div>
 
             <div class="mb-3">
