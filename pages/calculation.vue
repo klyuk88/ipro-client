@@ -29,10 +29,9 @@ watch(
 <template>
   <h1>Расчёт стоимости</h1>
   <p class="text-secondary mt-2">
-    Калькулятор стоимости пока что работает только для услуги "Лазерная резка",
-    в будущем мы добавим в расчёт и другие услуги. Для расчета других услуг
-    обратитесь к менеджеру.
-    <a href="tel:+74951234567">+7 (495) 123 45 67</a>
+    Калькулятор стоимости работает только для услуги "Лазерная резка",
+    в будущем мы добавим в расчёт и других услуг. Для расчета других услуг пожалуйста
+    обратитесь к менеджеру по телефону <a href="tel:+74951234567">+7 (495) 123 45 67</a>
   </p>
 
   <div class="mt-5 border border-bottom-0 d-none">
@@ -182,11 +181,9 @@ watch(
         <div class="row align-items-center row-gap-3">
           <div class="col-md-6">
             <h2 class="fs-4">Количество резов</h2>
-            <small class="text-secondary mt-2 d-block"
-              >
+            <small class="text-secondary mt-2 d-block">
               Выберите доступное значение или введите свое
-              </small
-            >
+            </small>
           </div>
           <div class="col-md-6 d-flex gap-3">
             <select
@@ -528,7 +525,100 @@ watch(
     </form>
   </div>
 
- 
+<!-- опросник  -->
+  <div
+    class="p-5 mt-5 d-flex flex-column align-items-center border rounded-3"
+    style="height: 500px"
+  >
+  <p class="fs-7 text-secondary">Шаг 1 из 5</p>
+   <div class="progress w-100 mt-3" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar bg-info" style="width: 25%">25%</div>
+</div>
+
+    <div class="mt-6">
+      <div class="row align-items-center row-gap-3">
+        <div class="col-lg-6">
+          <h2 class="fs-4">Выбор материала</h2>
+          <small class="text-secondary mt-2 d-block"
+            >Далеко-далеко за словесными горами в стране гласных и согласных,
+            живут рыбные тексты. Алфавит буквоград грамматики выйти.</small
+          >
+        </div>
+        <div class="col-lg-6 d-flex flex-wrap gap-4">
+          <label class="d-block" for="steel">
+            <div class="" style="width: 120px">
+              <img
+                src="@/assets/img/steel.jpeg"
+                alt=""
+                class="d-block cursor-pointer w-100 object-fit-cover"
+              />
+            </div>
+
+            <div class="d-flex gap-2 mt-2">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="material"
+                id="steel"
+                value="сталь"
+                v-model="form.metall"
+              />
+              <span class="d-block">Сталь СТ3</span>
+            </div>
+          </label>
+          <label class="d-block" for="steel2">
+            <div class="" style="width: 120px">
+              <img
+                src="@/assets/img/nerzhaveyka.jpeg"
+                alt=""
+                class="d-block cursor-pointer w-100 object-fit-cover"
+              />
+            </div>
+
+            <div class="d-flex gap-2 mt-2">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="material"
+                id="steel2"
+                value="нержавейка"
+                v-model="form.metall"
+              />
+              <span class="d-block">Нержавейка</span>
+            </div>
+          </label>
+          <label class="d-block" for="steel3">
+            <div class="" style="width: 120px">
+              <img
+                src="@/assets/img/art-ocinkovka.jpg"
+                alt=""
+                class="d-block cursor-pointer w-100 object-fit-cover"
+              />
+            </div>
+
+            <div class="d-flex gap-2 mt-2">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="material"
+                id="steel3"
+                value="оцинковка"
+                v-model="form.metall"
+              />
+              <span class="d-block">Оцинковка</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+  <div class="mt-auto">
+    <ui-button class="btn btn-outline-secondary disabled">Назад</ui-button>
+  </div>
+
+
+  </div>
+  <!-- конец опросника  -->
 
   <modals-calculate v-if="modalCalc" />
 </template>

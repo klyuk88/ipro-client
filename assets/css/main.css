@@ -217,6 +217,11 @@ a {
   width: 30%!important;
 }
 
+
+.mt-6 {
+  margin-top: 5rem;
+}
+
 @media screen and (min-width: 768px) {
   .w-md-75 {
     width: 75%!important;
