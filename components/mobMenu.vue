@@ -22,13 +22,13 @@ const mobMenu = useMobileMenu()
         <li>
           <nuxt-link
             to="/"
-            class="text-decoration-none p-3 border-bottom d-block"
+            class="text-decoration-none p-3 border-bottom d-block text-dark"
           >
             Главная
           </nuxt-link>
         </li>
         <li class="border-bottom pt-3 pb-3 position-relative">
-          <nuxt-link to="/about" class="text-decoration-none ms-3 d-block">
+          <nuxt-link to="/about" class="text-decoration-none ms-3 d-block text-dark">
             О компании
             <!-- <ul class="list-unstyled mt-3 mob-submenu">
             <li class="w-100 border-top">
@@ -65,30 +65,30 @@ const mobMenu = useMobileMenu()
         </li>
 
         <li class="border-bottom pt-3 pb-3">
-          <nuxt-link to="/services" class="text-decoration-none ms-3">
+          <nuxt-link to="/services" class="text-decoration-none ms-3 text-dark">
             Услуги
           </nuxt-link>
         </li>
 
         <li class="border-bottom pt-3 pb-3">
-          <nuxt-link to="/posts" class="text-decoration-none ms-3">
+          <nuxt-link to="/posts" class="text-decoration-none ms-3 text-dark">
             Статьи
           </nuxt-link>
         </li>
 
         <li class="border-bottom pt-3 pb-3">
-          <nuxt-link to="/projects" class="text-decoration-none ms-3">
+          <nuxt-link to="/projects" class="text-decoration-none ms-3 text-dark">
             Проекты
           </nuxt-link>
         </li>
         <li class="border-bottom pt-3 pb-3">
-          <nuxt-link to="/contacts" class="text-decoration-none ms-3">
+          <nuxt-link to="/contacts" class="text-decoration-none ms-3 text-dark">
             Контакты
           </nuxt-link>
         </li>
         <li class="border-bottom pt-3 pb-3">
-          <nuxt-link to="/calculation" class="text-decoration-none ms-3">
-            Расчёт стоимости
+          <nuxt-link to="/calculation" class="text-decoration-none ms-3 text-dark">
+            Онлайн калькулятор
           </nuxt-link>
         </li>
       </ul>
