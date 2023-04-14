@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="rounded-2 overflow-hidden">
     <nuxt-link to="/posts/slug" class="ratio ratio-4x3 hover-opacity-75 d-block">
       <img src="@/assets/img/news-image.jpg" />
     </nuxt-link>

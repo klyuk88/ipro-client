@@ -6,7 +6,7 @@ const writeDirectorShow = useWriteDirectorModal()
   <section class="contacts-map position-relative" @mouseleave="layer=true">
     <div class="position-absolute start-0 top-0 w-100 h-100 d-none d-md-block" @click="layer=false" v-if="layer"></div>
     <div
-      class="container contacts-map-info position-md-absolute bg-info p-4 mt-md-5 start-50 translate-md-middle-x text-white"
+      class="container contacts-map-info position-md-absolute bg-info p-4 mt-md-5 start-50 translate-md-middle-x text-white rounded-2"
     >
       <div class="row gy-4 align-items-center">
         <div class="col-md-6 col-lg-3">

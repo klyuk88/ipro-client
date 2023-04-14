@@ -1,7 +1,7 @@
 <template>
   
     <div
-      class="service-item shadow w-100 position-relative d-flex flex-column justify-content-end overflow-hidden"
+      class="service-item shadow w-100 position-relative d-flex flex-column justify-content-end overflow-hidden rounded-2"
       style="aspect-ratio: 1/1"
     >
       <div

@@ -10,7 +10,7 @@ import sectionBg from "../../assets/img/form-section-image.jpg";
     <div class="container">
       <div class="row">
         <div class="col-md-8 offset-md-4 col-lg-6 offset-lg-6">
-          <form action="" class="p-4 p-md-5 bg-white">
+          <form action="" class="p-4 p-md-5 bg-white rounded-2">
             <h2 class="fs-4">Предложим лучшие условия работы на рынке</h2>
             <h3 class="fs-6 fw-normal mt-3 mb-3 text-secondary">
               Далеко-далеко за словесными горами, в стране гласных и согласных

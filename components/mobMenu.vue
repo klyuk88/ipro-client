@@ -3,7 +3,7 @@ const mobMenu = useMobileMenu()
 </script>
 <template>
   <div
-    class="position-fixed w-100 start-0 top-0 bg-white vh-100 mobile-menu"
+    class="position-fixed w-100 start-0 top-0 bg-white vh-100 mobile-menu d-xl-none"
     :class="{active: mobMenu}"
   >
     <img
@@ -92,7 +92,7 @@ const mobMenu = useMobileMenu()
           </nuxt-link>
         </li>
       </ul>
-      <div class="bg-light pt-3" style="padding-bottom: 70px">
+      <div class="bg-light pt-3" style="padding-bottom: 100px">
         <ul class="ps-3">
           <li class="d-flex gap-3 align-items-center mb-3">
             <i class="fa-solid fa-location-dot"></i>
