@@ -1,8 +1,11 @@
 <script setup>
 const showSearch = ref(false)
 const mobileMenu = useMobileMenu()
+const callOrderModal = useCallOrderModal()
+
 </script>
 <template>
+<modals-call-order v-if="callOrderModal"/>
   <the-search :activeSearch="showSearch" @closeSearch="showSearch = false"/>
   <div class="">
     <div class="container">
@@ -173,9 +176,9 @@ const mobileMenu = useMobileMenu()
           </ul>
         </nav>
 
-        <nuxt-link to="/calculation" class="text-decoration-none"><button class="btn btn-outline-primary rounded-5 d-none d-xl-block">
+        <ui-button class="btn-outline-primary d-none d-xl-block" @click="callOrderModal = true">
           Оставить заявку
-        </button></nuxt-link>
+        </ui-button>
 
         <div class="d-xl-none" style="width: 40px">
           <img src="@/assets/img/mob-menu.png" alt="" class="w-100" @click="mobileMenu=true">

@@ -48,7 +48,7 @@ import bannerBg from "../../assets/img/main-slider-2.jpg";
               to="/calculation"
                 class="btn btn-primary rounded-5 mt-4 px-4 px-lg-5 py-3 text-uppercase fw-bolder"
               >
-                Онлайн калькулятор
+                Расчёт стоимости
               </nuxt-link>
             </div>
           </div>

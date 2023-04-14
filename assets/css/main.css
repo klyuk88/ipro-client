@@ -254,4 +254,7 @@ a {
   .w-xl-auto {
     width: auto!important;
   }
+  .fs-xl-2 {
+    font-size: calc(1.325rem + .9vw)!important;
+  }
 }

@@ -8,5 +8,6 @@ const writeDirectorShow = useWriteDirectorModal();
   <NuxtLayout>
     <NuxtLoadingIndicator :color="'#1d2963'" />
     <NuxtPage />
+    <CulcBottomCta/>
   </NuxtLayout>
 </template>
