@@ -5,11 +5,11 @@ definePageMeta({
 });
 
 const file = ref(null);
-const currentIndex = ref(1);
-const culcSum = ref(null);
+const currentIndex = ref(1)
 
-const width = ref(null);
-const length = ref(null);
+const width = ref(null)
+const length = ref(null)
+
 
 const form = reactive({
   metall: null,
@@ -22,15 +22,43 @@ const form = reactive({
   terms: null,
 });
 
+function nextStep () {
+  currentIndex.value += 1
+}
+
+function getFile() {
+  currentIndex.value += 1
+}
+
+function restartCalc() {
+  currentIndex.value = 0
+  for (const key in form) {
+    if (Object.hasOwnProperty.call(form, key)) {
+      form[key] = null;
+    }
+  }
+}
+
 const square = computed(() => {
-  return width.value * length.value || 0;
-});
+  return width.value * length.value || 0
+})
+
 
 watch(square, (newVal) => {
   if (newVal > 0) {
-    form.square = square.value;
+    form.square = square.value
   }
-});
+})
+
+watch(form,
+  (newVal) => {
+      currentIndex.value += 1
+  }
+);
+
+const progress = computed(() => {
+  return currentIndex.value / 100 * 1000
+})
 </script>
 <template>
   <h1>Расчёт стоимости</h1>
@@ -41,8 +69,22 @@ watch(square, (newVal) => {
     <a href="tel:+74951234567">+7 (495) 123 45 67</a>
   </p>
 
-  <div class="border border-bottom-0 mt-5">
-    <div class="border-bottom p-4 p-lg-5">
+
+  <!-- опросник  -->
+  <div
+    class="culcBody p-3 p-md-5 mt-5 d-flex flex-column align-items-center border rounded-3"
+    
+  >
+    <p class="fs-7 text-secondary">Шаг {{currentIndex}} из 10</p>
+    <div
+      class="progress w-100 mt-3"
+      role="progressbar"
+    >
+      <div class="progress-bar bg-info" :style="{width: `${progress}%`}">{{progress}}%</div>
+    </div>
+    
+    <!-- вопрос 1  -->
+    <div class="mt-6" v-if="currentIndex === 1">
       <div class="row align-items-center row-gap-3">
         <div class="col-lg-6">
           <h2 class="fs-4">Выбор материала</h2>
@@ -119,21 +161,8 @@ watch(square, (newVal) => {
       </div>
     </div>
 
-    <div class="border-bottom p-4 p-lg-5 position-relative">
-      <!-- фон с номером  -->
-      <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5 question-bg"
-        style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.metall === null"
-      >
-        <div
-          class="d-flex align-items-center justify-content-center question-number"
-        >
-          <span class="text-white fs-3 fw-medium">2</span>
-        </div>
-      </div>
-      <!-- фон с номером  -->
-
+    <!-- вопрос 2  -->
+    <div class="mt-6" v-if="currentIndex === 2">
       <div class="row align-items-center row-gap-3">
         <div class="col-md-6">
           <h2 class="fs-4">Толщина металла(мм)</h2>
@@ -143,97 +172,10 @@ watch(square, (newVal) => {
           >
         </div>
         <div class="col-md-6">
-          <div class="d-flex flex-wrap gap-4">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="thickness"
-                value="0.5"
-                id="thickness-05"
-                v-model="form.thickness"
-              />
-              <label class="form-check-label" for="thickness-05"> 0.5мм </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="thickness"
-                value="1"
-                id="thickness-1"
-                v-model="form.thickness"
-              />
-              <label class="form-check-label" for="thickness-1"> 1мм </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="thickness"
-                value="1.5"
-                id="thickness-15"
-                v-model="form.thickness"
-              />
-              <label class="form-check-label" for="thickness-15"> 1.5мм </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="thickness"
-                value="2"
-                id="thickness-2"
-                v-model="form.thickness"
-              />
-              <label class="form-check-label" for="thickness-2"> 2мм </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="thickness"
-                value="3"
-                id="thickness-3"
-                v-model="form.thickness"
-              />
-              <label class="form-check-label" for="thickness-3"> 3мм </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="thickness"
-                value="4"
-                id="thickness-4"
-                v-model="form.thickness"
-              />
-              <label class="form-check-label" for="thickness-4"> 4мм </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="thickness"
-                value="5"
-                id="thickness-5"
-                v-model="form.thickness"
-              />
-              <label class="form-check-label" for="thickness-5"> 5мм </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="thickness"
-                value="6"
-                id="thickness-6"
-                v-model="form.thickness"
-              />
-              <label class="form-check-label" for="thickness-6"> 6мм </label>
-            </div>
-          </div>
-          <!-- <select class="form-select bg-light" v-model="form.thickness">
+          <select
+            class="form-select bg-light"
+            v-model="form.thickness"
+          >
             <option>0.5</option>
             <option>1</option>
             <option>1.5</option>
@@ -242,34 +184,21 @@ watch(square, (newVal) => {
             <option>4</option>
             <option>5</option>
             <option>6</option>
-          </select> -->
+          </select>
         </div>
       </div>
     </div>
 
     <!-- вопрос 3  -->
-    <div class="border-bottom p-4 p-lg-5 position-relative">
-      <!-- фон с номером  -->
-      <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
-        style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.thickness === null"
-      >
-        <div
-          class="d-flex align-items-center justify-content-center question-number"
-        >
-          <span class="text-white fs-3 fw-medium">3</span>
-        </div>
-      </div>
-      <!-- фон с номером  -->
+    <div class="mt-6 w-100" v-if="currentIndex === 3">
       <div class="row align-items-center row-gap-3">
         <div class="col-md-6">
-          <h2 class="fs-4">Количество врезов</h2>
+          <h2 class="fs-4">Количество резов</h2>
           <small class="text-secondary mt-2 d-block">
             Выберите доступное значение или введите свое
           </small>
         </div>
-        <div class="col-md-6 d-flex gap-4 align-items-center">
+        <div class="col-md-6 d-flex gap-4">
           <div class="form-check">
             <input
               class="form-check-input"
@@ -306,7 +235,7 @@ watch(square, (newVal) => {
 
           <input
             type="text"
-            class="form-control bg-light rounded-1"
+            class="form-control bg-light"
             v-model.lazy="form.cutCount"
             placeholder="Другое"
           />
@@ -315,20 +244,7 @@ watch(square, (newVal) => {
     </div>
 
     <!-- вопрос 4  -->
-    <div class="border-bottom p-4 p-lg-5 position-relative">
-      <!-- фон с номером  -->
-      <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
-        style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.cutCount === null"
-      >
-        <div
-          class="d-flex align-items-center justify-content-center question-number"
-        >
-          <span class="text-white fs-3 fw-medium">4</span>
-        </div>
-      </div>
-      <!-- фон с номером  -->
+    <div class="mt-6" v-if="currentIndex === 4">
       <div class="row align-items-center row-gap-3">
         <div class="col-md-6">
           <h2 class="fs-4">Длина реза</h2>
@@ -340,30 +256,17 @@ watch(square, (newVal) => {
         <div class="col-md-6">
           <input
             type="text"
-            class="form-control bg-light rounded-1"
+            class="form-control bg-light"
             required
             placeholder="Длина реза (мм)"
-            v-model="form.cutLength"
+            v-model.lazy="form.cutLength"
           />
         </div>
       </div>
     </div>
 
     <!-- вопрос 5  -->
-    <div class="border-bottom p-4 p-lg-5 position-relative">
-      <!-- фон с номером  -->
-      <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
-        style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.cutLength === null"
-      >
-        <div
-          class="d-flex align-items-center justify-content-center question-number"
-        >
-          <span class="text-white fs-3 fw-medium">5</span>
-        </div>
-      </div>
-      <!-- фон с номером  -->
+    <div class="mt-6" v-if="currentIndex === 5">
       <div class="row align-items-center row-gap-3">
         <div class="col-md-6">
           <h2 class="fs-4">Обработка</h2>
@@ -373,80 +276,77 @@ watch(square, (newVal) => {
           >
         </div>
         <div class="col-lg-6 d-flex flex-wrap gap-4 align-items-start">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="painting"
-              value="Нет"
-              id="paint-non"
-              v-model="form.paint"
-            />
-            <label class="form-check-label" for="paint-non"> Нет </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="painting"
-              value="9003"
-              id="paint-9003"
-              v-model="form.paint"
-            />
-            <label class="form-check-label" for="paint-9003"> RAL 9003 </label>
-          </div>
+          <label class="d-block" for="paint">
+            <div class="" style="width: 120px; height: 90px">
+              <img
+                src="@/assets/img/no-paint.jpeg"
+                alt=""
+                class="d-block cursor-pointer w-100 h-100 object-fit-contain"
+              />
+            </div>
 
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="painting"
-              value="9005"
-              id="paint-9005"
-              v-model="form.paint"
-            />
-            <label class="form-check-label" for="paint-9005"> RAL 9005 </label>
-          </div>
+            <div class="d-flex gap-2 mt-2">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="paint"
+                id="paint"
+                value="no-paint"
+                v-model="form.paint"
+              />
+              <span class="d-block">Нет</span>
+            </div>
+          </label>
+          <label class="d-block" for="paintRal">
+            <div class="" style="width: 120px; height: 90px">
+              <img
+                src="@/assets/img/8017.png"
+                alt=""
+                class="d-block cursor-pointer w-100 h-100 object-fit-cover"
+              />
+            </div>
 
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="painting"
-              value="7037"
-              id="paint-7037"
-              v-model="form.paint"
-            />
-            <label class="form-check-label" for="paint-7037"> RAL 7037 </label>
-          </div>
+            <div class="d-flex gap-2 mt-2">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="paint"
+                id="paintRal"
+                value="paint-ral"
+                v-model="form.paint"
+              />
+              <span class="d-block"
+                >Порошковая<br />покраска<br />(RAL 0000)</span
+              >
+            </div>
+          </label>
+          <label class="d-block" for="customRal">
+            <div class="" style="width: 120px; height: 90px">
+              <img
+                src="@/assets/img/rals.jpeg"
+                alt=""
+                class="d-block cursor-pointer w-100 h-100 object-fit-cover"
+              />
+            </div>
 
-          <div class="">
-            <input
-              class="form-control bg-light rounded-1"
-              type="text"
-              placeholder="Свой цвет"
-              v-model="form.paint"
-            />
-          </div>
+            <div class="d-flex gap-2 mt-2">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="paint"
+                id="customRal"
+                value="other-paint"
+                v-model="form.paint"
+              />
+              <span class="d-block">Свой цвет RAL</span>
+            </div>
+          </label>
         </div>
       </div>
     </div>
 
     <!-- вопрос 6  -->
-    <div class="border-bottom p-4 p-lg-5 position-relative">
-      <!-- фон с номером  -->
-      <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
-        style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.paint === null"
-      >
-        <div
-          class="d-flex align-items-center justify-content-center question-number"
-        >
-          <span class="text-white fs-3 fw-medium">6</span>
-        </div>
-      </div>
-      <!-- фон с номером  -->
+    <div class="mt-6" v-if="currentIndex === 6">
       <div class="row align-items-center row-gap-3">
         <div class="col-md-6">
           <h2 class="fs-4">Площадь изделия</h2>
@@ -457,17 +357,17 @@ watch(square, (newVal) => {
         </div>
         <div class="col-md-6">
           <div class="mb-3 d-flex align-item-center gap-3">
-            <input type="hidden" name="" />
+            <input type="hidden" name="">
             <input
               type="text"
-              class="form-control bg-light rounded-1"
+              class="form-control bg-light"
               required
               placeholder="Длина(мм)"
               v-model.lazy="length"
             />
             <input
               type="text"
-              class="form-control bg-light rounded-1"
+              class="form-control bg-light"
               required
               placeholder="Ширина(мм)"
               v-model.lazy="width"
@@ -478,20 +378,7 @@ watch(square, (newVal) => {
     </div>
 
     <!-- вопрос 7  -->
-    <div class="border-bottom p-4 p-lg-5 position-relative">
-      <!-- фон с номером  -->
-      <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
-        style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.square === null"
-      >
-        <div
-          class="d-flex align-items-center justify-content-center question-number"
-        >
-          <span class="text-white fs-3 fw-medium">7</span>
-        </div>
-      </div>
-      <!-- фон с номером  -->
+    <div class="mt-6" v-if="currentIndex === 7">
       <div class="row align-items-center row-gap-3">
         <div class="col-md-6">
           <h2 class="fs-4">Дополнительно</h2>
@@ -518,20 +405,7 @@ watch(square, (newVal) => {
       </div>
     </div>
     <!-- вопрос 8  -->
-    <div class="border-bottom p-4 p-lg-5 position-relative">
-      <!-- фон с номером  -->
-      <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
-        style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.square === null"
-      >
-        <div
-          class="d-flex align-items-center justify-content-center question-number"
-        >
-          <span class="text-white fs-3 fw-medium">8</span>
-        </div>
-      </div>
-      <!-- фон с номером  -->
+    <div class="mt-6" v-if="currentIndex === 8">
       <div class="row align-items-center row-gap-3">
         <div class="col-md-6">
           <h2 class="fs-4">Способы доставки</h2>
@@ -540,76 +414,32 @@ watch(square, (newVal) => {
             живут рыбные тексты. Алфавит буквоград грамматики выйти.</small
           >
         </div>
-        <div class="col-md-6 d-flex flex-wrap gap-4">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="delivery"
-              value="Самовывоз"
-              id="delivery-1"
-              v-model="form.delivery"
-            />
-            <label class="form-check-label" for="delivery-1"> Самовывоз </label>
-          </div>
-
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="delivery"
-              value="Адрес"
-              id="delivery-2"
-              v-model="form.delivery"
-            />
-            <label class="form-check-label" for="delivery-2">
-              Адрес Москва, МО
-            </label>
-          </div>
-
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="delivery"
-              value="Транспортная компания"
-              id="delivery-3"
-              v-model="form.delivery"
-            />
-            <label class="form-check-label" for="delivery-3">
-              Транспортная компания
-            </label>
-          </div>
+        <div class="col-md-6">
+          <select
+            class="form-select bg-light"
+            aria-label="Default select example"
+            required
+            v-model="form.delivery"
+          >
+            <option value="0">Самовывоз</option>
+            <option value="12000">Адрес Москва, МО</option>
+            <option value="0">Транспортная компания</option>
+          </select>
         </div>
       </div>
     </div>
 
     <!-- вопрос 9  -->
-    <div class="border-bottom p-4 p-lg-5 position-relative">
-      <!-- фон с номером  -->
-      <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
-        style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.delivery === null"
-      >
-        <div
-          class="d-flex align-items-center justify-content-center question-number"
-        >
-          <span class="text-white fs-3 fw-medium">9</span>
-        </div>
-      </div>
-      <!-- фон с номером  -->
+    <div class="mt-6" v-if="currentIndex === 9">
       <div class="row align-items-center row-gap-3">
         <div class="col-md-6">
-          <h2 class="fs-4">Сроки</h2>
+          <h2 class="fs-4 fs-xl-2">Сроки</h2>
           <small class="text-secondary mt-2 d-block"
             >Далеко-далеко за словесными горами в стране гласных и согласных,
             живут рыбные тексты. Алфавит буквоград грамматики выйти.</small
           >
         </div>
-        <div
-          class="col-md-6 d-flex flex-column flex-xl-row align-items-lg-center justify-content-between gap-3 gap-lg-0"
-        >
+        <div class="col-md-6 d-flex flex-column flex-xl-row align-items-lg-center justify-content-between gap-3 gap-lg-0">
           <div class="form-check form-check-inline">
             <input
               class="form-check-input"
@@ -651,25 +481,13 @@ watch(square, (newVal) => {
       </div>
     </div>
 
-    <div class="border-bottom p-5 position-relative">
-      <!-- фон с номером  -->
-      <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
-        style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.terms === null"
-      >
-        <div
-          class="d-flex align-items-center justify-content-center question-number"
-        >
-          <span class="text-white fs-3 fw-medium">10</span>
-        </div>
-      </div>
-      <!-- фон с номером  -->
+<!-- результат  -->
+    <div class="mt-6 w-100" v-if="currentIndex === 10">
       <div class="row row-gap-3">
         <div class="col-md-6">
-          <h2 class="fs-3">
+          <h2 class="fs-4 fs-xl-2">
             Стоимость заказа
-            <br class="d-xl-none" />
+            <br class="d-xl-none">
             <span class="bg-primary text-white rounded-1 px-1"
               >25 000 руб.</span
             >
@@ -678,7 +496,6 @@ watch(square, (newVal) => {
             Далеко-далеко за словесными горами в стране гласных и согласных
             живут рыбные тексты. Щеке, несколько его. Вершину, вопроса!
           </p>
-         
         </div>
         <div class="col-md-6">
           <!-- <h4 class="mb-3">Задайте дополнительные вопросы менеджеру</h4> -->
@@ -712,34 +529,26 @@ watch(square, (newVal) => {
               </label>
             </div>
           </div>
-          <ui-button class="btn-outline-secondary">Сбросить расчёт</ui-button>
-          <ui-button class="btn-primary px-4 ms-3"> Заказать </ui-button>
-           
+          <ui-button class="btn-primary px-4"> Отправить </ui-button>
         </div>
       </div>
     </div>
+
+    <div class="d-flex align-items-center justify-content-center gap-4 mt-5 mt-xl-auto">
+      <ui-button class="btn btn-outline-secondary px-4 py-2" v-if="currentIndex > 1 && currentIndex !== 10" @click="currentIndex -= 1">Назад</ui-button>
+      <ui-button class="btn btn-outline-secondary px-4 py-2" v-if="currentIndex === 10" @click="restartCalc()">Новый расчёт</ui-button>
+    </div>
   </div>
+  <!-- конец опросника  -->
+
+  <!-- <modals-calculate v-if="modalCalc" /> -->
+
 </template>
 
 
 <style scoped>
 .culcBody {
   height: auto;
-}
-
-.inputs-block {
-  height: 150px;
-}
-
-.question-card {
-  height: 250px;
-}
-
-.question-number {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 4px solid var(--accent-color);
 }
 
 @media (min-width: 1200px) {

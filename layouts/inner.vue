@@ -7,7 +7,7 @@
         <slot/>
       </div>
     </section>
-     <cta-section /> 
+     <cta-section v-if="$route.path !== '/calculation'" /> 
     <the-footer></the-footer>
   </div>
 
