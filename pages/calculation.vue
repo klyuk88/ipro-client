@@ -41,6 +41,7 @@ watch(square, (newVal) => {
     <a href="tel:+74951234567">+7 (495) 123 45 67</a>
   </p>
 
+
   <div class="border border-bottom-0 mt-5">
     <div class="border-bottom p-4 p-lg-5">
       <div class="row align-items-center row-gap-3">
@@ -678,7 +679,6 @@ watch(square, (newVal) => {
             Далеко-далеко за словесными горами в стране гласных и согласных
             живут рыбные тексты. Щеке, несколько его. Вершину, вопроса!
           </p>
-         
         </div>
         <div class="col-md-6">
           <!-- <h4 class="mb-3">Задайте дополнительные вопросы менеджеру</h4> -->
@@ -712,9 +712,11 @@ watch(square, (newVal) => {
               </label>
             </div>
           </div>
-          <ui-button class="btn-outline-secondary">Сбросить расчёт</ui-button>
-          <ui-button class="btn-primary px-4 ms-3"> Заказать </ui-button>
-           
+          <div class="d-flex align-items-center gap-3">
+            <ui-button class="btn-outline-secondary">Сначала</ui-button>
+          <ui-button class="btn-primary px-4"> Заказать </ui-button>
+          </div>
+          
         </div>
       </div>
     </div>
