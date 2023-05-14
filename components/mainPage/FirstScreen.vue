@@ -1,5 +1,11 @@
 <script setup>
-import bannerBg from "../../assets/img/main-slider-2.jpg";
+import bannerBg from "@/assets/img/main-slider-2.jpg";
+import {useMainPageStore} from '@/stores/mainPage.js'
+
+const mainPageStore = useMainPageStore()
+const config = useRuntimeConfig()
+
+
 </script>
 <template>
   <section class="position-relative">
@@ -23,14 +29,20 @@ import bannerBg from "../../assets/img/main-slider-2.jpg";
         ></div>
         <div
           class="main-screen-banner d-flex flex-column align-items-center justify-content-center bg-set"
-          :style="{backgroundImage: `url(${bannerBg})`}"
+          :style="{backgroundImage: `url(${mainPageStore.mainPageData !== null && mainPageStore.mainPageData.data.attributes.banner.data !== null ? config.public.apiURL + mainPageStore.mainPageData.data.attributes.banner.data.attributes.url : bannerBg})`}"
         >
           <div class="container">
             <div
               class="main-slider-content text-center z-3 position-relative text-white"
             >
               <h1 class="fw-bold text-uppercase main-title">
-                Срочное изготовление<br />изделий из <span class="bg-primary px-2">металла</span>
+                <template v-if="mainPageStore.mainPageData !== null && mainPageStore.mainPageData.data.attributes.title !== null">
+                  {{mainPageStore.mainPageData.data.attributes.title}}
+                </template>
+                <template v-else>
+                  Срочное изготовление<br />изделий из <span class="bg-primary px-2">металла</span>
+                </template>
+                
               </h1>
               <div class="mt-4">
                 <h2 class="fs-3 d-none d-lg-block">Собственное производство | Доставка | Изготовление за 24 часа</h2>

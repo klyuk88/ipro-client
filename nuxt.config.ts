@@ -9,13 +9,20 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    'nuxt-swiper'
+    'nuxt-swiper',
+    '@pinia/nuxt'
   ],
   css: [
     '@/assets/libs/fontawesome/css/all.min.css',
     '@/assets/libs/bootstrap/css/bootstrap.min.css',
     '@/assets/css/main.css'
   ],
+  runtimeConfig: {
+    // Config within public will be also exposed to the client
+    public: {
+      apiURL: '' //overridden by NUXT_PUBLIC_API_URL environment variable
+    }
+  },
 
 
 })
