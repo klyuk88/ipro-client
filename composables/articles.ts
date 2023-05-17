@@ -2,8 +2,8 @@ export function useArticles () {
 
   const config = useRuntimeConfig()
 
-  async function getArticles() {
-    const {data, error} = await useFetch('/api/articles?populate=*', {
+  async function getArticles(count: number = 25) {
+    const {data, error} = await useFetch(`/api/articles?populate=*&pagination[page]=1&pagination[pageSize]=${count}`, {
       baseURL: config.public.apiURL
     })
 
@@ -11,7 +11,7 @@ export function useArticles () {
   }
 
   async function getSingleArticle(slug: string) {
-    const {data, error} = await useFetch(() => `/api/articles?filters[slug][$eq]=${slug}&populate=*`, {
+    const {data, error} = await useFetch(() => `/api/articles?filters[slug][$eq]=${slug}&populate=*&`, {
       baseURL: config.public.apiURL
     })
 

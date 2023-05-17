@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const articles = useArticles()
+const {error, data: articlesList} = await articles.getArticles(4)
+
+</script>
+
 <template>
   <section class="news py-5 py-lg-6">
     <div class="container">
@@ -7,9 +13,9 @@
       <div class="row gy-4 mt-5">
 
         <div class="col-md-6 col-lg-3"
-        v-for="(item, index) in 4" :key="index"
+        v-for="(item, index) in articlesList?.data" :key="index"
         >
-        <news-item class="shadow"/>
+        <news-item class="shadow" :newsItem="item"/>
 
         </div>
       </div>

@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const props = defineProps(['newsItem'])
+if(!props.newsItem) {
+  console.error("No prop passed to news item");
+  
+}
 </script>
 <template>
   <div class="rounded-2 overflow-hidden">
