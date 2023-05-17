@@ -1,10 +1,19 @@
+<script setup lang="ts">
+const partners = usePartners()
+
+const {error, data: partnersList} = await partners.getPartners()
+
+
+</script>
 <template>
-  <section class="py-5 py-lg-6 position-relative">
+  <section class="py-5 py-lg-6 position-relative"
+  v-if="partnersList?.data.length > 0"
+  >
     <div class="container">
       <div class="d-flex align-items-center justify-content-between">
         <h2>Наши партенры</h2>
         <nuxt-link
-          to="#"
+          to="/partners"
           class="text-decoration-none fs-6 text-secondary hover-accent-color"
         >
           Все партнеры
@@ -41,11 +50,11 @@
         }"
       >
         <swiper-slide
-        v-for="(item, index) in 8" :key="index"
+        v-for="(item, index) in partnersList?.data" :key="index"
         >
         <div class="d-flex align-items-center gap-3 p-4 border border-1 partner-item">
-          <img src="@/assets/img/partners_logo.png" class="partner-logo"/>
-          <h3 class="fs-6">Сбер</h3>
+          <img :src="$config.public.apiURL + item?.attributes.logo.data?.attributes.url" class="partner-logo"/>
+          <h3 class="fs-6">{{item?.attributes.title}}</h3>
         </div>
           
         </swiper-slide>
