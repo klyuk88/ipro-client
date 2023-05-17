@@ -1,9 +1,23 @@
+<script setup lang="ts">
+const reviews = useReviews()
+
+const {data: reviewsList, error} = await reviews.getReviews()
+
+
+</script>
+
 <template>
-  <section class="py-5 py-lg-6 reviews position-relative bg-light">
+  <section class="py-5 py-lg-6 reviews position-relative bg-light"
+  v-if="reviewsList?.data.length > 0"
+  >
     <div class="container">
+      <!-- <pre>
+        {{reviewsList.data}}
+        {{error}}
+      </pre> -->
       <div class="d-flex align-items-center justify-content-between">
         <h2>Отзывы о нашей работе</h2>
-        <nuxt-link to="#" class="text-decoration-none fs-6 text-secondary hover-accent-color">
+        <nuxt-link to="/reviews" class="text-decoration-none fs-6 text-secondary hover-accent-color">
           Смотреть все отзывы
         </nuxt-link>
       </div>
@@ -20,9 +34,9 @@
         pagination
       >
         <swiper-slide class="pb-5"
-        v-for="(item, index) in 3" :key="index"
+        v-for="(item, index) in reviewsList?.data" :key="index"
         >
-        <reviews-item/>
+        <reviews-item :reviewItem="item"/>
          
         </swiper-slide>
     

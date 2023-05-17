@@ -8,11 +8,9 @@ export const useMainPageStore = defineStore('mainPageStore', () => {
 
   async function getMainPageData() {
     const config = useRuntimeConfig()
-    const query = qs.stringify({
-      
-    })
     const {data, error} = await useFetch(config.public.apiURL + '/api/main-page?populate=*')
     if (error.value) {return}
+    
     mainPageData.value = data.value
     
       

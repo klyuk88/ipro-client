@@ -1,12 +1,23 @@
 <script setup>
+// import { useServicesStore } from "@/stores/services.js";
+
+const services = useServices();
+const route = useRoute()
+const {error, data: singleService} = await services.getSingleService(route.params.slug);
+
 </script>
 <template>
   <div class="border-top">
     <div class="container pt-5"><bread-crumbs /></div>
-
+    <pre>
+      {{singleService?.data[0].attributes.content}}
+      {{error}}
+    </pre>
+    
     <div class="single-service-header position-relative">
       <img
-        src="@/assets/img/main-slider-2.jpg"
+        v-if="singleService?.data[0].attributes.cover.data?.attributes.url"
+        :src="$config.public.apiURL + singleService?.data[0].attributes.cover.data?.attributes.url"
         alt=""
         class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-1"
       />
@@ -14,18 +25,20 @@
         class="position-absolute w-100 h-100 top-0 start-0 bg-dark opacity-75 z-2"
       ></div>
       <div class="container text-white position-absolute start-50 z-3 top-50 translate-middle ">
-        <h1 class="text-uppercase fw-bold">Лазерная резка</h1>
-        <p class="mt-3 w-lg-50">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Власти большого реторический ему коварный проектах скатился страну собрал от всех снова если языком парадигматическая, семь маленькая букв свой алфавит агентство.</p>
+        <h1 class="text-uppercase fw-bold">{{singleService?.data[0].attributes.title}}</h1>
+        <p class="mt-3 w-lg-50">{{singleService?.data[0].attributes.shortDescription}}</p>
         <ui-button class="btn-primary px-5 py-3 mt-5 text-uppercase fw-medium">Оставить заявку</ui-button>
       </div>
 
     </div>
 
 
-      <div class="py-5 py-lg-6">
+      <div class="py-5 py-lg-6"
+      v-if="singleService?.data[0].attributes.content"
+      >
           <div class="container">
             <h2>Описание</h2>
-            <p class="mt-4">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Диких живет ему, толку снова точках правилами, повстречался пояс языком собрал своих путь о что лучше сбить жаренные семантика подпоясал силуэт, дорогу за обеспечивает маленький пунктуация! Оксмокс что по всей ручеек раз снова обеспечивает решила переписывается города на берегу, заманивший ты, рот большой страна. Наш текстов грустный lorem агентство страна путь это правилами. Возвращайся грустный это текст переписывается даже последний взобравшись вскоре снова? Домах собрал вопроса однажды выйти, о, рыбного они сбить грустный имеет то вершину безорфографичный до строчка путь образ, большого маленький за точках рукопись своего по всей великий гор необходимыми текстов. Обеспечивает правилами всеми журчит текстов выйти речью живет алфавит но лучше заглавных одна свой своих запятой которое скатился, власти оксмокс последний пустился? Ручеек продолжил которой оксмокс свой над. Меня встретил там вдали использовало домах? Меня, рот? Строчка подпоясал они бросил мир путь использовало языком вскоре ведущими, страну переулка последний запятой!</p>
+            <div class="mt-4" v-html="singleService?.data[0].attributes.content"></div>
           </div>
       </div>
 
