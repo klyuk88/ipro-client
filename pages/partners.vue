@@ -2,9 +2,16 @@
 definePageMeta({
   layout: "inner",
 });
+
+const partners = usePartners()
+const {error, data: partnersList} = await partners.getPartners()
+
+
 </script>
 <template>
-  <div>
+  <div
+  v-if="partnersList?.data.length > 0"
+  >
     <h2 class="">Партнёры</h2>
     <div class="row mt-5">
       <div class="col-lg-9">
@@ -22,21 +29,19 @@ definePageMeta({
         <ul class="mt-5 list-unstyled border border-bottom-0">
           <li
             class="border-bottom p-4 d-flex flex-column flex-lg-row align-items-center gap-4"
-            v-for="(item, index) in 4"
+            v-for="(item, index) in partnersList?.data"
             :key="index"
           >
             <img
-              src="@/assets/img/partners_logo.png"
+              :src="$config.public.apiURL + item?.attributes.logo.data?.attributes.url"
               alt=""
               style="width: 120px"
+              v-if="item?.attributes.logo.data"
             />
             <div class="">
-              <h4 class="fs-4">Сбер</h4>
+              <h4 class="fs-4">{{item?.attributes.title}}</h4>
               <p class="mt-2">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Pariatur fuga, labore id nam iste fugit placeat dolore
-                voluptatibus ratione dolor asperiores, dolores dignissimos quae
-                inventore, minus ipsum molestias nobis dolorum!
+                {{item?.attributes.description}}
               </p>
             </div>
           </li>

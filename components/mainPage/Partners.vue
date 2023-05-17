@@ -53,7 +53,7 @@ const {error, data: partnersList} = await partners.getPartners()
         v-for="(item, index) in partnersList?.data" :key="index"
         >
         <div class="d-flex align-items-center gap-3 p-4 border border-1 partner-item">
-          <img :src="$config.public.apiURL + item?.attributes.logo.data?.attributes.url" class="partner-logo"/>
+          <img :src="$config.public.apiURL + item?.attributes.logo.data?.attributes.url" class="partner-logo" v-if="item?.attributes.logo.data" />
           <h3 class="fs-6">{{item?.attributes.title}}</h3>
         </div>
           
