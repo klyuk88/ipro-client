@@ -4,9 +4,6 @@ const props = defineProps(['reviewItem'])
 </script>
 <template>
   <div class="review-slider-item">
-    <pre>
-      {{props.reviewItem}}
-    </pre>
            <div class="review-item-header">
             <div class="logo-block d-flex align-items-center gap-3">
               <img :src="$config.public.apiURL + reviewItem?.attributes.logo.data?.attributes.url" class="review-slider-item-logoicon" style="width: 50px"
