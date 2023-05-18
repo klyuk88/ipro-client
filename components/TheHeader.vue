@@ -3,6 +3,9 @@ const showSearch = ref(false)
 const mobileMenu = useMobileMenu()
 const callOrderModal = useCallOrderModal()
 
+const contacts = useContacts()
+const {error, data: contactsPage} = await contacts.getContactsPage()
+
 </script>
 <template>
 <modals-call-order v-if="callOrderModal"/>
@@ -12,33 +15,29 @@ const callOrderModal = useCallOrderModal()
       <div
         class="header-content d-flex align-items-center justify-content-between pt-3 d-none d-xl-flex"
       >
-        <div class="d-flex align-items-center gap-2">
+        <div class="d-flex align-items-center gap-2"
+        v-if="contactsPage?.data.attributes.email"
+        >
           <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:" class="text-decoration-none text-secondary"
-            >i-pro@ipro.com</a
+          <a :href="`mailto:${contactsPage?.data.attributes.email}`" class="text-decoration-none text-secondary"
+            >{{contactsPage?.data.attributes.email}}</a
           >
         </div>
 
-        <div class="header-socails">
-          <p class="text-secondary"><i class="fa-solid fa-location-dot text-secondary me-2"></i>  Москва, ул. Дмитрия Ульянова, д. 44, стр.1</p>
-          <!-- <a href="http://" target="_blank" rel="noopener noreferrer">
-            <img src="@/assets/img/vk-logo-of-social-network.png" alt="" />
-          </a>
-          <a href="http://" target="_blank" rel="noopener noreferrer">
-            <img src="@/assets/img/telegram.png" alt="" />
-          </a>
-          <a href="http://" target="_blank" rel="noopener noreferrer">
-            <img src="@/assets/img/whatsapp.png" alt="" />
-          </a> -->
+        <div class="header-socails"
+        v-if="contactsPage?.data.attributes.adress"
+        >
+          <p class="text-secondary"><i class="fa-solid fa-location-dot text-secondary me-2"></i> {{contactsPage?.data.attributes.adress}}</p>
         </div>
 
         <div class="d-flex align-items-center gap-5">
           <a
-            href="http://"
+            :href="`tel:${contactsPage?.data.attributes.phone}`"
             class="d-flex align-items-center gap-2 text-decoration-none"
+            v-if="contactsPage?.data.attributes.phone"
           >
             <i class="fa-solid fa-phone text-dark"></i>
-            <span class="text-dark">8 800 123 45 67</span>
+            <span class="text-dark">{{contactsPage?.data.attributes.phone}}</span>
           </a>
           <!-- header search -->
           <div class="header-search d-flex align-items-center gap-2 cursor-pointer"
@@ -58,12 +57,13 @@ const callOrderModal = useCallOrderModal()
         class="header-menu-block d-flex align-items-center justify-content-between"
       >
         <div class="header-logo d-flex align-items-center gap-2">
-          <nuxt-link to="/" class="text-decoration-none text-dark logo">
-            <img src="@/assets/img/logo.jpg" />
+          <nuxt-link to="/" class="text-decoration-none text-dark logo"
+          v-if="contactsPage?.data.attributes.logo.data"
+          >
+            <img :src="$config.public.apiURL + contactsPage?.data.attributes.logo.data?.attributes.url" />
           </nuxt-link>
           <div class="logo-line"></div>
-          <span class="description lh-sm">
-            Компания <br />по металлообработке
+          <span class="description lh-sm" v-if="contactsPage?.data.attributes.logoDescription" v-html="contactsPage?.data.attributes.logoDescription">
           </span>
         </div>
 

@@ -1,9 +1,13 @@
 <script setup>
 const callOrderShow = useCallOrderModal()
+const contacts = useContacts()
+const {error, data: contactsPage} = await contacts.getContactsPage()
+
+
 </script>
 <template>
   <footer class="py-5 bg-dark">
-    <div class="container">
+    <div class="container">     
       <div class="row gy-4">
         <div class="col-6 col-lg-3">
           <ul class="list-unstyled">
@@ -82,26 +86,24 @@ const callOrderShow = useCallOrderModal()
         <div class="col-6 col-lg-3">
           <div class="mb-3">
             <i class="fa-regular fa-envelope text-white me-2"></i>
-            <a href="mailto:" class="text-white text-decoration-none">ipro@ipro.com</a>
+            <a :href="`mailto:${contactsPage?.data.attributes.email}`" class="text-white text-decoration-none" v-if="contactsPage?.data.attributes.email">{{contactsPage?.data.attributes.email}}</a>
           </div>
           <div class="mb-3">
             <i class="fa-solid fa-phone text-white me-2"></i>
-            <a href="tel:" class="text-white text-decoration-none">+7 495 123 45 67</a>
+            <a href="tel:" class="text-white text-decoration-none" v-if="contactsPage?.data.attributes.phone">{{contactsPage?.data.attributes.phone}}</a>
           </div>
           <div class="mb-3">
             <i class="fa-solid fa-location-dot text-white me-2"></i>
-            <span class="text-white">Москва, ул. Дмитрия Ульянова, д. 44, стр.1 </span>
+            <span class="text-white" v-if="contactsPage?.data.attributes.adress">{{contactsPage?.data.attributes.adress}}</span>
           </div>
 
-          <div class="mb-3 d-flex align-items-center gap-2">
-            <nuxt-link to="#">
-              <img src="@/assets/img/social_1.png" style="width: 30px"/>
-            </nuxt-link>
-            <nuxt-link to="#">
-              <img src="@/assets/img/social_2.png" style="width: 30px"/>
-            </nuxt-link>
-            <nuxt-link to="#">
-              <img src="@/assets/img/social_3.png" style="width: 30px"/>
+          <div class="mb-3 d-flex align-items-center gap-2"
+          v-if="contactsPage?.data.attributes.socials"
+          >
+            <nuxt-link :to="item.link"
+            v-for="(item, index) in contactsPage?.data.attributes.socials" :key="item.id"
+            >
+              <img :src="$config.public.apiURL + item.icon.data.attributes.url" style="width: 30px"/>
             </nuxt-link>
           </div>
   
@@ -113,9 +115,9 @@ const callOrderShow = useCallOrderModal()
       </div>
       
       <div class="d-flex align-items-end justify-content-between">
-        <img src="@/assets/img/logo-white.png" class="footer-logo mt-5"/>
+        <img :src="$config.public.apiURL + contactsPage?.data.attributes.lightLogo.data.attributes.url" class="footer-logo mt-5" v-if="contactsPage?.data.attributes.lightLogo.data"/>
         <p class="text-secondary fs-7 mt-3">
-          © 2023. Все права защищены.
+          
         </p>
 
         

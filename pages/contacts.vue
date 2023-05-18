@@ -1,13 +1,18 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 const writeDirectorShow = useWriteDirectorModal();
 const layer = ref(true)
+
+const contacts = useContacts()
+const {error, data: contactsPage} = await contacts.getContactsPage()
+
+
 </script>
 <template>
   <section class="border-top">
     <div class="container pt-5">
       <bread-crumbs />
-      <h2>Контакты</h2>
+      <h2>{{contactsPage.data.attributes.title ?? 'Контакты'}}</h2>
     </div>
   </section>
 
@@ -30,16 +35,16 @@ const layer = ref(true)
       class="container bg-light shadow-lg px-4 px-lg-5 py-3 contacts-info"
     >
       <div class="row align-items-center row-gap-4">
-        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3">
+        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3" v-if="contactsPage?.data.attributes.adress">
           <i
             class="fa-sharp fa-solid fa-location-dot text-secondary opacity-50 fs-1"
           ></i>
-          <div>
+          <div >
             <h5 class="fs-7 text-secondary fw-medium">Адрес</h5>
-            <p class="mt-2 w-75">Москва, ул. Дмитрия Ульянова, д. 44, стр.1</p>
+            <p class="mt-2 w-75">{{contactsPage?.data.attributes.adress}}</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3">
+        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3" v-if="contactsPage?.data.attributes.phone">
           <i
             class="fa-sharp fa-solid fa-phone text-secondary opacity-50 fs-1"
           ></i>
@@ -48,12 +53,12 @@ const layer = ref(true)
             <a
               href="tel:+"
               class="text-decoration-none fs-6 mt-2 d-inline-block text-dark"
-              >+7 495 123 45 67</a
+              >{{contactsPage?.data.attributes.phone}}</a
             >
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3">
+        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3" v-if="contactsPage?.data.attributes.email">
           <i
             class="fa-sharp fa-regular fa-envelope text-secondary opacity-50 fs-1"
           ></i>
@@ -62,20 +67,19 @@ const layer = ref(true)
             <a
               href="mailto:"
               class="text-decoration-none fs-6 mt-2 d-inline-block text-dark"
-              >ipro@ipro.com</a
+              >{{contactsPage?.data.attributes.email}}"</a
             >
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3">
+        <div class="col-md-6 col-lg-3 d-flex align-items-center gap-3"  v-if="contactsPage?.data.attributes.workingHours">
           <i
             class="fa-sharp fa-regular fa-clock text-secondary opacity-50 fs-1"
           ></i>
           <div>
             <h5 class="fs-7 text-secondary fw-medium">Время работы</h5>
-            <p>
-              Пн-Пт: 9:30-18:30 <br />
-              Cб-Вс: Выходной
+            <p class="">
+              {{contactsPage?.data.attributes.workingHours}}
             </p>
           </div>
         </div>

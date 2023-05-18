@@ -15,7 +15,7 @@ export function useArticles () {
       baseURL: config.public.apiURL
     })
 
-    return {error, data}
+    return {error, data }
   }
 
   return {getArticles, getSingleArticle}
