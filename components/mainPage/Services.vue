@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const services = useServices()
+const {error, data: servicesList} = await services.getServicesList(6)
+
+</script>
+
 <template>
   <section class="service py-5 py-lg-6 bg-light">
     <div class="container">
@@ -9,12 +15,12 @@
         если проектах.
       </p>
       <div class="row mt-5 row-gap-4">
-        <div class="col-md-6 col-lg-4" v-for="(item, index) in 6" :key="index">
-          <services-item />
+        <div class="col-md-6 col-lg-4" v-for="(item, index) in servicesList?.data" :key="index">
+          <services-item :serviceItem="item"/>
         </div>
       </div>
       
-      <nuxt-link to="#" class="text-decoration-none">
+      <nuxt-link to="/services" class="text-decoration-none">
         <button class="btn btn-outline-primary rounded-5 mx-auto d-block mt-5">
           Смотреть все услуги
         </button>

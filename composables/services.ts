@@ -1,12 +1,11 @@
 import qs from 'qs'
 
-
 export function useServices() {
 
   const config = useRuntimeConfig()
 
-  async function getServicesList() {
-    const { error, data } = await useFetch('/api/services?populate=*', {
+  async function getServicesList(count: number = 25) {
+    const { error, data } = await useFetch(`/api/services?pagination[page]=1&pagination[pageSize]=${count}&populate=*`, {
       baseURL: config.public.apiURL,
     })
     return { error, data }

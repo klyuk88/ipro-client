@@ -1,6 +1,10 @@
 <script setup>
 const props = defineProps(['serviceItem'])
 
+if(!props.serviceItem) {
+  console.error("Service item props is emplty");
+}
+
 </script>
 <template>
   
@@ -13,7 +17,7 @@ const props = defineProps(['serviceItem'])
       ></div>
 
       <img
-        v-if="props.serviceItem?.attributes.thumbnail.data !== null"
+        v-if="props.serviceItem?.attributes.thumbnail.data"
         :src="$config.public.apiURL + props.serviceItem?.attributes.thumbnail.data.attributes?.url"
         class="object-fit-cover service-item-image position-absolute w-100 h-100 top-0 start-0"
       />

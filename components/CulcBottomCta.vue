@@ -1,6 +1,6 @@
 <template>
   <div
-    class="position-fixed w-100 bottom-0 start-0 p-2 d-flex align-items-center justify-content-center justify-content-lg-start p-lg-4 z-3 culc-bottom-btn"
+    class="position-fixed bottom-0 start-0 p-2 d-flex align-items-center justify-content-center justify-content-lg-start p-lg-4 z-3 culc-bottom-btn"
   >
     <nuxt-link to="/calculation" class="text-decoration-none">
       <ui-button
