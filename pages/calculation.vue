@@ -1,25 +1,164 @@
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from "vue";
 definePageMeta({
   layout: "inner",
 });
 
+//TYPES
+interface TCalcFormMetal {
+  title: string,
+  k: number,
+  price: Map<number, number>
+}
+
+interface CalcForm {
+  metal: TCalcFormMetal;
+  thickness: number;
+  engravingCount: number;
+  cutLength: number;
+  paint: {
+    val: string;
+    price: number;
+  };
+  customPaint: {
+    val: string;
+    price: number;
+  };
+  square: number;
+  delivery: {
+    val: string;
+    price: number;
+  };
+  terms: {
+    value: string;
+    k: number;
+  };
+  customTerms: {
+    value: string;
+    k: number;
+  };
+}
+
+
 const file = ref(null);
 const currentIndex = ref(1);
 const culcSum = ref(null);
 
-const width = ref(null);
-const length = ref(null);
+const calculateData = {
+  //материалы
+  materials: [
+    {
+      title: "steel",
+      k: 1,
+      price: new Map([
+        [0.5, 1000],
+        [1, 1200],
+        [1.5, 1300],
+        [2, 1400],
+        [3, 1500],
+        [4, 1600],
+        [5, 1700],
+        [6, 1800],
+      ]),
+    },
+    {
+      title: "galvanized",
+      k: 1.5,
+      price: new Map([
+        [0.5, 2000],
+        [1, 2200],
+        [1.5, 2300],
+        [2, 2400],
+        [3, 2500],
+        [4, 2600],
+        [5, 2700],
+        [6, 2800],
+      ]),
+    },
+    {
+      title: "stainless",
+      k: 2,
+      price: new Map([
+        [0.5, 3000],
+        [1, 3200],
+        [1.5, 3300],
+        [2, 3400],
+        [3, 3500],
+        [4, 3600],
+        [5, 3700],
+        [6, 3800],
+      ]),
+    },
+  ],
+  //стоимость каждого вреза
+  singleCutPrice: 10,
+  cutPrice: new Map([
+    [0.5, 50],
+    [1, 60],
+    [1.5, 70],
+    [2, 80],
+    [3, 90],
+    [4, 100],
+    [5, 110],
+    [6, 150],
+  ]),
+  paintPrice: new Map([
+    ["no", 1],
+    ["ral", 250],
+  ]),
+  delivery: new Map([
+    ["pickup", 0],
+    ["adress", 12000],
+    ["company", 0],
+  ]),
+  terms: new Map([
+    ["today", 3.5],
+    ["tomorrow", 2],
+  ]),
+};
+const width = ref(0);
+const length = ref(0);
 
-const form = reactive({
-  metall: null,
-  thickness: null,
-  cutLength: null,
-  cutCount: null,
-  square: null,
-  paint: null,
-  delivery: null,
-  terms: null,
+//форма
+const form = reactive<CalcForm>({
+  //металл
+  metal: {
+    title: '',
+    k: 1,
+    price: new Map([[0.5, 0]])
+  },
+  //толщина металла
+  thickness: 0.5,
+  //кол-во врезов
+  engravingCount: 0,
+  //длина реза
+  cutLength: 1,
+  //обработка
+  paint: {
+    val: '',
+    price: 1
+  },
+  //кастомный рал
+  customPaint: {
+    val: '',
+    price: 250,
+  },
+  //площадь
+  square: 0,
+  //доставка
+  delivery: {
+    val: '',
+    price: 0
+  },
+  //сроки
+  terms: {
+    value: '',
+    k: 1
+  },
+  customTerms: {
+    value: '',
+    k: 1,
+  },
 });
 
 const square = computed(() => {
@@ -31,17 +170,31 @@ watch(square, (newVal) => {
     form.square = square.value;
   }
 });
+
+const formWatch = computed(() => {
+  // Материал цена * Кол-во листов + (Материал коэффициент * Толщина металла цена *  Длина реза м.п. + (Кол-во резов * Цена реза за 1м.п. ) + (Длина изделия * Ширина изделия * Обработка цена ) +  Доставка цена ) * Сроки коэффициент
+  return form.metal.price.get(form.thickness) * 1;
+
+
+  // if (form.terms.value !== '' || form.customTerms.value !== '') {
+  //
+  //
+  // }
+
+});
 </script>
 <template>
   <h1>Расчёт стоимости</h1>
+  <pre class="text-black">
+<!--    {{form.metal}}-->
+    {{ formWatch }}
+  </pre>
   <p class="text-secondary mt-2">
     Калькулятор стоимости работает только для услуги "Лазерная резка", в будущем
     мы добавим в расчёт и других услуг. Для расчета других услуг пожалуйста
     обратитесь к менеджеру по телефону
     <a href="tel:+74951234567">+7 (495) 123 45 67</a>
   </p>
-
-
   <div class="border border-bottom-0 mt-5">
     <div class="border-bottom p-4 p-lg-5">
       <div class="row align-items-center row-gap-3">
@@ -68,8 +221,8 @@ watch(square, (newVal) => {
                 type="radio"
                 name="material"
                 id="steel"
-                value="сталь"
-                v-model="form.metall"
+                :value="calculateData.materials[0]"
+                v-model="form.metal"
               />
               <span class="d-block">Сталь СТ3</span>
             </div>
@@ -89,8 +242,8 @@ watch(square, (newVal) => {
                 type="radio"
                 name="material"
                 id="steel2"
-                value="нержавейка"
-                v-model="form.metall"
+                :value="calculateData.materials[1]"
+                v-model="form.metal"
               />
               <span class="d-block">Нержавейка</span>
             </div>
@@ -110,8 +263,8 @@ watch(square, (newVal) => {
                 type="radio"
                 name="material"
                 id="steel3"
-                value="оцинковка"
-                v-model="form.metall"
+                :value="calculateData.materials[2]"
+                v-model="form.metal"
               />
               <span class="d-block">Оцинковка</span>
             </div>
@@ -125,7 +278,7 @@ watch(square, (newVal) => {
       <div
         class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5 question-bg"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.metall === null"
+        v-if="!form.metal"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -150,7 +303,7 @@ watch(square, (newVal) => {
                 class="form-check-input"
                 type="radio"
                 name="thickness"
-                value="0.5"
+                :value="0.5"
                 id="thickness-05"
                 v-model="form.thickness"
               />
@@ -161,7 +314,7 @@ watch(square, (newVal) => {
                 class="form-check-input"
                 type="radio"
                 name="thickness"
-                value="1"
+                :value="1"
                 id="thickness-1"
                 v-model="form.thickness"
               />
@@ -172,7 +325,7 @@ watch(square, (newVal) => {
                 class="form-check-input"
                 type="radio"
                 name="thickness"
-                value="1.5"
+                :value="1.5"
                 id="thickness-15"
                 v-model="form.thickness"
               />
@@ -183,7 +336,7 @@ watch(square, (newVal) => {
                 class="form-check-input"
                 type="radio"
                 name="thickness"
-                value="2"
+                :value="2"
                 id="thickness-2"
                 v-model="form.thickness"
               />
@@ -194,7 +347,7 @@ watch(square, (newVal) => {
                 class="form-check-input"
                 type="radio"
                 name="thickness"
-                value="3"
+                :value="3"
                 id="thickness-3"
                 v-model="form.thickness"
               />
@@ -205,7 +358,7 @@ watch(square, (newVal) => {
                 class="form-check-input"
                 type="radio"
                 name="thickness"
-                value="4"
+                :value="4"
                 id="thickness-4"
                 v-model="form.thickness"
               />
@@ -216,7 +369,7 @@ watch(square, (newVal) => {
                 class="form-check-input"
                 type="radio"
                 name="thickness"
-                value="5"
+                :value="5"
                 id="thickness-5"
                 v-model="form.thickness"
               />
@@ -227,7 +380,7 @@ watch(square, (newVal) => {
                 class="form-check-input"
                 type="radio"
                 name="thickness"
-                value="6"
+                :value="6"
                 id="thickness-6"
                 v-model="form.thickness"
               />
@@ -254,7 +407,7 @@ watch(square, (newVal) => {
       <div
         class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.thickness === null"
+        v-if="!form.thickness"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -275,10 +428,10 @@ watch(square, (newVal) => {
             <input
               class="form-check-input"
               type="radio"
-              name="cutCount"
+              name="engravingCount"
               id="cutOne"
-              value="1"
-              v-model="form.cutCount"
+              :value="1"
+              v-model="form.engravingCount"
             />
             <label class="form-check-label" for="cutOne"> 1 </label>
           </div>
@@ -286,10 +439,10 @@ watch(square, (newVal) => {
             <input
               class="form-check-input"
               type="radio"
-              name="cutCount"
+              name="engravingCount"
               id="cutTwo"
-              value="2"
-              v-model="form.cutCount"
+              :value="2"
+              v-model="form.engravingCount"
             />
             <label class="form-check-label" for="cutTwo"> 2 </label>
           </div>
@@ -297,10 +450,10 @@ watch(square, (newVal) => {
             <input
               class="form-check-input"
               type="radio"
-              name="cutCount"
+              name="engravingCount"
               id="cutThree"
-              value="3"
-              v-model="form.cutCount"
+              :value="3"
+              v-model="form.engravingCount"
             />
             <label class="form-check-label" for="cutThree"> 3 </label>
           </div>
@@ -308,7 +461,7 @@ watch(square, (newVal) => {
           <input
             type="text"
             class="form-control bg-light rounded-1"
-            v-model.lazy="form.cutCount"
+            v-model.lazy.number="form.engravingCount"
             placeholder="Другое"
           />
         </div>
@@ -321,7 +474,7 @@ watch(square, (newVal) => {
       <div
         class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.cutCount === null"
+        v-if="!form.engravingCount"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -344,7 +497,7 @@ watch(square, (newVal) => {
             class="form-control bg-light rounded-1"
             required
             placeholder="Длина реза (мм)"
-            v-model="form.cutLength"
+            v-model.number="form.cutLength"
           />
         </div>
       </div>
@@ -356,7 +509,7 @@ watch(square, (newVal) => {
       <div
         class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.cutLength === null"
+        v-if="!form.cutLength"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -379,8 +532,9 @@ watch(square, (newVal) => {
               class="form-check-input"
               type="radio"
               name="painting"
-              value="Нет"
+              :value="{ val: 'Нет', price: calculateData.paintPrice.get('no') }"
               id="paint-non"
+              @change="form.customPaint.val = null"
               v-model="form.paint"
             />
             <label class="form-check-label" for="paint-non"> Нет </label>
@@ -390,8 +544,12 @@ watch(square, (newVal) => {
               class="form-check-input"
               type="radio"
               name="painting"
-              value="9003"
+              :value="{
+                val: '9003',
+                price: calculateData.paintPrice.get('ral'),
+              }"
               id="paint-9003"
+              @change="form.customPaint.val = null"
               v-model="form.paint"
             />
             <label class="form-check-label" for="paint-9003"> RAL 9003 </label>
@@ -402,8 +560,12 @@ watch(square, (newVal) => {
               class="form-check-input"
               type="radio"
               name="painting"
-              value="9005"
+              :value="{
+                val: '9005',
+                price: calculateData.paintPrice.get('ral'),
+              }"
               id="paint-9005"
+              @change="form.customPaint.val = null"
               v-model="form.paint"
             />
             <label class="form-check-label" for="paint-9005"> RAL 9005 </label>
@@ -414,8 +576,12 @@ watch(square, (newVal) => {
               class="form-check-input"
               type="radio"
               name="painting"
-              value="7037"
+              :value="{
+                val: '7037',
+                price: calculateData.paintPrice.get('ral'),
+              }"
               id="paint-7037"
+              @change="form.customPaint.val = null"
               v-model="form.paint"
             />
             <label class="form-check-label" for="paint-7037"> RAL 7037 </label>
@@ -426,7 +592,8 @@ watch(square, (newVal) => {
               class="form-control bg-light rounded-1"
               type="text"
               placeholder="Свой цвет"
-              v-model="form.paint"
+              @input="form.paint = null"
+              v-model="form.customPaint.val"
             />
           </div>
         </div>
@@ -439,7 +606,7 @@ watch(square, (newVal) => {
       <div
         class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.paint === null"
+        v-if="!form.paint && !form.customPaint.val"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -484,7 +651,7 @@ watch(square, (newVal) => {
       <div
         class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.square === null"
+        v-if="form.square === 0"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -524,7 +691,7 @@ watch(square, (newVal) => {
       <div
         class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.square === null"
+        v-if="form.square === 0"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -547,7 +714,10 @@ watch(square, (newVal) => {
               class="form-check-input"
               type="radio"
               name="delivery"
-              value="Самовывоз"
+              :value="{
+                val: 'Самовывоз',
+                price: calculateData.delivery.get('pickup'),
+              }"
               id="delivery-1"
               v-model="form.delivery"
             />
@@ -559,7 +729,10 @@ watch(square, (newVal) => {
               class="form-check-input"
               type="radio"
               name="delivery"
-              value="Адрес"
+              :value="{
+                val: 'Адрес',
+                price: calculateData.delivery.get('adress'),
+              }"
               id="delivery-2"
               v-model="form.delivery"
             />
@@ -573,7 +746,10 @@ watch(square, (newVal) => {
               class="form-check-input"
               type="radio"
               name="delivery"
-              value="Транспортная компания"
+              :value="{
+                val: 'Компания',
+                price: calculateData.delivery.get('company'),
+              }"
               id="delivery-3"
               v-model="form.delivery"
             />
@@ -591,7 +767,7 @@ watch(square, (newVal) => {
       <div
         class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.delivery === null"
+        v-if="!form.delivery"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -617,13 +793,11 @@ watch(square, (newVal) => {
               type="radio"
               name="terms"
               id="today"
-              value="today"
+              @change="form.customTerms.value = null"
+              :value="{ val: 'Сегодня', k: calculateData.terms.get('today') }"
               v-model="form.terms"
             />
-            <label class="form-check-label" for="today"
-              >Сегодня <br />
-              01.02.23</label
-            >
+            <label class="form-check-label" for="today">Сегодня </label>
           </div>
           <div class="form-check form-check-inline">
             <input
@@ -631,12 +805,11 @@ watch(square, (newVal) => {
               type="radio"
               name="terms"
               id="tomorrow"
-              value="tomorrow"
+              :value="{ val: 'Завтра', k: calculateData.terms.get('tomorrow') }"
+              @change="form.customTerms.value = null"
               v-model="form.terms"
             />
-            <label class="form-check-label" for="tomorrow"
-              >Завтра<br />02.02.23</label
-            >
+            <label class="form-check-label" for="tomorrow">Завтра</label>
           </div>
           <div class="form-check form-check-inline">
             <span>Выбрать свою дату</span>
@@ -645,7 +818,8 @@ watch(square, (newVal) => {
               name="customDate"
               id=""
               class="form-control bg-light mt-2"
-              v-model="form.terms"
+              @input="form.terms = null"
+              v-model="form.customTerms.value"
             />
           </div>
         </div>
@@ -657,7 +831,7 @@ watch(square, (newVal) => {
       <div
         class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.terms === null"
+        v-if="!form.terms && !form.customTerms.value"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -671,9 +845,7 @@ watch(square, (newVal) => {
           <h2 class="fs-3">
             Стоимость заказа
             <br class="d-xl-none" />
-            <span class="bg-primary text-white rounded-1 px-1"
-              >25 000 руб.</span
-            >
+            <span class="bg-primary text-white rounded-1 px-1">0 руб.</span>
           </h2>
           <p class="text-secondary mt-3">
             Далеко-далеко за словесными горами в стране гласных и согласных
@@ -714,9 +886,8 @@ watch(square, (newVal) => {
           </div>
           <div class="d-flex align-items-center gap-3">
             <ui-button class="btn-outline-secondary">Сначала</ui-button>
-          <ui-button class="btn-primary px-4"> Заказать </ui-button>
+            <ui-button class="btn-primary px-4"> Заказать </ui-button>
           </div>
-          
         </div>
       </div>
     </div>
