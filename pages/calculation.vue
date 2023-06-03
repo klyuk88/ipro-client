@@ -4,41 +4,6 @@ definePageMeta({
   layout: "inner",
 });
 
-//TYPES
-interface TCalcFormMetal {
-  title: string,
-  k: number,
-  price: Map<number, number>
-}
-
-interface CalcForm {
-  metal: TCalcFormMetal;
-  thickness: number;
-  engravingCount: number;
-  cutLength: number;
-  paint: {
-    val: string;
-    price: number;
-  };
-  customPaint: {
-    val: string;
-    price: number;
-  };
-  square: number;
-  delivery: {
-    val: string;
-    price: number;
-  };
-  terms: {
-    value: string;
-    k: number;
-  };
-  customTerms: {
-    value: string;
-    k: number;
-  };
-}
-
 
 const file = ref(null);
 const currentIndex = ref(1);
@@ -130,13 +95,13 @@ const form = reactive<CalcForm>({
   //толщина металла
   thickness: 0.5,
   //кол-во врезов
-  engravingCount: 0,
+  engravingCount: 1,
   //длина реза
   cutLength: 1,
   //обработка
   paint: {
     val: '',
-    price: 1
+    price: null
   },
   //кастомный рал
   customPaint: {
@@ -153,7 +118,7 @@ const form = reactive<CalcForm>({
   //сроки
   terms: {
     value: '',
-    k: 1
+    k: null
   },
   customTerms: {
     value: '',
@@ -171,24 +136,22 @@ watch(square, (newVal) => {
   }
 });
 
+watch (form, (newVal) => {
+
+})
+
 const formWatch = computed(() => {
-  // Материал цена * Кол-во листов + (Материал коэффициент * Толщина металла цена *  Длина реза м.п. + (Кол-во резов * Цена реза за 1м.п. ) + (Длина изделия * Ширина изделия * Обработка цена ) +  Доставка цена ) * Сроки коэффициент
-  return form.metal.price.get(form.thickness) * 1;
-
-
-  // if (form.terms.value !== '' || form.customTerms.value !== '') {
-  //
-  //
-  // }
+  if (form.terms.value !== '' || form.customTerms.value !== '') {
+    console.log(123)
+    return form.metal.price.get(form.thickness)! * 1 + (form.metal.k * calculateData.cutPrice.get(form.thickness)! *
+        form.cutLength + (form.engravingCount * 10) + (form.square * form.paint.price ?? form.customPaint.price) +
+        form.delivery.price) * form.terms.k ?? form.customTerms.k;
+  }
 
 });
 </script>
 <template>
   <h1>Расчёт стоимости</h1>
-  <pre class="text-black">
-<!--    {{form.metal}}-->
-    {{ formWatch }}
-  </pre>
   <p class="text-secondary mt-2">
     Калькулятор стоимости работает только для услуги "Лазерная резка", в будущем
     мы добавим в расчёт и других услуг. Для расчета других услуг пожалуйста
@@ -592,7 +555,7 @@ const formWatch = computed(() => {
               class="form-control bg-light rounded-1"
               type="text"
               placeholder="Свой цвет"
-              @input="form.paint = null"
+              @input="form.paint.val = null"
               v-model="form.customPaint.val"
             />
           </div>
@@ -818,7 +781,7 @@ const formWatch = computed(() => {
               name="customDate"
               id=""
               class="form-control bg-light mt-2"
-              @input="form.terms = null"
+              @input="form.terms.value = null"
               v-model="form.customTerms.value"
             />
           </div>
@@ -845,7 +808,7 @@ const formWatch = computed(() => {
           <h2 class="fs-3">
             Стоимость заказа
             <br class="d-xl-none" />
-            <span class="bg-primary text-white rounded-1 px-1">0 руб.</span>
+            <span class="bg-primary text-white rounded-1 px-1">{{formWatch}} руб.</span>
           </h2>
           <p class="text-secondary mt-3">
             Далеко-далеко за словесными горами в стране гласных и согласных

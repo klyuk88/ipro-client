@@ -1,4 +1,4 @@
-export class UseCalculator {
+export class Calculator {
     
 }
 
