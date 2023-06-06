@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
+import Datepicker from 'vue3-datepicker';
 definePageMeta({
   layout: "inner",
 });
@@ -77,57 +78,46 @@ const calculateData = {
     ["company", 0],
   ]),
   terms: new Map([
+    ["calendar", 1],
     ["today", 3.5],
     ["tomorrow", 2],
   ]),
 };
-const width = ref(0);
-const length = ref(0);
+const width = ref(null);
+const length = ref(null);
 
 //форма
 const form = reactive<CalcForm>({
   //металл
-  metal: {
-    title: '',
-    k: 1,
-    price: new Map([[0.5, 0]])
-  },
+  metal: null,
   //толщина металла
-  thickness: 0.5,
+  thickness: null,
   //кол-во врезов
-  engravingCount: 1,
+  engravingCount: null,
+  //кол-во врезов кастом
+  customEngravingCount: null,
   //длина реза
-  cutLength: 1,
+  cutLength: null,
   //обработка
-  paint: {
-    val: '',
-    price: null
-  },
+  paint: null,
   //кастомный рал
-  customPaint: {
-    val: '',
-    price: 250,
-  },
+  customPaint: null,
   //площадь
-  square: 0,
+  square: null,
   //доставка
-  delivery: {
-    val: '',
-    price: 0
-  },
+  delivery: null,
   //сроки
-  terms: {
-    value: '',
-    k: null
-  },
-  customTerms: {
-    value: '',
-    k: 1,
-  },
+  terms: null,
+  customTerms: null,
 });
 
 const square = computed(() => {
-  return width.value * length.value || 0;
+  if(width.value && length.value) {
+    return width.value * length.value;
+  } else {
+    return 0;
+  }
+
 });
 
 watch(square, (newVal) => {
@@ -136,19 +126,23 @@ watch(square, (newVal) => {
   }
 });
 
-watch (form, (newVal) => {
-
-})
-
 const formWatch = computed(() => {
-  if (form.terms.value !== '' || form.customTerms.value !== '') {
-    console.log(123)
-    return form.metal.price.get(form.thickness)! * 1 + (form.metal.k * calculateData.cutPrice.get(form.thickness)! *
-        form.cutLength + (form.engravingCount * 10) + (form.square * form.paint.price ?? form.customPaint.price) +
-        form.delivery.price) * form.terms.k ?? form.customTerms.k;
+  if (form.terms || form.customTerms) {
+    return form.metal?.price.get(form.thickness ?? 0.5)! * 1 + ((form.metal?.k ?? 1) * calculateData.cutPrice.get(form.thickness ?? 0.5)! * form.cutLength! + (form.engravingCount! * 10) + (form.square! * form.paint?.price!) + form.delivery?.price!) * (form.terms?.k! ?? 1);
   }
 
 });
+
+const setCustomTerms = (event: any) => {
+  form.customTerms = event.target.value
+  form.terms = null
+  // form.terms = null
+  // form.customTerms = {
+  //   value: event?.target?.value,
+  //   k: 250
+  // }
+}
+
 </script>
 <template>
   <h1>Расчёт стоимости</h1>
@@ -350,16 +344,6 @@ const formWatch = computed(() => {
               <label class="form-check-label" for="thickness-6"> 6мм </label>
             </div>
           </div>
-          <!-- <select class="form-select bg-light" v-model="form.thickness">
-            <option>0.5</option>
-            <option>1</option>
-            <option>1.5</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-          </select> -->
         </div>
       </div>
     </div>
@@ -368,7 +352,7 @@ const formWatch = computed(() => {
     <div class="border-bottom p-4 p-lg-5 position-relative">
       <!-- фон с номером  -->
       <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
+        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5 question-bg"
         style="background-color: rgba(0, 0, 0, 0.8)"
         v-if="!form.thickness"
       >
@@ -394,6 +378,7 @@ const formWatch = computed(() => {
               name="engravingCount"
               id="cutOne"
               :value="1"
+              @change="form.customEngravingCount"
               v-model="form.engravingCount"
             />
             <label class="form-check-label" for="cutOne"> 1 </label>
@@ -405,6 +390,7 @@ const formWatch = computed(() => {
               name="engravingCount"
               id="cutTwo"
               :value="2"
+              @change="form.customEngravingCount"
               v-model="form.engravingCount"
             />
             <label class="form-check-label" for="cutTwo"> 2 </label>
@@ -416,6 +402,7 @@ const formWatch = computed(() => {
               name="engravingCount"
               id="cutThree"
               :value="3"
+              @change="form.customEngravingCount"
               v-model="form.engravingCount"
             />
             <label class="form-check-label" for="cutThree"> 3 </label>
@@ -424,7 +411,8 @@ const formWatch = computed(() => {
           <input
             type="text"
             class="form-control bg-light rounded-1"
-            v-model.lazy.number="form.engravingCount"
+            v-model.lazy.number="form.customEngravingCount"
+            @input="form.engravingCount = null"
             placeholder="Другое"
           />
         </div>
@@ -435,9 +423,9 @@ const formWatch = computed(() => {
     <div class="border-bottom p-4 p-lg-5 position-relative">
       <!-- фон с номером  -->
       <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
+        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5 question-bg"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="!form.engravingCount"
+        v-if="!form.engravingCount  && !form.customEngravingCount"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -470,7 +458,7 @@ const formWatch = computed(() => {
     <div class="border-bottom p-4 p-lg-5 position-relative">
       <!-- фон с номером  -->
       <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
+        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5 question-bg"
         style="background-color: rgba(0, 0, 0, 0.8)"
         v-if="!form.cutLength"
       >
@@ -495,9 +483,8 @@ const formWatch = computed(() => {
               class="form-check-input"
               type="radio"
               name="painting"
-              :value="{ val: 'Нет', price: calculateData.paintPrice.get('no') }"
+              :value="{ value: 'Нет', price: calculateData.paintPrice.get('no') }"
               id="paint-non"
-              @change="form.customPaint.val = null"
               v-model="form.paint"
             />
             <label class="form-check-label" for="paint-non"> Нет </label>
@@ -508,11 +495,10 @@ const formWatch = computed(() => {
               type="radio"
               name="painting"
               :value="{
-                val: '9003',
+                value: '9003',
                 price: calculateData.paintPrice.get('ral'),
               }"
               id="paint-9003"
-              @change="form.customPaint.val = null"
               v-model="form.paint"
             />
             <label class="form-check-label" for="paint-9003"> RAL 9003 </label>
@@ -524,11 +510,10 @@ const formWatch = computed(() => {
               type="radio"
               name="painting"
               :value="{
-                val: '9005',
+                value: '9005',
                 price: calculateData.paintPrice.get('ral'),
               }"
               id="paint-9005"
-              @change="form.customPaint.val = null"
               v-model="form.paint"
             />
             <label class="form-check-label" for="paint-9005"> RAL 9005 </label>
@@ -540,25 +525,38 @@ const formWatch = computed(() => {
               type="radio"
               name="painting"
               :value="{
-                val: '7037',
+                value: '7037',
                 price: calculateData.paintPrice.get('ral'),
               }"
               id="paint-7037"
-              @change="form.customPaint.val = null"
               v-model="form.paint"
             />
             <label class="form-check-label" for="paint-7037"> RAL 7037 </label>
           </div>
 
-          <div class="">
+          <div class="form-check">
             <input
-              class="form-control bg-light rounded-1"
-              type="text"
-              placeholder="Свой цвет"
-              @input="form.paint.val = null"
-              v-model="form.customPaint.val"
+                class="form-check-input"
+                type="radio"
+                name="painting"
+                :value="{
+                value: 'Custom',
+                price: calculateData.paintPrice.get('ral'),
+              }"
+                id="custom"
+                v-model="form.paint"
             />
+            <label class="form-check-label" for="paint-7037"> Другой </label>
           </div>
+
+<!--          <div class="">-->
+<!--            <input-->
+<!--              class="form-control bg-light rounded-1"-->
+<!--              type="text"-->
+<!--              placeholder="Свой цвет"-->
+<!--              @input="form.paint = null"-->
+<!--            />-->
+<!--          </div>-->
         </div>
       </div>
     </div>
@@ -567,9 +565,9 @@ const formWatch = computed(() => {
     <div class="border-bottom p-4 p-lg-5 position-relative">
       <!-- фон с номером  -->
       <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
+        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5 question-bg"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="!form.paint && !form.customPaint.val"
+        v-if="!form.paint && !form.customPaint"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -612,9 +610,9 @@ const formWatch = computed(() => {
     <div class="border-bottom p-4 p-lg-5 position-relative">
       <!-- фон с номером  -->
       <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
+        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5 question-bg"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.square === 0"
+        v-if="!form.square"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -652,9 +650,9 @@ const formWatch = computed(() => {
     <div class="border-bottom p-4 p-lg-5 position-relative">
       <!-- фон с номером  -->
       <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
+        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5 question-bg"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="form.square === 0"
+        v-if="!form.square"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -678,7 +676,7 @@ const formWatch = computed(() => {
               type="radio"
               name="delivery"
               :value="{
-                val: 'Самовывоз',
+                value: 'Самовывоз',
                 price: calculateData.delivery.get('pickup'),
               }"
               id="delivery-1"
@@ -693,7 +691,7 @@ const formWatch = computed(() => {
               type="radio"
               name="delivery"
               :value="{
-                val: 'Адрес',
+                value: 'Адрес',
                 price: calculateData.delivery.get('adress'),
               }"
               id="delivery-2"
@@ -728,7 +726,7 @@ const formWatch = computed(() => {
     <div class="border-bottom p-4 p-lg-5 position-relative">
       <!-- фон с номером  -->
       <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
+        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5 question-bg"
         style="background-color: rgba(0, 0, 0, 0.8)"
         v-if="!form.delivery"
       >
@@ -756,7 +754,7 @@ const formWatch = computed(() => {
               type="radio"
               name="terms"
               id="today"
-              @change="form.customTerms.value = null"
+              @change="form.customTerms = null"
               :value="{ val: 'Сегодня', k: calculateData.terms.get('today') }"
               v-model="form.terms"
             />
@@ -769,21 +767,22 @@ const formWatch = computed(() => {
               name="terms"
               id="tomorrow"
               :value="{ val: 'Завтра', k: calculateData.terms.get('tomorrow') }"
-              @change="form.customTerms.value = null"
+              @change="form.customTerms= null"
               v-model="form.terms"
             />
             <label class="form-check-label" for="tomorrow">Завтра</label>
           </div>
           <div class="form-check form-check-inline">
             <span>Выбрать свою дату</span>
-            <input
-              type="date"
-              name="customDate"
-              id=""
-              class="form-control bg-light mt-2"
-              @input="form.terms.value = null"
-              v-model="form.customTerms.value"
-            />
+            <Datepicker v-model="form.customTerms" @input="form.terms = null"/>
+<!--            <input-->
+<!--              type="date"-->
+<!--              name="customDate"-->
+<!--              id=""-->
+<!--              class="form-control bg-light mt-2"-->
+<!--              :value="form.customTerms"-->
+<!--              @input="setCustomTerms($event)"-->
+<!--            />-->
           </div>
         </div>
       </div>
@@ -792,9 +791,9 @@ const formWatch = computed(() => {
     <div class="border-bottom p-5 position-relative">
       <!-- фон с номером  -->
       <div
-        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5"
+        class="position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-start ps-5 question-bg"
         style="background-color: rgba(0, 0, 0, 0.8)"
-        v-if="!form.terms && !form.customTerms.value"
+        v-if="!form.terms && !form.customTerms"
       >
         <div
           class="d-flex align-items-center justify-content-center question-number"
@@ -859,16 +858,9 @@ const formWatch = computed(() => {
 
 
 <style scoped>
-.culcBody {
-  height: auto;
-}
-
-.inputs-block {
-  height: 150px;
-}
-
-.question-card {
-  height: 250px;
+.question-bg {
+  backdrop-filter: blur(7px);
+  z-index: 10;
 }
 
 .question-number {
@@ -878,9 +870,4 @@ const formWatch = computed(() => {
   border: 4px solid var(--accent-color);
 }
 
-@media (min-width: 1200px) {
-  .culcBody {
-    height: 500px;
-  }
-}
 </style>

@@ -7,29 +7,27 @@ interface TCalcFormMetal {
 }
 
 interface CalcForm {
-	metal: TCalcFormMetal;
-	thickness: number;
-	engravingCount: number;
-	cutLength: number;
+	metal: TCalcFormMetal | null;
+	thickness: number | null;
+	engravingCount: number | null;
+	customEngravingCount: number | null;
+	cutLength: number | null;
 	paint: {
-		val: string | null;
-		price: number | null;
-	};
+		value: string;
+		price: number;
+	} | null;
 	customPaint: {
-		val: string | null;
+		value: string;
 		price: number;
-	};
-	square: number;
+	} | null;
+	square: number | null;
 	delivery: {
-		val: string;
+		value: string;
 		price: number;
-	};
+	} | null;
 	terms: {
-		value: string | null;
-		k: number | null;
-	};
-	customTerms: {
-		value: string | null ;
+		value: string;
 		k: number;
-	};
+	} | null;
+	customTerms: Date | null;
 }
